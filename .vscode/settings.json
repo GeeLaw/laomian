@@ -1,0 +1,28 @@
+{
+  "breadcrumbs.enabled": false,
+  "editor.wordWrap": "bounded",
+  "editor.wordWrapColumn": 80,
+  "editor.wrappingIndent": "none",
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
+  "[markdown]": { "editor.wordWrap": "bounded" },
+  "terminal.integrated.shell.osx": "/bin/bash",
+  "terminal.integrated.shellArgs.osx":
+  [
+    "--noprofile",
+    "--norc",
+    "-c",
+    "PWSHFN=$(which pwsh); if [ $? -eq 0 ]; then exec /bin/bash -l -c \"$(printf \"exec %q -NoLogo\" \"$PWSHFN\")\"; else exec bash -l; fi"
+  ],
+  "terminal.integrated.shell.windows": "powershell.exe",
+  "terminal.integrated.shellArgs.windows":
+  [
+    "-NoLogo",
+    "-NoExit"
+  ],
+  "files.eol": "\n",
+  "cSpell.words":
+  [
+    "Laomian"
+  ]
+}
