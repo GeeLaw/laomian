@@ -25,3 +25,7 @@ Icon?
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# "crypto-paper" files that might have licensing issues.
+/crypto-paper/paper/.laomian/llncs.cls
+/crypto-paper/paper/.laomian/splncs04.bst

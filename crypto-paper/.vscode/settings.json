@@ -12,18 +12,21 @@
     "--noprofile",
     "--norc",
     "-c",
-    "PWSHFN=$(which pwsh); if [ $? -eq 0 ]; then exec /bin/bash -l -c \"$(printf \"exec %q -NoLogo\" \"$PWSHFN\")\"; else exec bash -l; fi"
+    "cd ./paper >/dev/null 2>&1; PWSHFN=$(which pwsh); if [ $? -eq 0 ]; then exec /bin/bash -l -c \"$(printf \"exec %q -NoLogo\" \"$PWSHFN\")\"; else exec bash -l; fi"
   ],
   "terminal.integrated.shell.windows": "powershell.exe",
   "terminal.integrated.shellArgs.windows":
   [
     "-NoLogo",
-    "-NoExit"
+    "-NoExit",
+    "-Command",
+    "Set-Location -LiteralPath ./paper -ErrorAction Ignore"
   ],
   "files.eol": "\n",
   "cSpell.words":
   [
     "IACR",
-    "Laomian"
+    "homomorphic",
+    "indistinguishability"
   ]
 }
