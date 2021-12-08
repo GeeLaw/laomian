@@ -134,7 +134,7 @@
 \let\Laomian@AppendixInTOC\relax
 
 % Bibliography.
-\def\doi#1{\url{https://doi.org/#1}}
+\AtBeginDocument{\def\doi#1{\url{https://doi.org/#1}}}
 \ifLaomianNumericBib@
 \def\bibalphanumeric#1#2{#2}
 \long\def\BibAlphaNumeric#1#2{#2}
