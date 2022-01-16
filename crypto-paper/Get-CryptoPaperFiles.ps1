@@ -13,7 +13,7 @@ Process
   $llncs2efolder = [System.IO.Path]::Combine([System.IO.Path]::GetTempPath(), 'llncs2e-' + $llncs2eid);
   $llncs2ecls = [System.IO.Path]::Combine($llncs2efolder, 'llncs.cls');
   $splncs04bst = [System.IO.Path]::Combine($llncs2efolder, 'splncs04.bst');
-  Invoke-WebRequest -Uri 'https://resource-cms.springernature.com/springer-cms/rest/v1/content/19238648/data/v1' -UseBasicParsing -OutFile $llncs2ezip;
+  Invoke-WebRequest -Uri 'https://resource-cms.springernature.com/springer-cms/rest/v1/content/19238648/data/v2' -UseBasicParsing -OutFile $llncs2ezip;
   Expand-Archive -LiteralPath $llncs2ezip -DestinationPath $llncs2efolder;
   Remove-Item -LiteralPath $llncs2ezip -Force;
   [System.IO.File]::WriteAllText(
