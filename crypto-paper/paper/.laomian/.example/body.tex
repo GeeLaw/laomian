@@ -212,6 +212,44 @@ This is a restatement with name.
 \end{restated}
 
 \noindent
+Proofs and remarks are unnumbered.
+
+\begin{proof}
+This is \texttt{\textbackslash begin\{proof\}}.
+\end{proof}
+
+\begin{proof}[Lemma~\ref{lem:lemma5}]
+This is \texttt{\textbackslash begin\{proof\}[Lemma\textasciitilde\textbackslash ref\{lem:lemma5\}]}.
+
+Use \texttt{\textbackslash qedhere} to place the tombstone symbol
+on the last line of a displayed equation,
+for which an alignment tab is required.
+\begin{align*}
+a+b&{}=c.
+\qedhere
+\end{align*}
+\end{proof}
+
+\begin{remarks}
+This is \texttt{\textbackslash begin\{remarks\}}.
+\end{remarks}
+
+\begin{remarks}[name]
+This is \texttt{\textbackslash begin\{remarks\}[name]}.
+\end{remarks}
+
+\noindent
+However, \texttt{\textbackslash begin\{remark\}} (singular form) is numbered.
+
+\begin{remark}
+This is \texttt{\textbackslash begin\{remark\}}.
+\end{remark}
+
+\begin{remark}[name]
+This is \texttt{\textbackslash begin\{remark\}[name]}.
+\end{remark}
+
+\noindent
 No theorem environment uses a nested counter.
 
 \begin{definition}
@@ -312,44 +350,6 @@ This is \texttt{\textbackslash begin\{construction\}}.
 This is \texttt{\textbackslash begin\{construction\}[name]}.
 \end{construction}
 
-\noindent
-Proofs and remarks are unnumbered.
-
-\begin{proof}
-This is \texttt{\textbackslash begin\{proof\}}.
-\end{proof}
-
-\begin{proof}[Lemma~\ref{lem:lemma5}]
-This is \texttt{\textbackslash begin\{proof\}[Lemma\textasciitilde\textbackslash ref\{lem:lemma5\}]}.
-
-Use \texttt{\textbackslash qedhere} to place the tombstone symbol
-on the last line of a displayed equation,
-for which an alignment tab is required.
-\begin{align*}
-a+b&{}=c.
-\qedhere
-\end{align*}
-\end{proof}
-
-\begin{remarks}
-This is \texttt{\textbackslash begin\{remarks\}}.
-\end{remarks}
-
-\begin{remarks}[name]
-This is \texttt{\textbackslash begin\{remarks\}[name]}.
-\end{remarks}
-
-\noindent
-However, \texttt{\textbackslash begin\{remark\}} (singular form) is numbered.
-
-\begin{remark}
-This is \texttt{\textbackslash begin\{remark\}}.
-\end{remark}
-
-\begin{remark}[name]
-This is \texttt{\textbackslash begin\{remark\}[name]}.
-\end{remark}
-
 \subsection{Citations}
 
 For citations of references, Springer LNCS prefers the use of square brackets
@@ -380,7 +380,3 @@ in some versions of \texttt{splncs04.bst}
 are mitigated.
 
 Use \href{https://github.com/cryptobib/export}{\texttt{cryptobib}} to make citing cryptography literature easier.
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam a magna quis ex vulputate vehicula nec at erat. Phasellus laoreet nisl vel nunc efficitur, quis varius sem malesuada. Phasellus gravida risus vitae lorem convallis, vitae volutpat justo commodo. Sed gravida tincidunt dui sit amet iaculis. Curabitur tempus cursus lectus vulputate rutrum. Nullam tincidunt imperdiet risus eu tristique. Phasellus elit tortor, cursus sed dolor eu, faucibus ornare justo. Donec ex sem, bibendum et condimentum vel, mattis et metus. Integer scelerisque finibus pharetra.
-
-Nullam turpis sem, tincidunt eu pharetra nec, interdum vel nisi. Ut neque enim, venenatis eget interdum non, semper in tortor. Quisque fringilla ligula in vulputate lacinia. Cras fermentum purus at velit pulvinar ornare. Phasellus hendrerit, massa at tristique ultricies, quam ligula bibendum erat, eu vulputate libero massa id quam. Nunc nec elit neque. Mauris rutrum nisi a porttitor pretium.
