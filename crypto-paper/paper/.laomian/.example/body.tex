@@ -108,9 +108,21 @@ use
 
 \luoji{Note can start a paragraph.}
 The colors of the boxes rotate so that it is easy to track which is where.
+It is strongly discouraged to put a call-out box on an empty paragraph
+as it makes vertical typesetting dependent on whether it is draft or not.
+Note that even if there are no call-out boxes,
+the typesetting result could be different for draft and non-draft
+due to arithmetic errors
+(in the draft version,
+the type center is moved, and
+rounding results could change).
 
 \subsection{Style-Dependent Commands}
 
+\subsubsection{Underlines.}
+A descender-\ul{skipping} underline is used for ePrint.
+
+\subsubsection{Names of Referenced Objects.}
 \texttt{\textbackslash Figure},
 \texttt{\textbackslash Equation},
 \texttt{\textbackslash Section},
@@ -141,10 +153,9 @@ The text is \widenarrow{wide}{narrow},
 there \pagelimitsnolimits{is a}{are no} page limit\pagelimitsnolimits{}{s},
 and the bibliography is \bibalphanumeric{alphanumeric}{numeric}.
 
-\subsection{Misc}
+\subsection{Mathematical Symbols}
 
-\subsubsection{Math Symbols.}
-There are a lot of math symbols:
+There are a lot of them:
 \begin{align*}
 \kappa,\alpha,\beta,\mu,\omicron,&&
 \epsilon,\varepsilon,\phi,\varphi,\Omicron,&\\
@@ -186,11 +197,19 @@ which can be used as the indicator symbol.
 \texttt{\textbackslash vec} works with Greek letters (lowercase Greek letters are not upright).
 For more, consult \texttt{maths.tex}.
 
-\subsubsection{Underlines.}
-A descender-\ul{skipping} underline is used for ePrint.
-
 \subsection{Theorem Environments}
 
+Use \texttt{\textbackslash begin\{restated\}{\textbackslash ref\{label\}}} to restate a theorem or typeset an unnumbered theorem.
+
+\begin{restated}{Theorem~\ref{thm:theorem10}}
+This is a restatement.
+\end{restated}
+
+\begin{restated}{Theorem~\ref{thm:theorem10}}[name]
+This is a restatement with name.
+\end{restated}
+
+\noindent
 No theorem environment uses a nested counter.
 
 \begin{definition}
@@ -292,17 +311,6 @@ This is \texttt{\textbackslash begin\{construction\}[name]}.
 \end{construction}
 
 \noindent
-Use \texttt{\textbackslash begin\{restated\}{\textbackslash ref\{label\}}} to restate a theorem or typeset an unnumbered theorem.
-
-\begin{restated}{Theorem~\ref{thm:theorem10}}
-This is a restatement.
-\end{restated}
-
-\begin{restated}{Theorem~\ref{thm:theorem10}}[name]
-This is a restatement with name.
-\end{restated}
-
-\noindent
 Proofs and remarks are unnumbered.
 
 \begin{proof}
@@ -342,16 +350,32 @@ This is \texttt{\textbackslash begin\{remark\}[name]}.
 
 \subsection{Citations}
 
-For citations of references, we prefer the use of square brackets
+For citations of references, Springer LNCS prefers the use of square brackets
 and consecutive numbers. Citations using labels or the author/year
 convention are also acceptable. The following bibliography provides
 a sample reference list with entries for journal
 articles~\cite{ref_article1}, an LNCS chapter~\cite{ref_lncs1}, a
 book~\cite{ref_book1}, proceedings without editors~\cite{ref_proc1},
 and a homepage~\cite{ref_url1}. Multiple citations are grouped
-\cite{ref_article1,ref_lncs1,ref_book1},
-\cite{ref_article1,ref_book1,ref_proc1,ref_url1},
+such as~\cite{ref_article1,ref_lncs1,ref_book1}
+and~\cite{ref_article1,ref_book1,ref_proc1,ref_url1},
 if the numeric style is used.
+
+The \texttt{cite} package is loaded and \texttt{nomove,noadjust} are set.
+Using \texttt{noadjust} removes the extraneous space
+in case of \texttt{\textbackslash begin\{lemma\}[\textbackslash cite{ref}]},
+which is rendered as ``\texttt{Lemma 1 ([ABC])}''
+instead of ``\texttt{Lemma 1 ( [ABE])}''.
+Because of \texttt{noadjust},
+no space is inserted for \texttt{word\textbackslash cite\{ref\}},
+and it should be entered as
+\texttt{word\textasciitilde\textbackslash cite\{ref\}}.
+The \texttt{nomove} option does not manifest itself
+for non-superscript citations.
+
+Bugs of \texttt{\textbackslash doi}
+in some versions of \texttt{splncs04.bst}
+are mitigated.
 
 Use \href{https://github.com/cryptobib/export}{\texttt{cryptobib}} to make citing cryptography literature easier.
 
