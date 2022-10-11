@@ -162,22 +162,29 @@ and the bibliography is \bibalphanumeric{alphanumeric}{numeric}.
 There are a lot of them:
 \begin{align*}
 \kappa,\alpha,\beta,\mu,\omicron,&&
-\epsilon,\varepsilon,\phi,\varphi,\Omicron,&\\
+\epsilon,\varepsilon,\phi,\varphi,\Omicron,
+&\\
 \llbracket\Delta\rrbracket,\Omega,\Sigma,\Xi,&&
-\scriptA,\scriptC,\doubleZ,\doubleR,\fraktura,\frakturA,\cbrt\Upsilon,&\\
+\scriptA,\scriptC,\doubleZ,\doubleR,\fraktura,\frakturA,\cbrt\Upsilon,
+&\displaybreak[3]\\
 \1,\cursiveA,1^\cursiveF_\cursiveZ,\emptyset,\varnothing,\nothing,\varemptyset,&&
-\pk,\sk,\ct,\mpk,\msk,\vk,\\
+\pk,\sk,\ct,\mpk,\msk,\vk,
+&\displaybreak[3]\\
 \Setup,\Gen,\KeyGen,\Enc,\Dec,&&
-\Verify,\Sign,\Commit,\\
+\Verify,\Sign,\Commit,
+&\displaybreak[3]\\
 \left\llbracket\sum_{i=1}^{n}{x_i}\right\rrbracket,
 \ExpCPA,a\concat b,\poly(\lambda),1\iseq 2,&&
-\negl(\lambda),\vec{\chi}^\transpose\defeq\vec{x}\draws Z,\\
+\negl(\lambda),\vec{\chi}^\transpose\defeq\vec{x}\draws Z,
+&\displaybreak[3]\\
 \Pr_{x\draws X}[f(x)],
 \esssup_{x\in[0,1]}{f(x)},
 \liminf_{n\to\infty}{A_n},&&
-\EX_{x\draws X}[f(x)],2^{\Var({\EX_{(x,y)\draws Z}[g(y)|x]})},\supp_1 Z,\\
+\EX_{x\draws X}[f(x)],2^{\Var({\EX_{(x,y)\draws Z}[g(y)|x]})},\supp_1 Z,
+&\\
 \boxed{1},&&
 \dashboxed{2},\grayboxed{3}.
+&
 \end{align*}
 All Greek letters
 (including \texttt{\textbackslash omicron} and \texttt{\textbackslash Omicron})
@@ -373,7 +380,7 @@ The \texttt{cite} package is loaded and \texttt{nomove,noadjust} are set.
 Using \texttt{noadjust} removes the extraneous space
 in case of \texttt{\textbackslash begin\{lemma\}[\textbackslash cite{ref}]},
 which is rendered as ``\texttt{Lemma 1 ([ABC])}''
-instead of ``\texttt{Lemma 1 ( [ABE])}''.
+instead of ``\texttt{Lemma 1 ( [ABC])}''.
 Because of \texttt{noadjust},
 no space is inserted for \texttt{word\textbackslash cite\{ref\}},
 and it should be entered as
