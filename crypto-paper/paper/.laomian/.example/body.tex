@@ -7,9 +7,22 @@ This template is used to prepare manuscripts for works in cryptography.%
 \subsubsection{Subsubsection.}
 This is a run-in heading in bold face.
 
+Avoid using \texttt{\textbackslash begin\{equation\}},
+\texttt{\textbackslash begin\{gather\}},
+\texttt{\textbackslash begin\{split\}},
+and \texttt{\$\$}.
+Always prefer \texttt{\textbackslash begin\{align\}}.
+(One of) Euler's formula says
+\begin{align*}
+e^{i\pi}+1=0.
+\end{align*}
+
 \paragraph{Paragraph.}
-This is an italicized run-in heading.
-\texttt{\textbackslash subparagraph} is undefined.
+This is an italicized run-in heading, and
+\texttt{\textbackslash subparagraph} is \emph{explicitly} undefined.
+Per LNCS, table captions must be above the table,
+and figure captions must be below the figure,
+as exemplified in Table~\ref{tab:table1} and \Figure~\ref{fig:figure1}.
 
 \begin{table}[h]
 \centering
@@ -38,19 +51,6 @@ ePrint PDF \\
 \bottomrule
 \end{tabular}
 \end{table}
-
-Per LNCS,
-table (resp.~figure) captions must be above (resp.~below) the table (resp.~figure).
-
-Avoid using \texttt{\textbackslash begin\{equation\}},
-\texttt{\textbackslash begin\{gather\}},
-\texttt{\textbackslash begin\{split\}},
-and \texttt{\$\$}.
-Always prefer \texttt{\textbackslash begin\{align\}}.
-(One of) Euler's formula says
-\begin{align*}
-e^{i\pi}+1=0.
-\end{align*}
 
 \begin{figure}[h]
 \centering
@@ -106,8 +106,6 @@ use
 
 \luoji{Note can go on empty paragraph, but it looks weird.}
 
-\luoji{Note can start a paragraph.}
-The colors of the boxes rotate so that it is easy to track which is where.
 It is strongly discouraged to put a call-out box on an empty paragraph
 as it makes vertical typesetting dependent on whether it is draft or not.
 Note that even if there are no call-out boxes,
@@ -116,6 +114,9 @@ due to arithmetic errors
 (in the draft version,
 the type center is moved, and
 rounding results could change).
+
+\luoji{Note can start a paragraph.}
+The colors of the boxes rotate so that it is easy to track which is where.
 
 \subsection{Style-Dependent Commands}
 
@@ -146,7 +147,7 @@ Use \texttt{\textbackslash widenarrow},
 \texttt{\textbackslash bibalphanumeric},
 \texttt{\textbackslash BibAlphaNumeric},
 to choose one from the two candidates depending on the current style.
-The lowercase versions are short and
+The lowercase versions are non-\texttt{\textbackslash long} and
 the capitalized versions are \texttt{\textbackslash long}
 (i.e., the arguments might contain \texttt{\textbackslash par}).
 The text is \widenarrow{wide}{narrow},
@@ -175,8 +176,9 @@ There are a lot of them:
 \boxed{1},&&
 \dashboxed{2},\grayboxed{3}.
 \end{align*}
-All Greek letters have their lowercase and uppercase commands,
-including \texttt{\textbackslash omicron} and \texttt{\textbackslash Omicron},
+All Greek letters
+(including \texttt{\textbackslash omicron} and \texttt{\textbackslash Omicron})
+have their lowercase and uppercase commands,
 and the uppercase letters are upright.
 Commands for font variants similar to Office Equation Editor are provided:
 \texttt{\textbackslash doubleA}
