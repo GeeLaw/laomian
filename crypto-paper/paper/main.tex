@@ -1,39 +1,70 @@
+\documentclass[
+  % layout=38x48,
+  % layout=6x9,
+  % opens-on=right,
+  % opens-on=any,
+  % bst=alpha,
+  % bst=splncs04,
+  % vec=itbf,
+  % vec=bf,
+  % links=colorful,
+  % links=blue,
+  % fonts=source,
+  % fonts=computer-modern,
+  % underlines=smart,
+  % underlines=dumb,
+  % non-anonymous,
+  % no-page-limits,
+  % no-table-of-contents,
+  % no-separate-title-page,
+  % no-total-number-of-pages,
+  % no-lncs-array-table-margins,
+  % no-swapped-table-caption-margins,
+  format=eprint-draft
+  % format=eprint
+  % format=lncs-submission-draft
+  % format=lncs-submission
+  % format=lncs-camera-ready-draft
+  % format=lncs-camera-ready-iacr
+  % format=lncs-camera-ready-reference
+  % format=lncs-camera-ready
+]{crypto-paper}
+
+\input{.example/preamble}
+
 \input{preamble}
 
 \begin{document}
-
-% -------- title / abstract / table of contents --------
 
 \input{title}
 
 \input{abstract}
 
-% To hide the table of contents, use \HideTOC in preamble.tex.
-% Do NOT comment out or remove \TypesetTableOfContents
-% EVEN IF it is NOT shown, because this command also handles
-% the title-abstract page and the proper maintenance of counters.
-\TypesetTableOfContents
+% The following line creates the table of contents (if shown)
+% and sets up the correct styles for the main body.
+\LaomianBody
+% The previous line should NEVER be commented out.
 
-% ------------------------ body ------------------------
+\input{.example/body}
 
-\input{.laomian/.example/body}
+% If there are no acknowledgments to be made,
+% either empty acknowledgments.tex (but do NOT remove it)
+% or comment out the following line.
+\LaomianAcknowledgments
+% There is NO need to comment out the previous line
+% just because the document should be anonymous.
+% It handles that case correctly.
 
-% Either empty acknowledgement.tex or
-% comment out or remove \TypesetAcknowledgement
-% if there is no acknowledgement to be made.
-\TypesetAcknowledgement
+% The following line should ALWAYS be used
+% for correct bibliography styles and table of contents.
+\LaomianBibliography{.example/refs,refs}
 
-% -------------------- bibliography --------------------
+% If there is no appendix or supplementary materials,
+% comment out the following line.
+\LaomianAppendix
+% If there is appendix or supplementary materials,
+% the previous line should NEVER be commented out.
 
-\TypesetBibliography{.laomian/.example/refs,refs}
-
-% --------- appendix / supplementary materials ---------
-
-% If there is no appendix (supplementary materials),
-% \TypesetAppendix should be commented out or removed,
-% otherwise the table of contents might be incorrect.
-\TypesetAppendix
-
-\input{.laomian/.example/appendix}
+\input{.example/appendix}
 
 \end{document}

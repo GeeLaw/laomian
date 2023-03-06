@@ -1,44 +1,47 @@
-\title{Example Paper}
+\title{Laomian \texttt{crypto-paper}: Awesome {\LaTeX} Class
+\\for Research Paper in Cryptography}
 
-\titlerunning{Ex.Ppr.}
+% It is important to have a space (" ") before the line-break ("\\").
+% The space character ensures the title in the PDF outline is correct.
+% This is similar for section/subsection headings.
+
+\titlerunning{Laomian \texttt{crypto-paper}: Awesome {\LaTeX} Class}
+
+% It is advisable to always include \titlerunning and \authorrunning,
+% although Springer will work one out for you when they are absent.
 
 \author{
-First Author\inst{1}\orcidID{0000-1111-2222-3333}
+Ji Luo\inst{1}\orcidID{0000-0003-1225-5310}
 \and
-Second Author\inst{2,3}\orcidID{1111-2222-3333-4444}
+Another Author\inst{2,3}
 \and
-Third Author\inst{3}\orcidID{2222-3333-4444-5555}
+Yet Another Author\inst{3}
 }
 
 % single author  : F.~Last
 %    two authors : F.~Author and S.~Author
 % three or more  : F.~Author, S.~Author, and T.~Author
 %      too many  : F.~Author et~al.
-\authorrunning{F.~Author, S.~Author, and T.~Author}
+\authorrunning{J.~Luo, A.~Author, and Y.~A.~Author}
+% However, according to Springer, 3 is already too many.
 
 \institute{
-Some University, Somewhere
+Paul G.~Allen School of Computer Science \& Engineering,\\
+University of Washington, Seattle\\
+\email{luoji@cs.washington.edu}
 \and
-Some Instutite, Somewhere\\
-\email{first@exmaple.com}
+Some Institute, Somewhere
 \and
 Some Company, Somewhere\\
-\email{\{second,third\}@example.com}
+\email{\{another,yet-another\}@example.com}
 }
 
-\maketitle
+% \DateTodayMonthYear
 
-% It is advisable to always include \titlerunning and \authorrunning,
-% even if they are the default ones Springer will work out for you.
-% Running title and running author list should be tested.
-%
-% The only version suitable for having them typeset is \CameraReadyIACR,
-% but the author of this template has chosen to not do this.
-% So unfortunately, to test running title and running author list,
-% you need to manually uncomment line 38 of .laomian/llncs.tex.
-%
-% Test it with \CameraReadyIACR, \CameraReadyReference, or \CameraReady.
-% - For \Submission..., the (running) author list is forced to be empty.
-% - For \...WorkInProgress, the file is one-side and
-%   the running author list (on even pages) is never shown.
-% - For \ePrint..., there is no running title or running author list.
+\DateTodayDayMonthYear
+
+% \DateTodayMonthDayYear
+
+% \Undated
+
+\maketitle
