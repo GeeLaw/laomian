@@ -40,8 +40,8 @@
 \def\laomian@let@iftrue#1\fi{\let#1\iftrue}
 \def\laomian@let@iffalse#1\fi{\let#1\iffalse}
 
-\laomian@let@iffalse\if@laomian@lncs\fi
-\laomian@let@iffalse\if@laomian@newlayout\fi
+\laomian@let@iffalse\if@laomian@base@lncs\fi
+\laomian@let@iffalse\if@laomian@layout@thirtyeight@fortyeight\fi
 \laomian@let@iffalse\if@laomian@draft\fi
 \laomian@let@iffalse\if@laomian@runningheads\fi
 \laomian@let@iffalse\if@laomian@anonymous\fi
@@ -52,12 +52,12 @@
 \laomian@let@iffalse\if@laomian@tableofcontents\fi
 \laomian@let@iffalse\if@laomian@separatetitlepage\fi
 \laomian@let@iffalse\if@laomian@opensonright\fi
-\laomian@let@iffalse\if@laomian@alphabst\fi
+\laomian@let@iffalse\if@laomian@bst@alpha\fi
 \laomian@let@iffalse\if@laomian@supplementarymaterials\fi
 \laomian@let@iffalse\if@laomian@pagelimits\fi
 \laomian@let@iffalse\if@laomian@vecisitbf\fi
 \laomian@let@iffalse\if@laomian@colorfullinks\fi
-\laomian@let@iffalse\if@laomian@sourcefonts\fi
+\laomian@let@iffalse\if@laomian@fonts@source\fi
 \laomian@let@iffalse\if@laomian@smartunderlines\fi
 \laomian@let@iffalse\if@laomian@lncsarraytablemargins\fi
 \laomian@let@iffalse\if@laomian@swaptablecaptionmargins\fi
@@ -67,8 +67,8 @@
 \def\laomian@format{unset}
 
 \def\laomian@format@eprint{%
-  \laomian@let@iffalse\if@laomian@lncs\fi
-  \laomian@let@iftrue\if@laomian@newlayout\fi
+  \laomian@let@iffalse\if@laomian@base@lncs\fi
+  \laomian@let@iftrue\if@laomian@layout@thirtyeight@fortyeight\fi
   \laomian@let@iffalse\if@laomian@draft\fi
   \laomian@let@iffalse\if@laomian@runningheads\fi
   \laomian@let@iffalse\if@laomian@anonymous\fi
@@ -79,12 +79,12 @@
   \laomian@let@iftrue\if@laomian@tableofcontents\fi
   \laomian@let@iftrue\if@laomian@separatetitlepage\fi
   \laomian@let@iffalse\if@laomian@opensonright\fi
-  \laomian@let@iftrue\if@laomian@alphabst\fi
+  \laomian@let@iftrue\if@laomian@bst@alpha\fi
   \laomian@let@iffalse\if@laomian@supplementarymaterials\fi
   \laomian@let@iffalse\if@laomian@pagelimits\fi
   \laomian@let@iftrue\if@laomian@vecisitbf\fi
   \laomian@let@iftrue\if@laomian@colorfullinks\fi
-  \laomian@let@iftrue\if@laomian@sourcefonts\fi
+  \laomian@let@iftrue\if@laomian@fonts@source\fi
   \laomian@let@iftrue\if@laomian@smartunderlines\fi
   \laomian@let@iftrue\if@laomian@lncsarraytablemargins\fi
   \laomian@let@iftrue\if@laomian@swaptablecaptionmargins\fi
@@ -99,8 +99,8 @@
 }
 
 \def\laomian@format@lncs@camera@ready{%
-  \laomian@let@iftrue\if@laomian@lncs\fi
-  \laomian@let@iftrue\if@laomian@newlayout\fi
+  \laomian@let@iftrue\if@laomian@base@lncs\fi
+  \laomian@let@iftrue\if@laomian@layout@thirtyeight@fortyeight\fi
   \laomian@let@iffalse\if@laomian@draft\fi
   \laomian@let@iffalse\if@laomian@runningheads\fi
   \laomian@let@iffalse\if@laomian@anonymous\fi
@@ -111,12 +111,12 @@
   \laomian@let@iffalse\if@laomian@tableofcontents\fi
   \laomian@let@iffalse\if@laomian@separatetitlepage\fi
   \laomian@let@iffalse\if@laomian@opensonright\fi
-  \laomian@let@iffalse\if@laomian@alphabst\fi
+  \laomian@let@iffalse\if@laomian@bst@alpha\fi
   \laomian@let@iffalse\if@laomian@supplementarymaterials\fi
   \laomian@let@iftrue\if@laomian@pagelimits\fi
   \laomian@let@iftrue\if@laomian@vecisitbf\fi
   \laomian@let@iffalse\if@laomian@colorfullinks\fi
-  \laomian@let@iffalse\if@laomian@sourcefonts\fi
+  \laomian@let@iffalse\if@laomian@fonts@source\fi
   \laomian@let@iffalse\if@laomian@smartunderlines\fi
   \laomian@let@iftrue\if@laomian@lncsarraytablemargins\fi
   \laomian@let@iftrue\if@laomian@swaptablecaptionmargins\fi
@@ -250,7 +250,7 @@
 
 \laomian@delcaretwochoiceoption
   {\if@laomian@layoutchosen}
-  {\if@laomian@newlayout}
+  {\if@laomian@layout@thirtyeight@fortyeight}
   {layout}
   {38x48}
   {6x9}
@@ -264,7 +264,7 @@
 
 \laomian@delcaretwochoiceoption
   {\if@laomian@bstchosen}
-  {\if@laomian@alphabst}
+  {\if@laomian@bst@alpha}
   {bst}
   {alpha}
   {splncs04}
@@ -285,7 +285,7 @@
 
 \laomian@delcaretwochoiceoption
   {\if@laomian@fontschosen}
-  {\if@laomian@sourcefonts}
+  {\if@laomian@fonts@source}
   {fonts}
   {source}
   {computer-modern}
@@ -368,12 +368,12 @@
 % "no-table-of-contents", "no-separate-title-page",
 % "no-lncs-array-table-margins", "no-swapped-table-caption-margins"
 % by resetting them back to default.
-\if@laomian@lncs
-  \laomian@let@iftrue\if@laomian@newlayout\fi
+\if@laomian@base@lncs
+  \laomian@let@iftrue\if@laomian@layout@thirtyeight@fortyeight\fi
   % \if@laomian@tableofontents    is already    \iffalse.
   % \if@laomian@separatetitlepage is already    \iffalse.
   % \if@laomian@opensonright      is handled by \if@laomian@separatetitlepage.
-  \laomian@let@iffalse\if@laomian@sourcefonts\fi
+  \laomian@let@iffalse\if@laomian@fonts@source\fi
   \laomian@let@iftrue\if@laomian@lncsarraytablemargins\fi
   \laomian@let@iftrue\if@laomian@swaptablecaptionmargins\fi
 \fi
@@ -401,7 +401,7 @@
 
 % Output information about option processing.
 \ClassInfo{crypto-paper}{Options have been proceesed}
-\ClassInfo{crypto-paper}{format = \laomian@formatchosen}
+\ClassInfo{crypto-paper}{[format] \laomian@formatchosen}
 
 \def\laomian@output@conditional#1{%
   \begingroup
@@ -416,28 +416,28 @@
   \endgroup
 }
 
-\laomian@output@conditional{formatchosen}{            }
-\laomian@output@conditional{lncs}{                    }
-\laomian@output@conditional{newlayout}{               }
-\laomian@output@conditional{draft}{                   }
-\laomian@output@conditional{runningheads}{            }
-\laomian@output@conditional{anonymous}{               }
-\laomian@output@conditional{orcidicons}{              }
-\laomian@output@conditional{iacrcopyright}{           }
-\laomian@output@conditional{pagenumbers}{             }
-\laomian@output@conditional{totalpagenumbers}{        }
-\laomian@output@conditional{tableofcontents}{         }
-\laomian@output@conditional{separatetitlepage}{       }
-\laomian@output@conditional{opensonright}{            }
-\laomian@output@conditional{alphabst}{                }
-\laomian@output@conditional{supplementarymaterials}{  }
-\laomian@output@conditional{pagelimits}{              }
-\laomian@output@conditional{vecisitbf}{               }
-\laomian@output@conditional{colorfullinks}{           }
-\laomian@output@conditional{sourcefonts}{             }
-\laomian@output@conditional{smartunderlines}{         }
-\laomian@output@conditional{lncsarraytablemargins}{   }
-\laomian@output@conditional{swaptablecaptionmargins}{ }
+\laomian@output@conditional{formatchosen}{                 }
+\laomian@output@conditional{base@lncs}{                    }
+\laomian@output@conditional{layout@thirtyeight@fortyeight}{}
+\laomian@output@conditional{draft}{                        }
+\laomian@output@conditional{runningheads}{                 }
+\laomian@output@conditional{anonymous}{                    }
+\laomian@output@conditional{orcidicons}{                   }
+\laomian@output@conditional{iacrcopyright}{                }
+\laomian@output@conditional{pagenumbers}{                  }
+\laomian@output@conditional{totalpagenumbers}{             }
+\laomian@output@conditional{tableofcontents}{              }
+\laomian@output@conditional{separatetitlepage}{            }
+\laomian@output@conditional{opensonright}{                 }
+\laomian@output@conditional{bst@alpha}{                    }
+\laomian@output@conditional{supplementarymaterials}{       }
+\laomian@output@conditional{pagelimits}{                   }
+\laomian@output@conditional{vecisitbf}{                    }
+\laomian@output@conditional{colorfullinks}{                }
+\laomian@output@conditional{fonts@source}{                 }
+\laomian@output@conditional{smartunderlines}{              }
+\laomian@output@conditional{lncsarraytablemargins}{        }
+\laomian@output@conditional{swaptablecaptionmargins}{      }
 
 \let\laomian@output@conditional\laomian@undefined
 \let\laomian@output@conditional@next\laomian@undefined
@@ -450,7 +450,7 @@
 
 % -------------------- LNCS/ePrint begins --------------------
 
-\if@laomian@lncs
+\if@laomian@base@lncs
   \if@laomian@runningheads
     \LoadClass[letterpaper,runningheads,twoside,10pt,onecolumn,final]{llncs}
   \else
@@ -489,7 +489,7 @@
 \else
   \LoadClass[letterpaper,twoside,11pt,onecolumn,final]{article}
   \long\def\WideNarrow#1#2{#1}
-  \if@laomian@newlayout
+  \if@laomian@layout@thirtyeight@fortyeight
     % New layout (the 2023 version):
     %     \textwidth  = 38\f@size,
     %     \textheight = 48\baselineskip,
@@ -1060,7 +1060,7 @@
 
 % -------------------- bibliography begins --------------------
 
-\if@laomian@alphabst
+\if@laomian@bst@alpha
   \long\def\BibAlphaNumeric#1#2{#1}
   \RequirePackage[noadjust,nomove,nosort,nocompress]{cite}
   \def\LaomianBibliography#1{%
@@ -1212,7 +1212,7 @@
 \def\proof{\begingroup\pushQED{\qed}\begin{laomian@proof}}
 \def\endproof{\popQED\end{laomian@proof}\endgroup}
 
-\if@laomian@lncs
+\if@laomian@base@lncs
   \theoremstyle{plain}
 \else
   \theoremstyle{definition}
@@ -1348,7 +1348,7 @@
 
 % -------------------- fonts begin --------------------
 
-\if@laomian@sourcefonts
+\if@laomian@fonts@source
   \RequirePackage[
     default,lining,
     semibold,regular,
@@ -1461,7 +1461,7 @@
   \def\concat{{\parallel}}
   \let\bot\laomian@bak@bot
   % Automatically date the document.
-  \if@laomian@lncs\else\AtBeginDocument{\DateTodayMonthYear}\fi
+  \if@laomian@base@lncs\else\AtBeginDocument{\DateTodayMonthYear}\fi
   % Define the "security" environment.
   \def\security{\begin{itemize}\upshape}
   \def\endsecurity{\end{itemize}}
@@ -1477,7 +1477,7 @@
 
 % -------------------- compatibilities   end --------------------
 
-\if@laomian@lncs
+\if@laomian@base@lncs
   % Redefine \UrlFont after the packages might have messed with it.
   \def\UrlFont{\rmfamily}
 \fi
