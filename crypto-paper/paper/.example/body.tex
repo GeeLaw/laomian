@@ -25,7 +25,7 @@ Springer requires that table captions be above the table
 and figure captions be below the figure,
 as exemplified in Table~\ref{tab:table1} and \Figure~\ref{fig:figure1}.
 
-\begin{table}[h]
+\begin{table}[hp]
 \centering
 \capstart
 \caption{Formats.}
@@ -37,8 +37,12 @@ as exemplified in Table~\ref{tab:table1} and \Figure~\ref{fig:figure1}.
 \texttt{eprint-draft} & full version, draft \\
 \texttt{eprint} &
 full version (\href{https://eprint.iacr.org/}{eprint.iacr.org}) \\
+\texttt{focs-submission-draft} &
+submission (FOCS), draft \\
+\texttt{focs-submission} &
+submission (FOCS) \\
 \texttt{lncs-submission-draft} &
-submission, draft \\
+submission (IACR conferences), draft \\
 \texttt{lncs-submission} &
 submission (IACR conferences) \\
 \texttt{lncs-camera-ready-draft} &
@@ -53,15 +57,16 @@ source code to be processed by Springer \\
 \end{tabular}
 \end{table}
 
-\begin{figure}[h]
+\begin{figure}
 \centering
 \capstart
 \begin{tabular}{ll}
 \toprule
 \textbf{option} & \textbf{description} \\
 \midrule
-\texttt{layout=38x48} & use the new layout \\
-\texttt{layout=6x9} & use the legacy layout \\
+\texttt{layout=6x9} & use the 2022 layout \\
+\texttt{layout=38x48} & use the 2023 layout \\
+\texttt{layout=6.5x9} & use the FOCS submission layout \\
 \texttt{opens-on=right} & make the main body start \\
 & \qquad on an odd-numbered page \\
 \texttt{opens-on=any} & do not make the main body start \\
@@ -70,9 +75,13 @@ source code to be processed by Springer \\
 \texttt{bst=splncs04} & use \texttt{splncs04.bst} \\
 \texttt{links=colorful} & use colorful links \\
 \texttt{links=blue} & use blue links \\
+\texttt{fonts=computer-modern} & use Computer Modern fonts \\
 \texttt{fonts=source} &
 use \href{https://github.com/adobe-fonts}{Adobe Source} fonts \\
-\texttt{fonts=computer-modern} & use Computer Modern fonts \\
+\texttt{fonts=times} & use Times fonts (* not there yet) \\
+\texttt{fonts=palatino} & use Palatino fonts (*) \\
+\texttt{fonts=libertine} & use Libertine fonts (*) \\
+\texttt{fonts=concrete} & use Concrete fonts (*) \\
 \texttt{underlines=smart} & make underlines skip descenders \\
 \texttt{underlines=dumb} & make underlines below descenders \\
 \texttt{non-anonymous} & make the document non-anonymous \\

@@ -35,36 +35,38 @@ For technical reasons, the document is always two-sided (though it only appears 
 | `lncs-camera-ready-iacr` | L-CR-IACR | creating a PDF archived by the IACR |
 | `lncs-camera-ready-draft` | L-CR-D | camera-ready work in progress |
 | `lncs-submission` | L-S | submission to IACR conferences |
-| `lncs-submission-draft` | L-S-D | submission work in progress |
+| `lncs-submission-draft` | L-S-D | submission to IACR work in progress |
+| `focs-submission` | F-S | submission to FOCS |
+| `focs-submission-draft` | F-S-D | submission to FOCS work in progress |
 
 The default is `eprint`. The following table describes the formats:
 
-| format → | E | E-D | L-CR | L-CR-REF | L-CR-IACR | L-CR-D | L-S | L-S-D |
-| -------: | :-  | :- | :- | :- | :- | :- | :- | :- |
-| base format →<br>feature ↓ |  | E |  | L-CR | L-CR | L-CR | L-CR-IACR | L-S |
-| base `\documentclass` | `article` | &nbsp; | `llncs` | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| `layout=` | `38x48` | &nbsp; | N/A | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| draft | ❌ | ✔ | ❌ | &nbsp; | &nbsp; | ✔ | &nbsp; | ✔ |
-| running heads | ❌ | &nbsp; | ❌ | ✔ | &nbsp; | ✔ | &nbsp; | &nbsp; |
-| anonymous | ❌ | &nbsp; | ❌ | &nbsp; | &nbsp; | &nbsp; | ✔ | &nbsp; |
-| ORCID icons | ✔ | &nbsp; | ❌ | ✔ | ✔ | ✔ | &nbsp; | &nbsp; |
-| IACR copyright | ✔ | &nbsp; | ❌ | &nbsp; | ✔ | &nbsp; | ❌ | &nbsp; |
-| page numbers | ✔ | &nbsp; | ❌ | &nbsp; | ✔ | ✔ | &nbsp; | &nbsp; |
-| total number of pages | ✔ | &nbsp; | ❌ | &nbsp; | ✔ | ✔ | &nbsp; | &nbsp; |
-| table of contents | ✔ | &nbsp; | ❌ | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| separate title page | ✔ | &nbsp; | ❌ | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| `opens-on=` | `any` | `right` | N/A | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| `bst=` | `alpha` | &nbsp; | `splncs04` | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| supplementary materials | ❌ | &nbsp; | ❌ | &nbsp; | &nbsp; | &nbsp; | ✔ | &nbsp; |
-| page limits | ❌ | &nbsp; | ✔ | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| `vec=` | `itbf` | &nbsp; | `itbf` | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| `links=` | `colorful` | &nbsp; | `blue` | &nbsp; | `colorful` | `colorful` | &nbsp; | &nbsp; |
-| `fonts=` | `source` | &nbsp; | `computer-modern` | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| `underlines=` | `smart` | &nbsp; | `dumb` | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| LNCS array/table margins | ✔ | &nbsp; | ✔ | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| swap table caption margins | ✔ | &nbsp; | ✔ | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| format → | E | E-D | L-CR | L-CR-REF | L-CR-IACR | L-CR-D | L-S | L-S-D | F-S | F-S-D |
+| -------: | :-  | :- | :- | :- | :- | :- | :- | :- | :- | :- |
+| base format →<br>feature ↓ |  | E |  | L-CR | L-CR | L-CR | L-CR-IACR | L-S | E | F-S|
+| base `\documentclass` | `article` | &nbsp; | `llncs` | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| `layout=` | `38x48` | &nbsp; | N/A | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | `6.5x9` | &nbsp; |
+| draft | ❌ | ✔ | ❌ | &nbsp; | &nbsp; | ✔ | &nbsp; | ✔ | &nbsp; | ✔ |
+| running heads | ❌ | &nbsp; | ❌ | ✔ | &nbsp; | ✔ | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| anonymous | ❌ | &nbsp; | ❌ | &nbsp; | &nbsp; | &nbsp; | ✔ | &nbsp; | ✔ | &nbsp; |
+| ORCID icons | ✔ | &nbsp; | ❌ | ✔ | ✔ | ✔ | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| IACR copyright | ✔ | &nbsp; | ❌ | &nbsp; | ✔ | &nbsp; | ❌ | &nbsp; | ❌ | &nbsp; |
+| page numbers | ✔ | &nbsp; | ❌ | &nbsp; | ✔ | ✔ | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| total number of pages | ✔ | &nbsp; | ❌ | &nbsp; | ✔ | ✔ | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| table of contents | ✔ | &nbsp; | ❌ | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| separate title page | ✔ | &nbsp; | ❌ | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| `opens-on=` | `any` | `right` | N/A | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | `right` |
+| `bst=` | `alpha` | &nbsp; | `splncs04` | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| supplementary materials | ❌ | &nbsp; | ❌ | &nbsp; | &nbsp; | &nbsp; | ✔ | &nbsp; | &nbsp; | &nbsp; |
+| page limits | ❌ | &nbsp; | ✔ | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| `vec=` | `itbf` | &nbsp; | `itbf` | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| `links=` | `colorful` | &nbsp; | `blue` | &nbsp; | `colorful` | `colorful` | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| `fonts=` | `source` | &nbsp; | `computer-modern` | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | `computer-modern` | &nbsp; |
+| `underlines=` | `smart` | &nbsp; | `dumb` | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| LNCS array/table margins | ✔ | &nbsp; | ✔ | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| swap table caption margins | ✔ | &nbsp; | ✔ | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 
-**`layout=`** overrides the layout. It can be `38x48` (new and recommended; `\textwidth` is 38 times font size and `\textheight` is 48 times `\baselineskip`) or `6x9` (2022; type center is 6in by 9in). In addition, `38x48` uses `\flushbottom`, but `6x9` does not. This option is meaningless if the document is in LNCS formats (the type center is always specified by LNCS).
+**`layout=`** overrides the layout. It can be `38x48` (preferred by the 2023 version; `\textwidth` is 38 times font size and `\textheight` is 48 times `\baselineskip`) or `6.5x9` (FOCS submission; type center is 6.5in by 9in) or `6x9` (preferred by the 2022 version; type center is 6in by 9in). In addition, `38x48` and `6.5x9` use `\flushbottom`, but `6x9` does not. This option is meaningless if the document is in LNCS formats (the type center is always specified by LNCS). Technically, FOCS [requires](https://focs.computer.org/2023/) `6.5x9`, so it is better to not modify the layout for FOCS.
 
 **`opens-on=`** overrides the opening side for the main body after the separate title page. It can be `right` or `any`. This option is meaningless if there is no separate title page (including the case if the document is in LNCS formats; the main body never starts on a new page).
 
@@ -74,7 +76,7 @@ The default is `eprint`. The following table describes the formats:
 
 **`links=`** overrides the hyperlink colors. It can be `colorful` or `blue`.
 
-**`fonts=`** overrides the fonts. It can be [`source`](https://github.com/adobe-fonts) or `computer-modern`. This option is meaningless if the document is in LNCS formats (the fonts are always Computer Modern).
+**`fonts=`** overrides the fonts. It can be [`source`](https://github.com/adobe-fonts), `times`, `palatino`, `libertine`, `concrete`, or `computer-modern`. However, currently only `source` and `computer-modern` are actually implemented (the others coming soon). This option is meaningless if the document is in LNCS formats (the fonts are always Computer Modern).
 
 **`underlines=`** overrides the underline style. It can be `smart` or `dumb`. Smart underlines skip descenders.
 

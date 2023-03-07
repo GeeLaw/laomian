@@ -40,8 +40,9 @@
 \def\laomian@let@iftrue#1\fi{\let#1\iftrue}
 \def\laomian@let@iffalse#1\fi{\let#1\iffalse}
 
-\laomian@let@iffalse\if@laomian@lncs\fi
-\laomian@let@iffalse\if@laomian@newlayout\fi
+\laomian@let@iffalse\if@laomian@base@lncs\fi
+\laomian@let@iffalse\if@laomian@layout@thirtyeight@fortyeight\fi
+\laomian@let@iffalse\if@laomian@layout@sixpointfive@nine\fi
 \laomian@let@iffalse\if@laomian@draft\fi
 \laomian@let@iffalse\if@laomian@runningheads\fi
 \laomian@let@iffalse\if@laomian@anonymous\fi
@@ -52,12 +53,16 @@
 \laomian@let@iffalse\if@laomian@tableofcontents\fi
 \laomian@let@iffalse\if@laomian@separatetitlepage\fi
 \laomian@let@iffalse\if@laomian@opensonright\fi
-\laomian@let@iffalse\if@laomian@alphabst\fi
+\laomian@let@iffalse\if@laomian@bst@splncszerofour\fi
 \laomian@let@iffalse\if@laomian@supplementarymaterials\fi
 \laomian@let@iffalse\if@laomian@pagelimits\fi
 \laomian@let@iffalse\if@laomian@vecisitbf\fi
 \laomian@let@iffalse\if@laomian@colorfullinks\fi
-\laomian@let@iffalse\if@laomian@sourcefonts\fi
+\laomian@let@iffalse\if@laomian@fonts@source\fi
+\laomian@let@iffalse\if@laomian@fonts@times\fi
+\laomian@let@iffalse\if@laomian@fonts@palatino\fi
+\laomian@let@iffalse\if@laomian@fonts@libertine\fi
+\laomian@let@iffalse\if@laomian@fonts@concrete\fi
 \laomian@let@iffalse\if@laomian@smartunderlines\fi
 \laomian@let@iffalse\if@laomian@lncsarraytablemargins\fi
 \laomian@let@iffalse\if@laomian@swaptablecaptionmargins\fi
@@ -67,8 +72,9 @@
 \def\laomian@format{unset}
 
 \def\laomian@format@eprint{%
-  \laomian@let@iffalse\if@laomian@lncs\fi
-  \laomian@let@iftrue\if@laomian@newlayout\fi
+  \laomian@let@iffalse\if@laomian@base@lncs\fi
+  \laomian@let@iftrue\if@laomian@layout@thirtyeight@fortyeight\fi
+  \laomian@let@iffalse\if@laomian@layout@sixpointfive@nine\fi
   \laomian@let@iffalse\if@laomian@draft\fi
   \laomian@let@iffalse\if@laomian@runningheads\fi
   \laomian@let@iffalse\if@laomian@anonymous\fi
@@ -79,12 +85,16 @@
   \laomian@let@iftrue\if@laomian@tableofcontents\fi
   \laomian@let@iftrue\if@laomian@separatetitlepage\fi
   \laomian@let@iffalse\if@laomian@opensonright\fi
-  \laomian@let@iftrue\if@laomian@alphabst\fi
+  \laomian@let@iffalse\if@laomian@bst@splncszerofour\fi
   \laomian@let@iffalse\if@laomian@supplementarymaterials\fi
   \laomian@let@iffalse\if@laomian@pagelimits\fi
   \laomian@let@iftrue\if@laomian@vecisitbf\fi
   \laomian@let@iftrue\if@laomian@colorfullinks\fi
-  \laomian@let@iftrue\if@laomian@sourcefonts\fi
+  \laomian@let@iftrue\if@laomian@fonts@source\fi
+  \laomian@let@iffalse\if@laomian@fonts@times\fi
+  \laomian@let@iffalse\if@laomian@fonts@palatino\fi
+  \laomian@let@iffalse\if@laomian@fonts@libertine\fi
+  \laomian@let@iffalse\if@laomian@fonts@concrete\fi
   \laomian@let@iftrue\if@laomian@smartunderlines\fi
   \laomian@let@iftrue\if@laomian@lncsarraytablemargins\fi
   \laomian@let@iftrue\if@laomian@swaptablecaptionmargins\fi
@@ -99,8 +109,9 @@
 }
 
 \def\laomian@format@lncs@camera@ready{%
-  \laomian@let@iftrue\if@laomian@lncs\fi
-  \laomian@let@iftrue\if@laomian@newlayout\fi
+  \laomian@let@iftrue\if@laomian@base@lncs\fi
+  \laomian@let@iffalse\if@laomian@layout@thirtyeight@fortyeight\fi
+  \laomian@let@iffalse\if@laomian@layout@sixpointfive@nine\fi
   \laomian@let@iffalse\if@laomian@draft\fi
   \laomian@let@iffalse\if@laomian@runningheads\fi
   \laomian@let@iffalse\if@laomian@anonymous\fi
@@ -111,12 +122,16 @@
   \laomian@let@iffalse\if@laomian@tableofcontents\fi
   \laomian@let@iffalse\if@laomian@separatetitlepage\fi
   \laomian@let@iffalse\if@laomian@opensonright\fi
-  \laomian@let@iffalse\if@laomian@alphabst\fi
+  \laomian@let@iftrue\if@laomian@bst@splncszerofour\fi
   \laomian@let@iffalse\if@laomian@supplementarymaterials\fi
   \laomian@let@iftrue\if@laomian@pagelimits\fi
   \laomian@let@iftrue\if@laomian@vecisitbf\fi
   \laomian@let@iffalse\if@laomian@colorfullinks\fi
-  \laomian@let@iffalse\if@laomian@sourcefonts\fi
+  \laomian@let@iffalse\if@laomian@fonts@source\fi
+  \laomian@let@iffalse\if@laomian@fonts@times\fi
+  \laomian@let@iffalse\if@laomian@fonts@palatino\fi
+  \laomian@let@iffalse\if@laomian@fonts@libertine\fi
+  \laomian@let@iffalse\if@laomian@fonts@concrete\fi
   \laomian@let@iffalse\if@laomian@smartunderlines\fi
   \laomian@let@iftrue\if@laomian@lncsarraytablemargins\fi
   \laomian@let@iftrue\if@laomian@swaptablecaptionmargins\fi
@@ -165,6 +180,27 @@
   \def\laomian@formatchosen{lncs-submission-draft}%
 }
 
+\def\laomian@format@focs@submission{%
+  \laomian@format@eprint
+  \laomian@let@iffalse\if@laomian@layout@thirtyeight@fortyeight\fi
+  \laomian@let@iftrue\if@laomian@layout@sixpointfive@nine\fi
+  \laomian@let@iftrue\if@laomian@anonymous\fi
+  \laomian@let@iffalse\if@laomian@iacrcopyright\fi
+  \laomian@let@iffalse\if@laomian@fonts@source\fi
+  \laomian@let@iffalse\if@laomian@fonts@times\fi
+  \laomian@let@iffalse\if@laomian@fonts@palatino\fi
+  \laomian@let@iffalse\if@laomian@fonts@libertine\fi
+  \laomian@let@iffalse\if@laomian@fonts@concrete\fi
+  \def\laomian@formatchosen{focs-submission}%
+}
+
+\def\laomian@format@focs@submission@draft{%
+  \laomian@format@focs@submission
+  \laomian@let@iftrue\if@laomian@draft\fi
+  \laomian@let@iftrue\if@laomian@opensonright\fi
+  \def\laomian@formatchosen{focs-submission-draft}%
+}
+
 \def\laomian@declareformatoption#1#2{%
   \DeclareOption{format=#1}{%
     \if@laomian@formatchosen
@@ -198,6 +234,10 @@
   {\laomian@format@lncs@submission}
 \laomian@declareformatoption{lncs-submission-draft}
   {\laomian@format@lncs@submission@draft}
+\laomian@declareformatoption{focs-submission}
+  {\laomian@format@focs@submission}
+\laomian@declareformatoption{focs-submission-draft}
+  {\laomian@format@focs@submission@draft}
 
 \let\laomian@declareformatoption\laomian@undefined
 
@@ -214,90 +254,135 @@
 
 % Options --- layout=..., opens-on=..., bst=...,
 %             vec=..., links=..., fonts=..., underlines=...
-\def\laomian@delcaretwochoiceoption#1#2#3#4#5{%
-  \laomian@let@iffalse#1\fi
-  \DeclareOption{#3=#4}{%
-    #1%
-      \ClassError
-        {crypto-paper}
-        {I got contradictory "#3=..." options\MessageBreak
-          ("#4", "#5")}
-        {Remove extraneous "#3=..." from
-          "\protect\documentclass[...]\protect{crypto-paper\protect}".}%
-    \else
-      \laomian@ensure@formatchosen
-      \laomian@let@iftrue#1\fi
-      \laomian@let@iftrue#2\fi
-      \ClassInfo{crypto-paper}{[option] #3=#4}%
-    \fi
-  }%
-  \DeclareOption{#3=#5}{%
-    #1%
-      \ClassError
-        {crypto-paper}
-        {I got contradictory "#3=..." options\MessageBreak
-          ("#4", "#5")}
-        {Remove extraneous "#3=..." from
-          "\protect\documentclass[...]\protect{crypto-paper\protect}".}%
-    \else
-      \laomian@ensure@formatchosen
-      \laomian@let@iftrue#1\fi
-      \laomian@let@iffalse#2\fi
-      \ClassInfo{crypto-paper}{[option] #3=#5}%
-    \fi
-  }%
+\def\laomian@delcaremultiplechoiceoption#1#2#3{%
+  \laomian@let@iffalse#2\fi
+  \def#3{unset}%
+  \@ifstar
+    {\relax}%
+    {\laomian@delcaremultiplechoiceoption@next{#1}{#2}{#3}}%
 }
 
-\laomian@delcaretwochoiceoption
-  {\if@laomian@layoutchosen}
-  {\if@laomian@newlayout}
-  {layout}
-  {38x48}
-  {6x9}
+% #1 = name of option
+% #2 = \if@laomian@...chosen
+% #3 =    \laomian@...chosen
+% #4 =      name of choice
+% #5 = operation of choice
+\def\laomian@delcaremultiplechoiceoption@next#1#2#3#4#5{%
+  \DeclareOption{#1=#4}{%
+    #2%
+      \ClassError
+        {crypto-paper}
+        {I got contradictory "#1=..." options\MessageBreak
+          ("#3", "#4")}
+        {Remove extraneous "#1=..." from
+          "\protect\documentclass[...]\protect{crypto-paper\protect}".}%
+    \else
+      \laomian@ensure@formatchosen
+      #5%
+      \laomian@let@iftrue#2\fi
+      \def#3{#4}%
+      \ClassInfo{crypto-paper}{[option] #1=#4}%
+    \fi
+  }%
+  \@ifstar
+    {\relax}%
+    {\laomian@delcaremultiplechoiceoption@next{#1}{#2}{#3}}%
+}
 
-\laomian@delcaretwochoiceoption
-  {\if@laomian@opensonchosen}
-  {\if@laomian@opensonright}
-  {opens-on}
-  {right}
-  {any}
+\laomian@delcaremultiplechoiceoption
+  {layout}{\if@laomian@layoutchosen}{\laomian@layoutchosen}
+  {6x9}{%
+    \laomian@let@iffalse\if@laomian@layout@thirtyeight@fortyeight\fi
+    \laomian@let@iffalse\if@laomian@layout@sixpointfive@nine\fi
+  }
+  {38x48}{%
+    \laomian@let@iftrue\if@laomian@layout@thirtyeight@fortyeight\fi
+    \laomian@let@iffalse\if@laomian@layout@sixpointfive@nine\fi
+  }
+  {6.5x9}{%
+    \laomian@let@iffalse\if@laomian@layout@thirtyeight@fortyeight\fi
+    \laomian@let@iftrue\if@laomian@layout@sixpointfive@nine\fi
+  }
+  *
 
-\laomian@delcaretwochoiceoption
-  {\if@laomian@bstchosen}
-  {\if@laomian@alphabst}
-  {bst}
-  {alpha}
-  {splncs04}
+\laomian@delcaremultiplechoiceoption
+  {opens-on}{\if@laomian@opensonchosen}{\laomian@opensonchosen}
+  {right}{\laomian@let@iftrue\if@laomian@opensonright\fi}
+  {any}{\laomian@let@iffalse\if@laomian@opensonright\fi}
+  *
 
-\laomian@delcaretwochoiceoption
-  {\if@laomian@vecchosen}
-  {\if@laomian@vecisitbf}
-  {vec}
-  {itbf}
-  {bf}
+\laomian@delcaremultiplechoiceoption
+  {bst}{\if@laomian@bstchosen}{\laomian@bstchosen}
+  {alpha}{\laomian@let@iffalse\if@laomian@bst@splncszerofour\fi}
+  {splncs04}{\laomian@let@iftrue\if@laomian@bst@splncszerofour\fi}
+  *
 
-\laomian@delcaretwochoiceoption
-  {\if@laomian@linkschosen}
-  {\if@laomian@colorfullinks}
-  {links}
-  {colorful}
-  {blue}
+\laomian@delcaremultiplechoiceoption
+  {vec}{\if@laomian@vecchosen}{\laomian@vecchosen}
+  {itbf}{\laomian@let@iftrue\if@laomian@vecisitbf\fi}
+  {bf}{\laomian@let@iffalse\if@laomian@vecisitbf\fi}
+  *
 
-\laomian@delcaretwochoiceoption
-  {\if@laomian@fontschosen}
-  {\if@laomian@sourcefonts}
-  {fonts}
-  {source}
-  {computer-modern}
+\laomian@delcaremultiplechoiceoption
+  {links}{\if@laomian@linkschosen}{\laomian@linkschosen}
+  {colorful}{\laomian@let@iftrue\if@laomian@colorfullinks\fi}
+  {blue}{\laomian@let@iffalse\if@laomian@colorfullinks\fi}
+  *
 
-\laomian@delcaretwochoiceoption
-  {\if@laomian@underlineschosen}
-  {\if@laomian@smartunderlines}
-  {underlines}
-  {smart}
-  {dumb}
+\laomian@delcaremultiplechoiceoption
+  {fonts}{\if@laomian@fontschosen}{\laomian@fontschosen}
+  {computer-modern}{%
+    \laomian@let@iffalse\if@laomian@fonts@source\fi
+    \laomian@let@iffalse\if@laomian@fonts@times\fi
+    \laomian@let@iffalse\if@laomian@fonts@palatino\fi
+    \laomian@let@iffalse\if@laomian@fonts@libertine\fi
+    \laomian@let@iffalse\if@laomian@fonts@concrete\fi
+  }
+  {source}{%
+    \laomian@let@iftrue\if@laomian@fonts@source\fi
+    \laomian@let@iffalse\if@laomian@fonts@times\fi
+    \laomian@let@iffalse\if@laomian@fonts@palatino\fi
+    \laomian@let@iffalse\if@laomian@fonts@libertine\fi
+    \laomian@let@iffalse\if@laomian@fonts@concrete\fi
+  }
+  {times}{%
+    \laomian@let@iffalse\if@laomian@fonts@source\fi
+    \laomian@let@iftrue\if@laomian@fonts@times\fi
+    \laomian@let@iffalse\if@laomian@fonts@palatino\fi
+    \laomian@let@iffalse\if@laomian@fonts@libertine\fi
+    \laomian@let@iffalse\if@laomian@fonts@concrete\fi
+  }
+  {palatino}{%
+    \laomian@let@iffalse\if@laomian@fonts@source\fi
+    \laomian@let@iffalse\if@laomian@fonts@times\fi
+    \laomian@let@iftrue\if@laomian@fonts@palatino\fi
+    \laomian@let@iffalse\if@laomian@fonts@libertine\fi
+    \laomian@let@iffalse\if@laomian@fonts@concrete\fi
+  }
+  {libertine}{%
+    \laomian@let@iffalse\if@laomian@fonts@source\fi
+    \laomian@let@iffalse\if@laomian@fonts@times\fi
+    \laomian@let@iffalse\if@laomian@fonts@palatino\fi
+    \laomian@let@iftrue\if@laomian@fonts@libertine\fi
+    \laomian@let@iffalse\if@laomian@fonts@concrete\fi
+  }
+  {concrete}{%
+    \laomian@let@iffalse\if@laomian@fonts@source\fi
+    \laomian@let@iffalse\if@laomian@fonts@times\fi
+    \laomian@let@iffalse\if@laomian@fonts@palatino\fi
+    \laomian@let@iffalse\if@laomian@fonts@libertine\fi
+    \laomian@let@iftrue\if@laomian@fonts@concrete\fi
+  }
+  *
 
-\let\laomian@delcaretwochoiceoption\laomian@undefined
+\laomian@delcaremultiplechoiceoption
+  {underlines}{\if@laomian@underlineschosen}{\laomian@underlineschosen}
+  {smart}{\laomian@let@iftrue\if@laomian@smartunderlines\fi}
+  {dumb}{\laomian@let@iffalse\if@laomian@smartunderlines\fi}
+  *
+
+\let\laomian@delcaremultiplechoiceoption\laomian@undefined
+\let\laomian@delcaremultiplechoiceoption@next\laomian@undefined
 
 % Options --- non-anonymous
 \DeclareOption{non-anonymous}{%
@@ -368,12 +453,17 @@
 % "no-table-of-contents", "no-separate-title-page",
 % "no-lncs-array-table-margins", "no-swapped-table-caption-margins"
 % by resetting them back to default.
-\if@laomian@lncs
-  \laomian@let@iftrue\if@laomian@newlayout\fi
+\if@laomian@base@lncs
+  \laomian@let@iffalse\if@laomian@layout@thirtyeight@fortyeight\fi
+  \laomian@let@iffalse\if@laomian@layout@sixpointfive@nine\fi
   % \if@laomian@tableofontents    is already    \iffalse.
   % \if@laomian@separatetitlepage is already    \iffalse.
   % \if@laomian@opensonright      is handled by \if@laomian@separatetitlepage.
-  \laomian@let@iffalse\if@laomian@sourcefonts\fi
+  \laomian@let@iffalse\if@laomian@fonts@source\fi
+  \laomian@let@iffalse\if@laomian@fonts@times\fi
+  \laomian@let@iffalse\if@laomian@fonts@palatino\fi
+  \laomian@let@iffalse\if@laomian@fonts@libertine\fi
+  \laomian@let@iffalse\if@laomian@fonts@concrete\fi
   \laomian@let@iftrue\if@laomian@lncsarraytablemargins\fi
   \laomian@let@iftrue\if@laomian@swaptablecaptionmargins\fi
 \fi
@@ -401,7 +491,7 @@
 
 % Output information about option processing.
 \ClassInfo{crypto-paper}{Options have been proceesed}
-\ClassInfo{crypto-paper}{format = \laomian@formatchosen}
+\ClassInfo{crypto-paper}{[format] \laomian@formatchosen}
 
 \def\laomian@output@conditional#1{%
   \begingroup
@@ -416,28 +506,32 @@
   \endgroup
 }
 
-\laomian@output@conditional{formatchosen}{            }
-\laomian@output@conditional{lncs}{                    }
-\laomian@output@conditional{newlayout}{               }
-\laomian@output@conditional{draft}{                   }
-\laomian@output@conditional{runningheads}{            }
-\laomian@output@conditional{anonymous}{               }
-\laomian@output@conditional{orcidicons}{              }
-\laomian@output@conditional{iacrcopyright}{           }
-\laomian@output@conditional{pagenumbers}{             }
-\laomian@output@conditional{totalpagenumbers}{        }
-\laomian@output@conditional{tableofcontents}{         }
-\laomian@output@conditional{separatetitlepage}{       }
-\laomian@output@conditional{opensonright}{            }
-\laomian@output@conditional{alphabst}{                }
-\laomian@output@conditional{supplementarymaterials}{  }
-\laomian@output@conditional{pagelimits}{              }
-\laomian@output@conditional{vecisitbf}{               }
-\laomian@output@conditional{colorfullinks}{           }
-\laomian@output@conditional{sourcefonts}{             }
-\laomian@output@conditional{smartunderlines}{         }
-\laomian@output@conditional{lncsarraytablemargins}{   }
-\laomian@output@conditional{swaptablecaptionmargins}{ }
+\laomian@output@conditional{base@lncs}{                    }
+\laomian@output@conditional{layout@thirtyeight@fortyeight}{}
+\laomian@output@conditional{layout@sixpointfive@nine}{     }
+\laomian@output@conditional{draft}{                        }
+\laomian@output@conditional{runningheads}{                 }
+\laomian@output@conditional{anonymous}{                    }
+\laomian@output@conditional{orcidicons}{                   }
+\laomian@output@conditional{iacrcopyright}{                }
+\laomian@output@conditional{pagenumbers}{                  }
+\laomian@output@conditional{totalpagenumbers}{             }
+\laomian@output@conditional{tableofcontents}{              }
+\laomian@output@conditional{separatetitlepage}{            }
+\laomian@output@conditional{opensonright}{                 }
+\laomian@output@conditional{bst@splncszerofour}{           }
+\laomian@output@conditional{supplementarymaterials}{       }
+\laomian@output@conditional{pagelimits}{                   }
+\laomian@output@conditional{vecisitbf}{                    }
+\laomian@output@conditional{colorfullinks}{                }
+\laomian@output@conditional{fonts@source}{                 }
+\laomian@output@conditional{fonts@times}{                  }
+\laomian@output@conditional{fonts@palatino}{               }
+\laomian@output@conditional{fonts@libertine}{              }
+\laomian@output@conditional{fonts@concrete}{               }
+\laomian@output@conditional{smartunderlines}{              }
+\laomian@output@conditional{lncsarraytablemargins}{        }
+\laomian@output@conditional{swaptablecaptionmargins}{      }
 
 \let\laomian@output@conditional\laomian@undefined
 \let\laomian@output@conditional@next\laomian@undefined
@@ -450,17 +544,19 @@
 
 % -------------------- LNCS/ePrint begins --------------------
 
-\if@laomian@lncs
+\if@laomian@base@lncs
   \if@laomian@runningheads
     \LoadClass[letterpaper,runningheads,twoside,10pt,onecolumn,final]{llncs}
   \else
     \LoadClass[letterpaper,twoside,10pt,onecolumn,final]{llncs}
   \fi
   \long\def\WideNarrow#1#2{#2}
+  \def\laomian@anonymous@minusvspace{\vspace*{-7.5ex}}
   % Layout is specified by LNCS in non-draft mode.
   % Adjust margin notes for draft mode.
   \if@laomian@draft
     \setlength{\marginparwidth}{6.6cm}
+    % This is the two-sided case.
     % \pdfpagewidth   = 40258437sp
     % \hoffset        = 0sp
     % \textwidth      = 22749088sp
@@ -489,11 +585,11 @@
 \else
   \LoadClass[letterpaper,twoside,11pt,onecolumn,final]{article}
   \long\def\WideNarrow#1#2{#1}
-  \if@laomian@newlayout
-    % New layout (the 2023 version):
-    %     \textwidth  = 38\f@size,
-    %     \textheight = 48\baselineskip,
-    %     \flushbottom.
+  \def\laomian@anonymous@minusvspace{\vspace*{-12.5ex}}
+  \if@laomian@layout@thirtyeight@fortyeight
+    % 38x48 (preferred by the 2023 version)
+    %     \textwidth  = 38\f@size
+    %     \textheight = 48\baselineskip
     \flushbottom
     \setlength{\textwidth}{416.1pt}
     \setlength{\hoffset}{0pt}
@@ -523,8 +619,30 @@
       \setlength{\oddsidemargin}{-44.3475pt}
       \setlength{\evensidemargin}{98.0025pt}
     \fi
+  \else\if@laomian@layout@sixpointfive@nine
+    % 6.5x9 (FOCS submission, 1-inch to each side)
+    \flushbottom
+    \setlength{\textwidth}{6.5in}
+    \setlength{\hoffset}{0pt}
+    \setlength{\marginparsep}{4pt}
+    \setlength{\marginparwidth}{58pt}
+    % This is the one-sided case.
+    % \textwidth = 30785863sp
+    \setlength{\oddsidemargin}{0pt}
+    \setlength{\evensidemargin}{0pt}
+    \setlength{\textheight}{9in}
+    \setlength{\voffset}{-58pt}
+    \if@laomian@draft
+      % This is the two-sided case.
+      % \oddsidemargin  = -4063231.5sp
+      % \evensidemargin = 4063232.5sp
+      % We round to the even number.
+      \setlength{\marginparwidth}{120pt}
+      \setlength{\oddsidemargin}{-4063232sp}
+      \setlength{\evensidemargin}{4063232sp}
+    \fi
   \else
-    % Legacy layout (the 2022 version).
+    % 6x9 (preferred by the 2022 version)
     \raggedbottom
     \setlength{\textwidth}{6in}
     \setlength{\hoffset}{0pt}
@@ -534,7 +652,7 @@
     % \textwidth     = 28417720sp
     % \oddsidemargin = \evensidemargin = 1184072sp
     % 0.25in is internally represented by 1184071sp,
-    % so we must specify both dimensions in "sp".
+    % so we specify both dimensions in "sp".
     \setlength{\oddsidemargin}{1184072sp}
     \setlength{\evensidemargin}{1184072sp}
     \setlength{\textheight}{9in}
@@ -555,7 +673,7 @@
       \setlength{\oddsidemargin}{-3700223sp}
       \setlength{\evensidemargin}{6068367sp}
     \fi
-  \fi
+  \fi\fi
   % Pick up array/table inter-column margins from LNCS.
   \if@laomian@lncsarraytablemargins
     \setlength{\arraycolsep}{1.4\p@}
@@ -823,6 +941,7 @@
   \let\laomian@anonymous@bak@author\author
   \let\laomian@anonymous@bak@authorrunning\authorrunning
   \let\laomian@anonymous@bak@institute\institute
+  \let\laomian@anonymous@bak@date\date
   % Replace the metadata control sequences.
   \let\author\laomian@eatoneargument
   \let\authorrunning\laomian@eatoneargument
@@ -834,16 +953,19 @@
     \let\author\laomian@anonymous@bak@author
     \let\authorrunning\laomian@anonymous@bak@authorrunning
     \let\institute\laomian@anonymous@bak@institute
+    \let\date\laomian@anonymous@bak@date
     \let\maketitle\laomian@anonymous@bak@maketitle
     % Clear the back-ups.
     \let\laomian@anonymous@bak@author\laomian@undefined
     \let\laomian@anonymous@bak@authorrunning\laomian@undefined
     \let\laomian@anonymous@bak@institute\laomian@undefined
+    \let\laomian@anonymous@bak@date\laomian@undefined
     \let\laomian@anonymous@bak@maketitle\laomian@undefined
     % Supply the metadata.
-    \author{}\authorrunning{}\institute{}%
+    \author{}\authorrunning{}\institute{}\date{}%
     % Invoke the original \maketitle and remove the extra space.
-    \maketitle\vspace*{-7.5ex}%
+    \maketitle
+    \laomian@anonymous@minusvspace
   }
 \else
   \def\LaomianAcknowledgments{\input{acknowledgments}}
@@ -1060,20 +1182,20 @@
 
 % -------------------- bibliography begins --------------------
 
-\if@laomian@alphabst
-  \long\def\BibAlphaNumeric#1#2{#1}
-  \RequirePackage[noadjust,nomove,nosort,nocompress]{cite}
+\if@laomian@bst@splncszerofour
+  \long\def\BibAlphaNumeric#1#2{#2}
+  \RequirePackage[noadjust,nomove]{cite}
   \def\LaomianBibliography#1{%
-    \bibliographystyle{alpha}%
+    \bibliographystyle{splncs04}%
     \laomian@tableofcontents@bib@begin
     \bibliography{#1}%
     \laomian@tableofcontents@bib@end
   }
 \else
-  \long\def\BibAlphaNumeric#1#2{#2}
-  \RequirePackage[noadjust,nomove]{cite}
+  \long\def\BibAlphaNumeric#1#2{#1}
+  \RequirePackage[noadjust,nomove,nosort,nocompress]{cite}
   \def\LaomianBibliography#1{%
-    \bibliographystyle{splncs04}%
+    \bibliographystyle{alpha}%
     \laomian@tableofcontents@bib@begin
     \bibliography{#1}%
     \laomian@tableofcontents@bib@end
@@ -1212,7 +1334,7 @@
 \def\proof{\begingroup\pushQED{\qed}\begin{laomian@proof}}
 \def\endproof{\popQED\end{laomian@proof}\endgroup}
 
-\if@laomian@lncs
+\if@laomian@base@lncs
   \theoremstyle{plain}
 \else
   \theoremstyle{definition}
@@ -1348,7 +1470,7 @@
 
 % -------------------- fonts begin --------------------
 
-\if@laomian@sourcefonts
+\if@laomian@fonts@source
   \RequirePackage[
     default,lining,
     semibold,regular,
@@ -1379,7 +1501,6 @@
   % Adjust underline thickness to match Source Serif Pro.
   \def\ULthickness{0.111111ex}
   % Reapply adjustments.
-  \let\dumbemptyset\emptyset
   \let\emptyset\varnothing
   \if@laomian@vecisitbf
     \let\vec\laomian@vec@itbf
@@ -1390,7 +1511,19 @@
   \def\smallomega{\operatorname{\upomega}}
   % Match the new blackboard bold font.
   \def\1{{\mathds{1}}}
-\fi
+\else\if@laomian@fonts@times
+  \ClassError{crypto-paper}{Support for "fonts=times" not there yet}
+    {Use another font or contribute to this project.}
+\else\if@laomian@fonts@palatino
+  \ClassError{crypto-paper}{Support for "fonts=palatino" not there yet}
+    {Use another font or contribute to this project.}
+\else\if@laomian@fonts@libertine
+  \ClassError{crypto-paper}{Support for "fonts=libertine" not there yet}
+    {Use another font or contribute to this project.}
+\else\if@laomian@fonts@concrete
+  \ClassError{crypto-paper}{Support for "fonts=concrete" not there yet}
+    {Use another font or contribute to this project.}
+\fi\fi\fi\fi\fi
 
 % -------------------- fonts end --------------------
 
@@ -1461,7 +1594,7 @@
   \def\concat{{\parallel}}
   \let\bot\laomian@bak@bot
   % Automatically date the document.
-  \if@laomian@lncs\else\AtBeginDocument{\DateTodayMonthYear}\fi
+  \if@laomian@base@lncs\else\AtBeginDocument{\DateTodayMonthYear}\fi
   % Define the "security" environment.
   \def\security{\begin{itemize}\upshape}
   \def\endsecurity{\end{itemize}}
@@ -1477,7 +1610,7 @@
 
 % -------------------- compatibilities   end --------------------
 
-\if@laomian@lncs
+\if@laomian@base@lncs
   % Redefine \UrlFont after the packages might have messed with it.
   \def\UrlFont{\rmfamily}
 \fi
