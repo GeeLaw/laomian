@@ -214,92 +214,6 @@
 
 % Options --- layout=..., opens-on=..., bst=...,
 %             vec=..., links=..., fonts=..., underlines=...
-\def\laomian@delcaretwochoiceoption#1#2#3#4#5{%
-  \laomian@let@iffalse#1\fi
-  \DeclareOption{#3=#4}{%
-    #1%
-      \ClassError
-        {crypto-paper}
-        {I got contradictory "#3=..." options\MessageBreak
-          ("#4", "#5")}
-        {Remove extraneous "#3=..." from
-          "\protect\documentclass[...]\protect{crypto-paper\protect}".}%
-    \else
-      \laomian@ensure@formatchosen
-      \laomian@let@iftrue#1\fi
-      \laomian@let@iftrue#2\fi
-      \ClassInfo{crypto-paper}{[option] #3=#4}%
-    \fi
-  }%
-  \DeclareOption{#3=#5}{%
-    #1%
-      \ClassError
-        {crypto-paper}
-        {I got contradictory "#3=..." options\MessageBreak
-          ("#4", "#5")}
-        {Remove extraneous "#3=..." from
-          "\protect\documentclass[...]\protect{crypto-paper\protect}".}%
-    \else
-      \laomian@ensure@formatchosen
-      \laomian@let@iftrue#1\fi
-      \laomian@let@iffalse#2\fi
-      \ClassInfo{crypto-paper}{[option] #3=#5}%
-    \fi
-  }%
-}
-
-\laomian@delcaretwochoiceoption
-  {\if@laomian@layoutchosen}
-  {\if@laomian@layout@thirtyeight@fortyeight}
-  {layout}
-  {38x48}
-  {6x9}
-
-\laomian@delcaretwochoiceoption
-  {\if@laomian@opensonchosen}
-  {\if@laomian@opensonright}
-  {opens-on}
-  {right}
-  {any}
-
-\laomian@delcaretwochoiceoption
-  {\if@laomian@bstchosen}
-  {\if@laomian@bst@alpha}
-  {bst}
-  {alpha}
-  {splncs04}
-
-\laomian@delcaretwochoiceoption
-  {\if@laomian@vecchosen}
-  {\if@laomian@vecisitbf}
-  {vec}
-  {itbf}
-  {bf}
-
-\laomian@delcaretwochoiceoption
-  {\if@laomian@linkschosen}
-  {\if@laomian@colorfullinks}
-  {links}
-  {colorful}
-  {blue}
-
-\laomian@delcaretwochoiceoption
-  {\if@laomian@fontschosen}
-  {\if@laomian@fonts@source}
-  {fonts}
-  {source}
-  {computer-modern}
-
-\laomian@delcaretwochoiceoption
-  {\if@laomian@underlineschosen}
-  {\if@laomian@smartunderlines}
-  {underlines}
-  {smart}
-  {dumb}
-
-\let\laomian@delcaretwochoiceoption\laomian@undefined
-
-% Options ---
 \def\laomian@delcaremultiplechoiceoption#1#2#3{%
   \laomian@let@iffalse#2\fi
   \def#3{unset}%
@@ -335,6 +249,47 @@
     {\laomian@delcaremultiplechoiceoption@next{#1}{#2}{#3}}%
 }
 
+\laomian@delcaremultiplechoiceoption
+  {layout}{\if@laomian@layoutchosen}{\laomian@layoutchosen}
+  {38x48}{\laomian@let@iftrue\if@laomian@layout@thirtyeight@fortyeight\fi}
+  {6x9}{\laomian@let@iffalse\if@laomian@layout@thirtyeight@fortyeight\fi}
+  *
+
+\laomian@delcaremultiplechoiceoption
+  {opens-on}{\if@laomian@opensonchosen}{\laomian@opensonchosen}
+  {right}{\laomian@let@iftrue\if@laomian@opensonright\fi}
+  {any}{\laomian@let@iffalse\if@laomian@opensonright\fi}
+  *
+
+\laomian@delcaremultiplechoiceoption
+  {bst}{\if@laomian@bstchosen}{\laomian@bstchosen}
+  {alpha}{\laomian@let@iftrue\if@laomian@bst@alpha\fi}
+  {splncs04}{\laomian@let@iffalse\if@laomian@bst@alpha\fi}
+  *
+
+\laomian@delcaremultiplechoiceoption
+  {vec}{\if@laomian@vecchosen}{\laomian@vecchosen}
+  {itbf}{\laomian@let@iftrue\if@laomian@vecisitbf\fi}
+  {bf}{\laomian@let@iffalse\if@laomian@vecisitbf\fi}
+  *
+
+\laomian@delcaremultiplechoiceoption
+  {links}{\if@laomian@linkschosen}{\laomian@linkschosen}
+  {colorful}{\laomian@let@iftrue\if@laomian@colorfullinks\fi}
+  {blue}{\laomian@let@iffalse\if@laomian@colorfullinks\fi}
+  *
+
+\laomian@delcaremultiplechoiceoption
+  {fonts}{\if@laomian@fontschosen}{\laomian@fontschosen}
+  {source}{\laomian@let@iftrue\if@laomian@fonts@source\fi}
+  {computer-modern}{\laomian@let@iffalse\if@laomian@fonts@source\fi}
+  *
+
+\laomian@delcaremultiplechoiceoption
+  {underlines}{\if@laomian@underlineschosen}{\laomian@underlineschosen}
+  {smart}{\laomian@let@iftrue\if@laomian@smartunderlines\fi}
+  {dumb}{\laomian@let@iffalse\if@laomian@smartunderlines\fi}
+  *
 
 \let\laomian@delcaremultiplechoiceoption\laomian@undefined
 \let\laomian@delcaremultiplechoiceoption@next\laomian@undefined
