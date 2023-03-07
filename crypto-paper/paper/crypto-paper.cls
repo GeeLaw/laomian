@@ -42,6 +42,7 @@
 
 \laomian@let@iffalse\if@laomian@base@lncs\fi
 \laomian@let@iffalse\if@laomian@layout@thirtyeight@fortyeight\fi
+\laomian@let@iffalse\if@laomian@layout@sixpointfive@nine\fi
 \laomian@let@iffalse\if@laomian@draft\fi
 \laomian@let@iffalse\if@laomian@runningheads\fi
 \laomian@let@iffalse\if@laomian@anonymous\fi
@@ -69,6 +70,7 @@
 \def\laomian@format@eprint{%
   \laomian@let@iffalse\if@laomian@base@lncs\fi
   \laomian@let@iftrue\if@laomian@layout@thirtyeight@fortyeight\fi
+  \laomian@let@iffalse\if@laomian@layout@sixpointfive@nine\fi
   \laomian@let@iffalse\if@laomian@draft\fi
   \laomian@let@iffalse\if@laomian@runningheads\fi
   \laomian@let@iffalse\if@laomian@anonymous\fi
@@ -100,7 +102,8 @@
 
 \def\laomian@format@lncs@camera@ready{%
   \laomian@let@iftrue\if@laomian@base@lncs\fi
-  \laomian@let@iftrue\if@laomian@layout@thirtyeight@fortyeight\fi
+  \laomian@let@iffalse\if@laomian@layout@thirtyeight@fortyeight\fi
+  \laomian@let@iffalse\if@laomian@layout@sixpointfive@nine\fi
   \laomian@let@iffalse\if@laomian@draft\fi
   \laomian@let@iffalse\if@laomian@runningheads\fi
   \laomian@let@iffalse\if@laomian@anonymous\fi
@@ -251,8 +254,18 @@
 
 \laomian@delcaremultiplechoiceoption
   {layout}{\if@laomian@layoutchosen}{\laomian@layoutchosen}
-  {38x48}{\laomian@let@iftrue\if@laomian@layout@thirtyeight@fortyeight\fi}
-  {6x9}{\laomian@let@iffalse\if@laomian@layout@thirtyeight@fortyeight\fi}
+  {6x9}{%
+    \laomian@let@iffalse\if@laomian@layout@thirtyeight@fortyeight\fi
+    \laomian@let@iffalse\if@laomian@layout@sixpointfive@nine\fi
+  }
+  {38x48}{%
+    \laomian@let@iftrue\if@laomian@layout@thirtyeight@fortyeight\fi
+    \laomian@let@iffalse\if@laomian@layout@sixpointfive@nine\fi
+  }
+  {6.5x9}{%
+    \laomian@let@iffalse\if@laomian@layout@thirtyeight@fortyeight\fi
+    \laomian@let@iftrue\if@laomian@layout@sixpointfive@nine\fi
+  }
   *
 
 \laomian@delcaremultiplechoiceoption
@@ -364,7 +377,8 @@
 % "no-lncs-array-table-margins", "no-swapped-table-caption-margins"
 % by resetting them back to default.
 \if@laomian@base@lncs
-  \laomian@let@iftrue\if@laomian@layout@thirtyeight@fortyeight\fi
+  \laomian@let@iffalse\if@laomian@layout@thirtyeight@fortyeight\fi
+  \laomian@let@iffalse\if@laomian@layout@sixpointfive@nine\fi
   % \if@laomian@tableofontents    is already    \iffalse.
   % \if@laomian@separatetitlepage is already    \iffalse.
   % \if@laomian@opensonright      is handled by \if@laomian@separatetitlepage.
@@ -414,6 +428,7 @@
 \laomian@output@conditional{formatchosen}{                 }
 \laomian@output@conditional{base@lncs}{                    }
 \laomian@output@conditional{layout@thirtyeight@fortyeight}{}
+\laomian@output@conditional{layout@sixpointfive@nine}{     }
 \laomian@output@conditional{draft}{                        }
 \laomian@output@conditional{runningheads}{                 }
 \laomian@output@conditional{anonymous}{                    }
@@ -456,6 +471,7 @@
   % Adjust margin notes for draft mode.
   \if@laomian@draft
     \setlength{\marginparwidth}{6.6cm}
+    % This is the two-sided case.
     % \pdfpagewidth   = 40258437sp
     % \hoffset        = 0sp
     % \textwidth      = 22749088sp
@@ -485,10 +501,9 @@
   \LoadClass[letterpaper,twoside,11pt,onecolumn,final]{article}
   \long\def\WideNarrow#1#2{#1}
   \if@laomian@layout@thirtyeight@fortyeight
-    % New layout (the 2023 version):
-    %     \textwidth  = 38\f@size,
-    %     \textheight = 48\baselineskip,
-    %     \flushbottom.
+    % 38x48 (preferred by the 2023 version)
+    %     \textwidth  = 38\f@size
+    %     \textheight = 48\baselineskip
     \flushbottom
     \setlength{\textwidth}{416.1pt}
     \setlength{\hoffset}{0pt}
@@ -518,8 +533,30 @@
       \setlength{\oddsidemargin}{-44.3475pt}
       \setlength{\evensidemargin}{98.0025pt}
     \fi
+  \else\if@laomian@layout@sixpointfive@nine
+    % 6.5x9 (FOCS submission, 1-inch to each side)
+    \flushbottom
+    \setlength{\textwidth}{6.5in}
+    \setlength{\hoffset}{0pt}
+    \setlength{\marginparsep}{4pt}
+    \setlength{\marginparwidth}{58pt}
+    % This is the one-sided case.
+    % \textwidth = 30785863sp
+    \setlength{\oddsidemargin}{0pt}
+    \setlength{\evensidemargin}{0pt}
+    \setlength{\textheight}{9in}
+    \setlength{\voffset}{-58pt}
+    \if@laomian@draft
+      % This is the two-sided case.
+      % \oddsidemargin  = -4063231.5sp
+      % \evensidemargin = 4063232.5sp
+      % We round to the even number.
+      \setlength{\marginparwidth}{120pt}
+      \setlength{\oddsidemargin}{-4063232sp}
+      \setlength{\evensidemargin}{4063232sp}
+    \fi
   \else
-    % Legacy layout (the 2022 version).
+    % 6x9 (preferred by the 2022 version)
     \raggedbottom
     \setlength{\textwidth}{6in}
     \setlength{\hoffset}{0pt}
@@ -529,7 +566,7 @@
     % \textwidth     = 28417720sp
     % \oddsidemargin = \evensidemargin = 1184072sp
     % 0.25in is internally represented by 1184071sp,
-    % so we must specify both dimensions in "sp".
+    % so we specify both dimensions in "sp".
     \setlength{\oddsidemargin}{1184072sp}
     \setlength{\evensidemargin}{1184072sp}
     \setlength{\textheight}{9in}
@@ -550,7 +587,7 @@
       \setlength{\oddsidemargin}{-3700223sp}
       \setlength{\evensidemargin}{6068367sp}
     \fi
-  \fi
+  \fi\fi
   % Pick up array/table inter-column margins from LNCS.
   \if@laomian@lncsarraytablemargins
     \setlength{\arraycolsep}{1.4\p@}
