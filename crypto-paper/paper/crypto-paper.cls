@@ -1471,7 +1471,6 @@
   % Adjust underline thickness to match Source Serif Pro.
   \def\ULthickness{0.111111ex}
   % Reapply adjustments.
-  \let\dumbemptyset\emptyset
   \let\emptyset\varnothing
   \if@laomian@vecisitbf
     \let\vec\laomian@vec@itbf
