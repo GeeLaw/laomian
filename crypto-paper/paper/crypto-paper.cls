@@ -481,7 +481,6 @@
   \endgroup
 }
 
-\laomian@output@conditional{formatchosen}{                 }
 \laomian@output@conditional{base@lncs}{                    }
 \laomian@output@conditional{layout@thirtyeight@fortyeight}{}
 \laomian@output@conditional{layout@sixpointfive@nine}{     }
