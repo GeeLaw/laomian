@@ -53,7 +53,7 @@
 \laomian@let@iffalse\if@laomian@tableofcontents\fi
 \laomian@let@iffalse\if@laomian@separatetitlepage\fi
 \laomian@let@iffalse\if@laomian@opensonright\fi
-\laomian@let@iffalse\if@laomian@bst@alpha\fi
+\laomian@let@iffalse\if@laomian@bst@splncszerofour\fi
 \laomian@let@iffalse\if@laomian@supplementarymaterials\fi
 \laomian@let@iffalse\if@laomian@pagelimits\fi
 \laomian@let@iffalse\if@laomian@vecisitbf\fi
@@ -81,7 +81,7 @@
   \laomian@let@iftrue\if@laomian@tableofcontents\fi
   \laomian@let@iftrue\if@laomian@separatetitlepage\fi
   \laomian@let@iffalse\if@laomian@opensonright\fi
-  \laomian@let@iftrue\if@laomian@bst@alpha\fi
+  \laomian@let@iffalse\if@laomian@bst@splncszerofour\fi
   \laomian@let@iffalse\if@laomian@supplementarymaterials\fi
   \laomian@let@iffalse\if@laomian@pagelimits\fi
   \laomian@let@iftrue\if@laomian@vecisitbf\fi
@@ -114,7 +114,7 @@
   \laomian@let@iffalse\if@laomian@tableofcontents\fi
   \laomian@let@iffalse\if@laomian@separatetitlepage\fi
   \laomian@let@iffalse\if@laomian@opensonright\fi
-  \laomian@let@iffalse\if@laomian@bst@alpha\fi
+  \laomian@let@iftrue\if@laomian@bst@splncszerofour\fi
   \laomian@let@iffalse\if@laomian@supplementarymaterials\fi
   \laomian@let@iftrue\if@laomian@pagelimits\fi
   \laomian@let@iftrue\if@laomian@vecisitbf\fi
@@ -276,8 +276,8 @@
 
 \laomian@delcaremultiplechoiceoption
   {bst}{\if@laomian@bstchosen}{\laomian@bstchosen}
-  {alpha}{\laomian@let@iftrue\if@laomian@bst@alpha\fi}
-  {splncs04}{\laomian@let@iffalse\if@laomian@bst@alpha\fi}
+  {alpha}{\laomian@let@iffalse\if@laomian@bst@splncszerofour\fi}
+  {splncs04}{\laomian@let@iftrue\if@laomian@bst@splncszerofour\fi}
   *
 
 \laomian@delcaremultiplechoiceoption
@@ -439,7 +439,7 @@
 \laomian@output@conditional{tableofcontents}{              }
 \laomian@output@conditional{separatetitlepage}{            }
 \laomian@output@conditional{opensonright}{                 }
-\laomian@output@conditional{bst@alpha}{                    }
+\laomian@output@conditional{bst@splncszerofour}{           }
 \laomian@output@conditional{supplementarymaterials}{       }
 \laomian@output@conditional{pagelimits}{                   }
 \laomian@output@conditional{vecisitbf}{                    }
@@ -1092,20 +1092,20 @@
 
 % -------------------- bibliography begins --------------------
 
-\if@laomian@bst@alpha
-  \long\def\BibAlphaNumeric#1#2{#1}
-  \RequirePackage[noadjust,nomove,nosort,nocompress]{cite}
+\if@laomian@bst@splncszerofour
+  \long\def\BibAlphaNumeric#1#2{#2}
+  \RequirePackage[noadjust,nomove]{cite}
   \def\LaomianBibliography#1{%
-    \bibliographystyle{alpha}%
+    \bibliographystyle{splncs04}%
     \laomian@tableofcontents@bib@begin
     \bibliography{#1}%
     \laomian@tableofcontents@bib@end
   }
 \else
-  \long\def\BibAlphaNumeric#1#2{#2}
-  \RequirePackage[noadjust,nomove]{cite}
+  \long\def\BibAlphaNumeric#1#2{#1}
+  \RequirePackage[noadjust,nomove,nosort,nocompress]{cite}
   \def\LaomianBibliography#1{%
-    \bibliographystyle{splncs04}%
+    \bibliographystyle{alpha}%
     \laomian@tableofcontents@bib@begin
     \bibliography{#1}%
     \laomian@tableofcontents@bib@end
