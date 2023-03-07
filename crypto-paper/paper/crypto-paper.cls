@@ -180,6 +180,27 @@
   \def\laomian@formatchosen{lncs-submission-draft}%
 }
 
+\def\laomian@format@focs@submission{%
+  \laomian@format@eprint
+  \laomian@let@iffalse\if@laomian@layout@thirtyeight@fortyeight\fi
+  \laomian@let@iftrue\if@laomian@layout@sixpointfive@nine\fi
+  \laomian@let@iftrue\if@laomian@anonymous\fi
+  \laomian@let@iffalse\if@laomian@iacrcopyright\fi
+  \laomian@let@iffalse\if@laomian@fonts@source\fi
+  \laomian@let@iffalse\if@laomian@fonts@times\fi
+  \laomian@let@iffalse\if@laomian@fonts@palatino\fi
+  \laomian@let@iffalse\if@laomian@fonts@libertine\fi
+  \laomian@let@iffalse\if@laomian@fonts@concrete\fi
+  \def\laomian@formatchosen{focs-submission}%
+}
+
+\def\laomian@format@focs@submission@draft{%
+  \laomian@format@focs@submission
+  \laomian@let@iftrue\if@laomian@draft\fi
+  \laomian@let@iftrue\if@laomian@opensonright\fi
+  \def\laomian@formatchosen{focs-submission-draft}%
+}
+
 \def\laomian@declareformatoption#1#2{%
   \DeclareOption{format=#1}{%
     \if@laomian@formatchosen
@@ -213,6 +234,10 @@
   {\laomian@format@lncs@submission}
 \laomian@declareformatoption{lncs-submission-draft}
   {\laomian@format@lncs@submission@draft}
+\laomian@declareformatoption{focs-submission}
+  {\laomian@format@focs@submission}
+\laomian@declareformatoption{focs-submission-draft}
+  {\laomian@format@focs@submission@draft}
 
 \let\laomian@declareformatoption\laomian@undefined
 
@@ -526,6 +551,7 @@
     \LoadClass[letterpaper,twoside,10pt,onecolumn,final]{llncs}
   \fi
   \long\def\WideNarrow#1#2{#2}
+  \def\laomian@anonymous@minusvspace{\vspace*{-7.5ex}}
   % Layout is specified by LNCS in non-draft mode.
   % Adjust margin notes for draft mode.
   \if@laomian@draft
@@ -559,6 +585,7 @@
 \else
   \LoadClass[letterpaper,twoside,11pt,onecolumn,final]{article}
   \long\def\WideNarrow#1#2{#1}
+  \def\laomian@anonymous@minusvspace{\vspace*{-12.5ex}}
   \if@laomian@layout@thirtyeight@fortyeight
     % 38x48 (preferred by the 2023 version)
     %     \textwidth  = 38\f@size
@@ -914,6 +941,7 @@
   \let\laomian@anonymous@bak@author\author
   \let\laomian@anonymous@bak@authorrunning\authorrunning
   \let\laomian@anonymous@bak@institute\institute
+  \let\laomian@anonymous@bak@date\date
   % Replace the metadata control sequences.
   \let\author\laomian@eatoneargument
   \let\authorrunning\laomian@eatoneargument
@@ -925,16 +953,19 @@
     \let\author\laomian@anonymous@bak@author
     \let\authorrunning\laomian@anonymous@bak@authorrunning
     \let\institute\laomian@anonymous@bak@institute
+    \let\date\laomian@anonymous@bak@date
     \let\maketitle\laomian@anonymous@bak@maketitle
     % Clear the back-ups.
     \let\laomian@anonymous@bak@author\laomian@undefined
     \let\laomian@anonymous@bak@authorrunning\laomian@undefined
     \let\laomian@anonymous@bak@institute\laomian@undefined
+    \let\laomian@anonymous@bak@date\laomian@undefined
     \let\laomian@anonymous@bak@maketitle\laomian@undefined
     % Supply the metadata.
-    \author{}\authorrunning{}\institute{}%
+    \author{}\authorrunning{}\institute{}\date{}%
     % Invoke the original \maketitle and remove the extra space.
-    \maketitle\vspace*{-7.5ex}%
+    \maketitle
+    \laomian@anonymous@minusvspace
   }
 \else
   \def\LaomianAcknowledgments{\input{acknowledgments}}
