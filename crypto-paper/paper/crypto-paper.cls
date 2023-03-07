@@ -1470,6 +1470,20 @@
 
 % -------------------- fonts begin --------------------
 
+% Reapply adjustments.
+\def\laomian@mathsfonts@after@fancyfonts{%
+  \let\emptyset\varnothing
+  \if@laomian@vecisitbf
+    \let\vec\laomian@vec@itbf
+  \else
+    \let\vec\laomian@vec@bf
+  \fi
+  % Use \upomega (from the fancy fonts) for \smallomega.
+  \def\smallomega{\operatorname{\upomega}}
+  % Match the new blackboard bold font.
+  \def\1{{\mathds{1}}}
+}
+
 \if@laomian@fonts@source
   \RequirePackage[
     default,lining,
@@ -1500,30 +1514,44 @@
   }
   % Adjust underline thickness to match Source Serif Pro.
   \def\ULthickness{0.111111ex}
-  % Reapply adjustments.
-  \let\emptyset\varnothing
-  \if@laomian@vecisitbf
-    \let\vec\laomian@vec@itbf
-  \else
-    \let\vec\laomian@vec@bf
-  \fi
-  % Use \upomega (from the fancy fonts) for \smallomega.
-  \def\smallomega{\operatorname{\upomega}}
-  % Match the new blackboard bold font.
-  \def\1{{\mathds{1}}}
+  \laomian@mathsfonts@after@fancyfonts
 \else\if@laomian@fonts@times
-  \ClassError{crypto-paper}{Support for "fonts=times" not there yet}
-    {Use another font or contribute to this project.}
+  \RequirePackage{newtxtext}
+  \RequirePackage[
+    smallerops,varvw,varg,ncf,varbb,cmbraces,bigdelims,
+    nonewtxmathopt,subscriptcorrection
+  ]{newtxmath}
+  \RequirePackage[cal=cm]{mathalfa}
+  % Adjust underline thickness to match Times.
+  \def\ULthickness{0.1ex}
+  \laomian@mathsfonts@after@fancyfonts
 \else\if@laomian@fonts@palatino
-  \ClassError{crypto-paper}{Support for "fonts=palatino" not there yet}
-    {Use another font or contribute to this project.}
+  \RequirePackage{newpxtext}
+  \RequirePackage[
+    smallerops,varg,varbb,cmbraces,bigdelims,
+    subscriptcorrection
+  ]{newpxmath}
+  \RequirePackage[cal=pxtx]{mathalfa}
+  % Adjust underline thickness to match Palatino.
+  \def\ULthickness{0.1ex}
+  \laomian@mathsfonts@after@fancyfonts
 \else\if@laomian@fonts@libertine
-  \ClassError{crypto-paper}{Support for "fonts=libertine" not there yet}
-    {Use another font or contribute to this project.}
+  \RequirePackage[tt=false]{libertine}
+  \RequirePackage[
+    libertine,
+    smallerops,varvw,varg,ncf,varbb,cmbraces,bigdelims,
+    nonewtxmathopt,subscriptcorrection
+  ]{newtxmath}
+  \RequirePackage[cal=cm]{mathalfa}
+  % Adjust underline thickness to match Libertine.
+  \def\ULthickness{0.1ex}
+  \laomian@mathsfonts@after@fancyfonts
 \else\if@laomian@fonts@concrete
   \ClassError{crypto-paper}{Support for "fonts=concrete" not there yet}
     {Use another font or contribute to this project.}
 \fi\fi\fi\fi\fi
+
+\let\laomian@mathsfonts@after@fancyfonts\laomian@undefined
 
 % -------------------- fonts end --------------------
 
