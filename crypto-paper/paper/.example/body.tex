@@ -7,6 +7,15 @@ This template is used to prepare manuscripts for works in cryptography.%
 
 \subsubsection{Subsubsection.}
 This is a run-in heading in bold face.
+Normal,
+\textit{Italics,}
+\textsl{Slanted,}
+\textbf{Bold,}
+\textsc{Small-Caps,}
+\textit{\textbf{Italics Bold,}}
+\textsl{\textbf{Slanted Bold,}}
+\textsf{Sans Serif,}
+\texttt{Monospaced.}
 
 Avoid using \texttt{\textbackslash begin\{equation\}},
 \texttt{\textbackslash begin\{gather\}},
@@ -78,10 +87,9 @@ source code to be processed by Springer \\
 \texttt{fonts=computer-modern} & use Computer Modern fonts \\
 \texttt{fonts=source} &
 use \href{https://github.com/adobe-fonts}{Adobe Source} fonts \\
-\texttt{fonts=times} & use Times fonts (* not there yet) \\
-\texttt{fonts=palatino} & use Palatino fonts (*) \\
-\texttt{fonts=libertine} & use Libertine fonts (*) \\
-\texttt{fonts=concrete} & use Concrete fonts (*) \\
+\texttt{fonts=times} & use Times fonts \\
+\texttt{fonts=palatino} & use Palatino fonts \\
+\texttt{fonts=libertine} & use Libertine fonts \\
 \texttt{underlines=smart} & make underlines skip descenders \\
 \texttt{underlines=dumb} & make underlines below descenders \\
 \texttt{non-anonymous} & make the document non-anonymous \\
@@ -203,7 +211,7 @@ and the uppercase letters are upright.
 \Mu,\mu,{}&\vec{\Mu},\vec{\mu},
 \displaybreak[3]\\
 \Nu,\nu,{}&\vec{\Nu},\vec{\nu},&
-\Xi,\xi,{}&\vec{\Xi},\vec{\xi}&
+\Xi,\xi,{}&\vec{\Xi},\vec{\xi},&
 \Omicron,\omicron,{}&\vec{\Omicron},\vec{\omicron},&
 \Pi,\pi,{}&\vec{\Pi},\vec{\pi},&
 \Rho,\rho,{}&\vec{\Rho},\vec{\rho},&
@@ -317,6 +325,29 @@ Several symbols are redefined to the sane versions:
 \texttt{\textbackslash emptyset}&{}=\emptyset,&
 \texttt{\textbackslash varnothing}&{}=\varnothing,&
 \texttt{\textbackslash dumbemptyset}&{}=\dumbemptyset.
+\end{align*}
+It is wise to add more tests here ($v\nu\upsilon u\mu$):
+\begin{align*}
+&\sum_{i=1}^n{i}=\frac{n(n+1)}{2},
+\WideNarrow{\qquad}{\quad}
+\lim_{n\to\infty}{\int_{n^{-1}}^1{x\,\mathrm{d}x}}=\frac12,
+\WideNarrow{\qquad}{\quad}
+\bigcap_{n\geq 1}{\biggl\{
+x
+\,\bigg|\,
+x\in\bigcup_{m\geq n}{A_m}
+\biggr\}}
+=\limsup_{n\to\infty}{A_n},\\
+&
+\Pr\left[\begin{aligned}
+k&{}\draws\mathsf{Gen}(1^\lambda)\\
+c&{}\draws\mathsf{Enc}(1^\lambda,k,m)
+\end{aligned}
+\::\:
+\mathsf{Dec}(1^\lambda,k,c)=m
+\right]
+=1-\negl(\lambda)
+\quad\forall m\in\bit^{\poly(\lambda)}.
 \end{align*}
 
 \subsection{Theorem Environments}
