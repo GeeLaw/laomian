@@ -59,6 +59,10 @@
 \laomian@let@iffalse\if@laomian@vecisitbf\fi
 \laomian@let@iffalse\if@laomian@colorfullinks\fi
 \laomian@let@iffalse\if@laomian@fonts@source\fi
+\laomian@let@iffalse\if@laomian@fonts@times\fi
+\laomian@let@iffalse\if@laomian@fonts@palatino\fi
+\laomian@let@iffalse\if@laomian@fonts@libertine\fi
+\laomian@let@iffalse\if@laomian@fonts@concrete\fi
 \laomian@let@iffalse\if@laomian@smartunderlines\fi
 \laomian@let@iffalse\if@laomian@lncsarraytablemargins\fi
 \laomian@let@iffalse\if@laomian@swaptablecaptionmargins\fi
@@ -87,6 +91,10 @@
   \laomian@let@iftrue\if@laomian@vecisitbf\fi
   \laomian@let@iftrue\if@laomian@colorfullinks\fi
   \laomian@let@iftrue\if@laomian@fonts@source\fi
+  \laomian@let@iffalse\if@laomian@fonts@times\fi
+  \laomian@let@iffalse\if@laomian@fonts@palatino\fi
+  \laomian@let@iffalse\if@laomian@fonts@libertine\fi
+  \laomian@let@iffalse\if@laomian@fonts@concrete\fi
   \laomian@let@iftrue\if@laomian@smartunderlines\fi
   \laomian@let@iftrue\if@laomian@lncsarraytablemargins\fi
   \laomian@let@iftrue\if@laomian@swaptablecaptionmargins\fi
@@ -120,6 +128,10 @@
   \laomian@let@iftrue\if@laomian@vecisitbf\fi
   \laomian@let@iffalse\if@laomian@colorfullinks\fi
   \laomian@let@iffalse\if@laomian@fonts@source\fi
+  \laomian@let@iffalse\if@laomian@fonts@times\fi
+  \laomian@let@iffalse\if@laomian@fonts@palatino\fi
+  \laomian@let@iffalse\if@laomian@fonts@libertine\fi
+  \laomian@let@iffalse\if@laomian@fonts@concrete\fi
   \laomian@let@iffalse\if@laomian@smartunderlines\fi
   \laomian@let@iftrue\if@laomian@lncsarraytablemargins\fi
   \laomian@let@iftrue\if@laomian@swaptablecaptionmargins\fi
@@ -294,8 +306,48 @@
 
 \laomian@delcaremultiplechoiceoption
   {fonts}{\if@laomian@fontschosen}{\laomian@fontschosen}
-  {source}{\laomian@let@iftrue\if@laomian@fonts@source\fi}
-  {computer-modern}{\laomian@let@iffalse\if@laomian@fonts@source\fi}
+  {computer-modern}{%
+    \laomian@let@iffalse\if@laomian@fonts@source\fi
+    \laomian@let@iffalse\if@laomian@fonts@times\fi
+    \laomian@let@iffalse\if@laomian@fonts@palatino\fi
+    \laomian@let@iffalse\if@laomian@fonts@libertine\fi
+    \laomian@let@iffalse\if@laomian@fonts@concrete\fi
+  }
+  {source}{%
+    \laomian@let@iftrue\if@laomian@fonts@source\fi
+    \laomian@let@iffalse\if@laomian@fonts@times\fi
+    \laomian@let@iffalse\if@laomian@fonts@palatino\fi
+    \laomian@let@iffalse\if@laomian@fonts@libertine\fi
+    \laomian@let@iffalse\if@laomian@fonts@concrete\fi
+  }
+  {times}{%
+    \laomian@let@iffalse\if@laomian@fonts@source\fi
+    \laomian@let@iftrue\if@laomian@fonts@times\fi
+    \laomian@let@iffalse\if@laomian@fonts@palatino\fi
+    \laomian@let@iffalse\if@laomian@fonts@libertine\fi
+    \laomian@let@iffalse\if@laomian@fonts@concrete\fi
+  }
+  {palatino}{%
+    \laomian@let@iffalse\if@laomian@fonts@source\fi
+    \laomian@let@iffalse\if@laomian@fonts@times\fi
+    \laomian@let@iftrue\if@laomian@fonts@palatino\fi
+    \laomian@let@iffalse\if@laomian@fonts@libertine\fi
+    \laomian@let@iffalse\if@laomian@fonts@concrete\fi
+  }
+  {libertine}{%
+    \laomian@let@iffalse\if@laomian@fonts@source\fi
+    \laomian@let@iffalse\if@laomian@fonts@times\fi
+    \laomian@let@iffalse\if@laomian@fonts@palatino\fi
+    \laomian@let@iftrue\if@laomian@fonts@libertine\fi
+    \laomian@let@iffalse\if@laomian@fonts@concrete\fi
+  }
+  {concrete}{%
+    \laomian@let@iffalse\if@laomian@fonts@source\fi
+    \laomian@let@iffalse\if@laomian@fonts@times\fi
+    \laomian@let@iffalse\if@laomian@fonts@palatino\fi
+    \laomian@let@iffalse\if@laomian@fonts@libertine\fi
+    \laomian@let@iftrue\if@laomian@fonts@concrete\fi
+  }
   *
 
 \laomian@delcaremultiplechoiceoption
@@ -383,6 +435,10 @@
   % \if@laomian@separatetitlepage is already    \iffalse.
   % \if@laomian@opensonright      is handled by \if@laomian@separatetitlepage.
   \laomian@let@iffalse\if@laomian@fonts@source\fi
+  \laomian@let@iffalse\if@laomian@fonts@times\fi
+  \laomian@let@iffalse\if@laomian@fonts@palatino\fi
+  \laomian@let@iffalse\if@laomian@fonts@libertine\fi
+  \laomian@let@iffalse\if@laomian@fonts@concrete\fi
   \laomian@let@iftrue\if@laomian@lncsarraytablemargins\fi
   \laomian@let@iftrue\if@laomian@swaptablecaptionmargins\fi
 \fi
@@ -445,6 +501,10 @@
 \laomian@output@conditional{vecisitbf}{                    }
 \laomian@output@conditional{colorfullinks}{                }
 \laomian@output@conditional{fonts@source}{                 }
+\laomian@output@conditional{fonts@times}{                  }
+\laomian@output@conditional{fonts@palatino}{               }
+\laomian@output@conditional{fonts@libertine}{              }
+\laomian@output@conditional{fonts@concrete}{               }
 \laomian@output@conditional{smartunderlines}{              }
 \laomian@output@conditional{lncsarraytablemargins}{        }
 \laomian@output@conditional{swaptablecaptionmargins}{      }
@@ -1422,7 +1482,19 @@
   \def\smallomega{\operatorname{\upomega}}
   % Match the new blackboard bold font.
   \def\1{{\mathds{1}}}
-\fi
+\else\if@laomian@fonts@times
+  \ClassError{crypto-paper}{Support for "fonts=times" not there yet}
+    {Use another font or contribute to this project.}
+\else\if@laomian@fonts@palatino
+  \ClassError{crypto-paper}{Support for "fonts=palatino" not there yet}
+    {Use another font or contribute to this project.}
+\else\if@laomian@fonts@libertine
+  \ClassError{crypto-paper}{Support for "fonts=libertine" not there yet}
+    {Use another font or contribute to this project.}
+\else\if@laomian@fonts@concrete
+  \ClassError{crypto-paper}{Support for "fonts=concrete" not there yet}
+    {Use another font or contribute to this project.}
+\fi\fi\fi\fi\fi
 
 % -------------------- fonts end --------------------
 
