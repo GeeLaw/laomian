@@ -62,7 +62,6 @@
 \laomian@let@iffalse\if@laomian@fonts@times\fi
 \laomian@let@iffalse\if@laomian@fonts@palatino\fi
 \laomian@let@iffalse\if@laomian@fonts@libertine\fi
-\laomian@let@iffalse\if@laomian@fonts@concrete\fi
 \laomian@let@iffalse\if@laomian@smartunderlines\fi
 \laomian@let@iffalse\if@laomian@lncsarraytablemargins\fi
 \laomian@let@iffalse\if@laomian@swaptablecaptionmargins\fi
@@ -94,7 +93,6 @@
   \laomian@let@iffalse\if@laomian@fonts@times\fi
   \laomian@let@iffalse\if@laomian@fonts@palatino\fi
   \laomian@let@iffalse\if@laomian@fonts@libertine\fi
-  \laomian@let@iffalse\if@laomian@fonts@concrete\fi
   \laomian@let@iftrue\if@laomian@smartunderlines\fi
   \laomian@let@iftrue\if@laomian@lncsarraytablemargins\fi
   \laomian@let@iftrue\if@laomian@swaptablecaptionmargins\fi
@@ -131,7 +129,6 @@
   \laomian@let@iffalse\if@laomian@fonts@times\fi
   \laomian@let@iffalse\if@laomian@fonts@palatino\fi
   \laomian@let@iffalse\if@laomian@fonts@libertine\fi
-  \laomian@let@iffalse\if@laomian@fonts@concrete\fi
   \laomian@let@iffalse\if@laomian@smartunderlines\fi
   \laomian@let@iftrue\if@laomian@lncsarraytablemargins\fi
   \laomian@let@iftrue\if@laomian@swaptablecaptionmargins\fi
@@ -190,7 +187,6 @@
   \laomian@let@iffalse\if@laomian@fonts@times\fi
   \laomian@let@iffalse\if@laomian@fonts@palatino\fi
   \laomian@let@iffalse\if@laomian@fonts@libertine\fi
-  \laomian@let@iffalse\if@laomian@fonts@concrete\fi
   \def\laomian@formatchosen{focs-submission}%
 }
 
@@ -336,42 +332,30 @@
     \laomian@let@iffalse\if@laomian@fonts@times\fi
     \laomian@let@iffalse\if@laomian@fonts@palatino\fi
     \laomian@let@iffalse\if@laomian@fonts@libertine\fi
-    \laomian@let@iffalse\if@laomian@fonts@concrete\fi
   }
   {source}{%
     \laomian@let@iftrue\if@laomian@fonts@source\fi
     \laomian@let@iffalse\if@laomian@fonts@times\fi
     \laomian@let@iffalse\if@laomian@fonts@palatino\fi
     \laomian@let@iffalse\if@laomian@fonts@libertine\fi
-    \laomian@let@iffalse\if@laomian@fonts@concrete\fi
   }
   {times}{%
     \laomian@let@iffalse\if@laomian@fonts@source\fi
     \laomian@let@iftrue\if@laomian@fonts@times\fi
     \laomian@let@iffalse\if@laomian@fonts@palatino\fi
     \laomian@let@iffalse\if@laomian@fonts@libertine\fi
-    \laomian@let@iffalse\if@laomian@fonts@concrete\fi
   }
   {palatino}{%
     \laomian@let@iffalse\if@laomian@fonts@source\fi
     \laomian@let@iffalse\if@laomian@fonts@times\fi
     \laomian@let@iftrue\if@laomian@fonts@palatino\fi
     \laomian@let@iffalse\if@laomian@fonts@libertine\fi
-    \laomian@let@iffalse\if@laomian@fonts@concrete\fi
   }
   {libertine}{%
     \laomian@let@iffalse\if@laomian@fonts@source\fi
     \laomian@let@iffalse\if@laomian@fonts@times\fi
     \laomian@let@iffalse\if@laomian@fonts@palatino\fi
     \laomian@let@iftrue\if@laomian@fonts@libertine\fi
-    \laomian@let@iffalse\if@laomian@fonts@concrete\fi
-  }
-  {concrete}{%
-    \laomian@let@iffalse\if@laomian@fonts@source\fi
-    \laomian@let@iffalse\if@laomian@fonts@times\fi
-    \laomian@let@iffalse\if@laomian@fonts@palatino\fi
-    \laomian@let@iffalse\if@laomian@fonts@libertine\fi
-    \laomian@let@iftrue\if@laomian@fonts@concrete\fi
   }
   *
 
@@ -463,7 +447,6 @@
   \laomian@let@iffalse\if@laomian@fonts@times\fi
   \laomian@let@iffalse\if@laomian@fonts@palatino\fi
   \laomian@let@iffalse\if@laomian@fonts@libertine\fi
-  \laomian@let@iffalse\if@laomian@fonts@concrete\fi
   \laomian@let@iftrue\if@laomian@lncsarraytablemargins\fi
   \laomian@let@iftrue\if@laomian@swaptablecaptionmargins\fi
 \fi
@@ -528,7 +511,6 @@
 \laomian@output@conditional{fonts@times}{                  }
 \laomian@output@conditional{fonts@palatino}{               }
 \laomian@output@conditional{fonts@libertine}{              }
-\laomian@output@conditional{fonts@concrete}{               }
 \laomian@output@conditional{smartunderlines}{              }
 \laomian@output@conditional{lncsarraytablemargins}{        }
 \laomian@output@conditional{swaptablecaptionmargins}{      }
@@ -1546,10 +1528,7 @@
   % Adjust underline thickness to match Libertine.
   \def\ULthickness{0.1ex}
   \laomian@mathsfonts@after@fancyfonts
-\else\if@laomian@fonts@concrete
-  \ClassError{crypto-paper}{Support for "fonts=concrete" not there yet}
-    {Use another font or contribute to this project.}
-\fi\fi\fi\fi\fi
+\fi\fi\fi\fi
 
 \let\laomian@mathsfonts@after@fancyfonts\laomian@undefined
 
