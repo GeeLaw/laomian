@@ -299,6 +299,46 @@
 
 \let\laomian@delcaretwochoiceoption\laomian@undefined
 
+% Options ---
+\def\laomian@delcaremultiplechoiceoption#1#2#3{%
+  \laomian@let@iffalse#2\fi
+  \def#3{unset}%
+  \@ifstar
+    {\relax}%
+    {\laomian@delcaremultiplechoiceoption@next{#1}{#2}{#3}}%
+}
+
+% #1 = name of option
+% #2 = \if@laomian@...chosen
+% #3 =    \laomian@...chosen
+% #4 =      name of choice
+% #5 = operation of choice
+\def\laomian@delcaremultiplechoiceoption@next#1#2#3#4#5{%
+  \DeclareOption{#1=#4}{%
+    #2%
+      \ClassError
+        {crypto-paper}
+        {I got contradictory "#1=..." options\MessageBreak
+          ("#3", "#4")}
+        {Remove extraneous "#1=..." from
+          "\protect\documentclass[...]\protect{crypto-paper\protect}".}%
+    \else
+      \laomian@ensure@formatchosen
+      #5%
+      \laomian@let@iftrue#2\fi
+      \def#3{#4}%
+      \ClassInfo{crypto-paper}{[option] #1=#4}%
+    \fi
+  }%
+  \@ifstar
+    {\relax}%
+    {\laomian@delcaremultiplechoiceoption@next{#1}{#2}{#3}}%
+}
+
+
+\let\laomian@delcaremultiplechoiceoption\laomian@undefined
+\let\laomian@delcaremultiplechoiceoption@next\laomian@undefined
+
 % Options --- non-anonymous
 \DeclareOption{non-anonymous}{%
   \laomian@ensure@formatchosen
