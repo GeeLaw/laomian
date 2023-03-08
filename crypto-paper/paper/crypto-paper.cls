@@ -1,6 +1,6 @@
 % crypto-paper
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{crypto-paper}[2023/03/06 Laomian Cryptography Paper]
+\ProvidesClass{crypto-paper}[2023/03/07 Laomian Cryptography Paper]
 \ClassInfo{crypto-paper}
   {https://github.com/GeeLaw/laomian/tree/main/crypto-paper}
 
@@ -238,7 +238,7 @@
 \let\laomian@declareformatoption\laomian@undefined
 
 % This must be used in every other option to ensure
-% the format is set before customizatons are applied.
+% the format is set before customizations are applied.
 \def\laomian@ensure@formatchosen{%
   \if@laomian@formatchosen
   \else
@@ -1426,7 +1426,12 @@
 \def\draws{\overset{\smash{\:_\$}\vphantom{{}_0}}{\leftarrow}}
 \def\poly{\operatorname{poly}}
 \def\negl{\operatorname{negl}}
-\DeclareMathSymbol{\concat}{\mathbin}{symbols}{"6B}
+\DeclareMathSymbol{\laomian@concat@base}{\mathbin}{symbols}{"6B}
+\def\concat{\mathbin{%
+  \mskip-.66667\thinmuskip\relax
+  \laomian@concat@base
+  \mskip-.66667\thinmuskip\relax
+}}
 \def\transpose{{\mathsmaller{\mathsf{T}}}}
 \def\bit{{\{0,1\}}}
 \let\laomian@bak@bot\bot
