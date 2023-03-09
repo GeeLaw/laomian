@@ -76,7 +76,7 @@ The default is `eprint`. The following table describes the formats:
 
 **`links=`** overrides the hyperlink colors. It can be `colorful` or `blue`.
 
-**`fonts=`** overrides the fonts. It can be [`source`](https://github.com/adobe-fonts), `times`, `palatino`, `libertine`, or `computer-modern`. This option is meaningless if the document is in LNCS formats (the fonts are always Computer Modern).
+**`fonts=`** overrides the fonts. It can be [`source`](https://github.com/adobe-fonts), `times`, `palatino`, `libertine`, `utopia`, or `computer-modern`. This option is meaningless if the document is in LNCS formats (the fonts are always Computer Modern).
 
 **`underlines=`** overrides the underline style. It can be `smart` or `dumb`. Smart underlines skip descenders.
 
