@@ -366,6 +366,13 @@
     \laomian@let@iftrue\if@laomian@fonts@libertine\fi
     \laomian@let@iffalse\if@laomian@fonts@utopia\fi
   }
+  {utopia}{%
+    \laomian@let@iffalse\if@laomian@fonts@source\fi
+    \laomian@let@iffalse\if@laomian@fonts@times\fi
+    \laomian@let@iffalse\if@laomian@fonts@palatino\fi
+    \laomian@let@iffalse\if@laomian@fonts@libertine\fi
+    \laomian@let@iftrue\if@laomian@fonts@utopia\fi
+  }
   *
 
 \laomian@delcaremultiplechoiceoption
@@ -1553,7 +1560,16 @@
   \laomian@maths@fonts
     \smallomega=\upomega
     \1=\mathds
-\fi\fi\fi\fi
+\else\if@laomian@fonts@utopia
+  \RequirePackage{fourier}
+  \RequirePackage[cal=euler]{mathalfa}
+  % Adjust underline thickness to match Utopia.
+  \def\ULthickness{0.1ex}
+  % Adjust mathematical fonts.
+  \laomian@maths@fonts
+    \smallomega=\otheromega
+    \1=\mathbb
+\fi\fi\fi\fi\fi
 
 \let\laomian@maths@fonts\laomian@undefined
 
