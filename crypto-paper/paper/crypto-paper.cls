@@ -1461,6 +1461,7 @@
   AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz*
 \let\laomian@def@officeshortcuts\laomian@undefined
 
+% These are applied when the fonts have been selected.
 \def\laomian@maths@fonts\smallomega=#1\1=#2{%
   % Use the beautiful version of epsilon, phi, emptyset.
   \let\dumbepsilon\epsilon
@@ -1472,15 +1473,9 @@
   \def\smallomega{\operatorname{#1}}%
   \let\vec\laomian@vec@vec
   \def\1{{#2{1}}}%
+  % Prevent the font settings from being applied twice.
+  \let\laomian@maths@fonts\laomian@undefined
 }
-
-% Adjust mathematical fonts for Computer Modern.
-\laomian@maths@fonts
-  \smallomega=\omega
-  \1=\mathbbm
-% \smallomega should be non-italicized, but
-% I don't know a satisfactory solution for typesetting
-% upright lowercase Greek letters in Computer Modern.
 
 % -------------------- mathematics   end --------------------
 
@@ -1569,9 +1564,15 @@
   \laomian@maths@fonts
     \smallomega=\otheromega
     \1=\mathbb
+\else
+  % Adjust mathematical fonts for Computer Modern.
+  \laomian@maths@fonts
+    \smallomega=\omega
+    \1=\mathbbm
+  % \smallomega should be non-italicized, but
+  % I don't know a satisfactory solution for typesetting
+  % upright lowercase Greek letters in Computer Modern.
 \fi\fi\fi\fi\fi
-
-\let\laomian@maths@fonts\laomian@undefined
 
 % -------------------- fonts end --------------------
 
