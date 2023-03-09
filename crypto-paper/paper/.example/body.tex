@@ -90,6 +90,7 @@ use \href{https://github.com/adobe-fonts}{Adobe Source} fonts \\
 \texttt{fonts=times} & use Times fonts \\
 \texttt{fonts=palatino} & use Palatino fonts \\
 \texttt{fonts=libertine} & use Libertine fonts \\
+\texttt{fonts=utopia} & use Utopia fonts \\
 \texttt{underlines=smart} & make underlines skip descenders \\
 \texttt{underlines=dumb} & make underlines below descenders \\
 \texttt{non-anonymous} & make the document non-anonymous \\
@@ -328,6 +329,15 @@ Several symbols are redefined to the sane versions:
 \end{align*}
 It is wise to add more tests here ($v\nu\upsilon u\mu$):
 \begin{align*}
+&n=\smallomega(\log n),
+\WideNarrow{\qquad}{\quad}
+n=\bigOmega(n^{1/2}),
+\WideNarrow{\qquad}{\quad}
+n=\smallo(2^n),
+\WideNarrow{\qquad}{\quad}
+n=\bigO(n^{3/2}),
+\WideNarrow{\qquad}{\quad}
+n=\bigTheta(n),\\
 &\sum_{i=1}^n{i}=\frac{n(n+1)}{2},
 \WideNarrow{\qquad}{\quad}
 \lim_{n\to\infty}{\int_{n^{-1}}^1{x\,\mathrm{d}x}}=\frac12,

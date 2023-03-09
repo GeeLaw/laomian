@@ -1,6 +1,6 @@
 % crypto-paper
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{crypto-paper}[2023/03/07 Laomian Cryptography Paper]
+\ProvidesClass{crypto-paper}[2023/03/08 Laomian Cryptography Paper]
 \ClassInfo{crypto-paper}
   {https://github.com/GeeLaw/laomian/tree/main/crypto-paper}
 
@@ -62,6 +62,7 @@
 \laomian@let@iffalse\if@laomian@fonts@times\fi
 \laomian@let@iffalse\if@laomian@fonts@palatino\fi
 \laomian@let@iffalse\if@laomian@fonts@libertine\fi
+\laomian@let@iffalse\if@laomian@fonts@utopia\fi
 \laomian@let@iffalse\if@laomian@smartunderlines\fi
 \laomian@let@iffalse\if@laomian@lncsarraytablemargins\fi
 \laomian@let@iffalse\if@laomian@swaptablecaptionmargins\fi
@@ -93,6 +94,7 @@
   \laomian@let@iffalse\if@laomian@fonts@times\fi
   \laomian@let@iffalse\if@laomian@fonts@palatino\fi
   \laomian@let@iffalse\if@laomian@fonts@libertine\fi
+  \laomian@let@iffalse\if@laomian@fonts@utopia\fi
   \laomian@let@iftrue\if@laomian@smartunderlines\fi
   \laomian@let@iftrue\if@laomian@lncsarraytablemargins\fi
   \laomian@let@iftrue\if@laomian@swaptablecaptionmargins\fi
@@ -129,6 +131,7 @@
   \laomian@let@iffalse\if@laomian@fonts@times\fi
   \laomian@let@iffalse\if@laomian@fonts@palatino\fi
   \laomian@let@iffalse\if@laomian@fonts@libertine\fi
+  \laomian@let@iffalse\if@laomian@fonts@utopia\fi
   \laomian@let@iffalse\if@laomian@smartunderlines\fi
   \laomian@let@iftrue\if@laomian@lncsarraytablemargins\fi
   \laomian@let@iftrue\if@laomian@swaptablecaptionmargins\fi
@@ -187,6 +190,7 @@
   \laomian@let@iffalse\if@laomian@fonts@times\fi
   \laomian@let@iffalse\if@laomian@fonts@palatino\fi
   \laomian@let@iffalse\if@laomian@fonts@libertine\fi
+  \laomian@let@iffalse\if@laomian@fonts@utopia\fi
   \def\laomian@formatchosen{focs-submission}%
 }
 
@@ -332,30 +336,42 @@
     \laomian@let@iffalse\if@laomian@fonts@times\fi
     \laomian@let@iffalse\if@laomian@fonts@palatino\fi
     \laomian@let@iffalse\if@laomian@fonts@libertine\fi
+    \laomian@let@iffalse\if@laomian@fonts@utopia\fi
   }
   {source}{%
     \laomian@let@iftrue\if@laomian@fonts@source\fi
     \laomian@let@iffalse\if@laomian@fonts@times\fi
     \laomian@let@iffalse\if@laomian@fonts@palatino\fi
     \laomian@let@iffalse\if@laomian@fonts@libertine\fi
+    \laomian@let@iffalse\if@laomian@fonts@utopia\fi
   }
   {times}{%
     \laomian@let@iffalse\if@laomian@fonts@source\fi
     \laomian@let@iftrue\if@laomian@fonts@times\fi
     \laomian@let@iffalse\if@laomian@fonts@palatino\fi
     \laomian@let@iffalse\if@laomian@fonts@libertine\fi
+    \laomian@let@iffalse\if@laomian@fonts@utopia\fi
   }
   {palatino}{%
     \laomian@let@iffalse\if@laomian@fonts@source\fi
     \laomian@let@iffalse\if@laomian@fonts@times\fi
     \laomian@let@iftrue\if@laomian@fonts@palatino\fi
     \laomian@let@iffalse\if@laomian@fonts@libertine\fi
+    \laomian@let@iffalse\if@laomian@fonts@utopia\fi
   }
   {libertine}{%
     \laomian@let@iffalse\if@laomian@fonts@source\fi
     \laomian@let@iffalse\if@laomian@fonts@times\fi
     \laomian@let@iffalse\if@laomian@fonts@palatino\fi
     \laomian@let@iftrue\if@laomian@fonts@libertine\fi
+    \laomian@let@iffalse\if@laomian@fonts@utopia\fi
+  }
+  {utopia}{%
+    \laomian@let@iffalse\if@laomian@fonts@source\fi
+    \laomian@let@iffalse\if@laomian@fonts@times\fi
+    \laomian@let@iffalse\if@laomian@fonts@palatino\fi
+    \laomian@let@iffalse\if@laomian@fonts@libertine\fi
+    \laomian@let@iftrue\if@laomian@fonts@utopia\fi
   }
   *
 
@@ -447,6 +463,7 @@
   \laomian@let@iffalse\if@laomian@fonts@times\fi
   \laomian@let@iffalse\if@laomian@fonts@palatino\fi
   \laomian@let@iffalse\if@laomian@fonts@libertine\fi
+  \laomian@let@iffalse\if@laomian@fonts@utopia\fi
   \laomian@let@iftrue\if@laomian@lncsarraytablemargins\fi
   \laomian@let@iftrue\if@laomian@swaptablecaptionmargins\fi
 \fi
@@ -1384,33 +1401,24 @@
 \DeclareMathSymbol{\Omega}{\mathalpha}{operators}{10}
 \DeclareMathSymbol{\omicron}{\mathalpha}{letters}{"6F}
 
-% Use the beautiful version of epsilon, phi, emptyset.
-\let\dumbepsilon\epsilon
-\let\dumbphi\phi
-\let\dumbemptyset\emptyset
-\let\epsilon\varepsilon
-\let\phi\varphi
-\let\emptyset\varnothing
+% \epsilon, \phi, \emptyset are handled by \laomian@maths@fonts.
 
 % Asymptotics.
 \def\bigO{\operatorname{O}}
 \def\smallo{\operatorname{o}}
 \def\bigTheta{\operatorname{\Theta}}
 \def\bigOmega{\operatorname{\Omega}}
-% \smallomega should be non-italicized, but
-% I don't know a satisfactory solution for typesetting
-% upright lowercase Greek letters in Computer Modern.
-\def\smallomega{\operatorname{\omega}}
+% \smallomega is handled by \laomian@maths@fonts.
 
 \def\cbrt{\sqrt[3]}
 \def\laomian@vec@bf#1{\boldsymbol{\mathbf{#1}}}
 \def\laomian@vec@itbf#1{\boldsymbol{#1}}
 \if@laomian@vecisitbf
-  \let\vec\laomian@vec@itbf
+  \let\laomian@vec@vec\laomian@vec@itbf
 \else
-  \let\vec\laomian@vec@bf
+  \let\laomian@vec@vec\laomian@vec@bf
 \fi
-\def\1{{\mathbbm{1}}}
+% \vec, \1 are handled by \laomian@maths@fonts.
 
 \def\esssup{\operatornamewithlimits{ess\,sup}}
 \def\essinf{\operatornamewithlimits{ess\,inf}}
@@ -1453,23 +1461,25 @@
   AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz*
 \let\laomian@def@officeshortcuts\laomian@undefined
 
+% These are applied when the fonts have been selected.
+\def\laomian@maths@fonts\smallomega=#1\1=#2{%
+  % Use the beautiful version of epsilon, phi, emptyset.
+  \let\dumbepsilon\epsilon
+  \let\dumbphi\phi
+  \let\dumbemptyset\emptyset
+  \let\epsilon\varepsilon
+  \let\phi\varphi
+  \let\emptyset\varnothing
+  \def\smallomega{\operatorname{#1}}%
+  \let\vec\laomian@vec@vec
+  \def\1{{#2{1}}}%
+  % Prevent the font settings from being applied twice.
+  \let\laomian@maths@fonts\laomian@undefined
+}
+
 % -------------------- mathematics   end --------------------
 
 % -------------------- fonts begin --------------------
-
-% Reapply adjustments.
-\def\laomian@mathsfonts@after@fancyfonts{%
-  \let\emptyset\varnothing
-  \if@laomian@vecisitbf
-    \let\vec\laomian@vec@itbf
-  \else
-    \let\vec\laomian@vec@bf
-  \fi
-  % Use \upomega (from the fancy fonts) for \smallomega.
-  \def\smallomega{\operatorname{\upomega}}
-  % Match the new blackboard bold font.
-  \def\1{{\mathds{1}}}
-}
 
 \if@laomian@fonts@source
   \RequirePackage[
@@ -1500,8 +1510,11 @@
     \tolerance=5000\relax
   }
   % Adjust underline thickness to match Source Serif Pro.
-  \def\ULthickness{0.111111ex}
-  \laomian@mathsfonts@after@fancyfonts
+  \def\ULthickness{0.1ex}
+  % Adjust mathematical fonts.
+  \laomian@maths@fonts
+    \smallomega=\upomega
+    \1=\mathds
 \else\if@laomian@fonts@times
   \RequirePackage{newtxtext}
   \RequirePackage[
@@ -1511,7 +1524,10 @@
   \RequirePackage[cal=cm]{mathalfa}
   % Adjust underline thickness to match Times.
   \def\ULthickness{0.1ex}
-  \laomian@mathsfonts@after@fancyfonts
+  % Adjust mathematical fonts.
+  \laomian@maths@fonts
+    \smallomega=\upomega
+    \1=\mathds
 \else\if@laomian@fonts@palatino
   \RequirePackage{newpxtext}
   \RequirePackage[
@@ -1521,7 +1537,10 @@
   \RequirePackage[cal=pxtx]{mathalfa}
   % Adjust underline thickness to match Palatino.
   \def\ULthickness{0.1ex}
-  \laomian@mathsfonts@after@fancyfonts
+  % Adjust mathematical fonts.
+  \laomian@maths@fonts
+    \smallomega=\upomega
+    \1=\mathds
 \else\if@laomian@fonts@libertine
   \RequirePackage[tt=false]{libertine}
   \RequirePackage[
@@ -1532,10 +1551,28 @@
   \RequirePackage[cal=cm]{mathalfa}
   % Adjust underline thickness to match Libertine.
   \def\ULthickness{0.1ex}
-  \laomian@mathsfonts@after@fancyfonts
-\fi\fi\fi\fi
-
-\let\laomian@mathsfonts@after@fancyfonts\laomian@undefined
+  % Adjust mathematical fonts.
+  \laomian@maths@fonts
+    \smallomega=\upomega
+    \1=\mathds
+\else\if@laomian@fonts@utopia
+  \RequirePackage{fourier}
+  \RequirePackage[cal=euler]{mathalfa}
+  % Adjust underline thickness to match Utopia.
+  \def\ULthickness{0.1ex}
+  % Adjust mathematical fonts.
+  \laomian@maths@fonts
+    \smallomega=\otheromega
+    \1=\mathbb
+\else
+  % Adjust mathematical fonts for Computer Modern.
+  \laomian@maths@fonts
+    \smallomega=\omega
+    \1=\mathbbm
+  % \smallomega should be non-italicized, but
+  % I don't know a satisfactory solution for typesetting
+  % upright lowercase Greek letters in Computer Modern.
+\fi\fi\fi\fi\fi
 
 % -------------------- fonts end --------------------
 
