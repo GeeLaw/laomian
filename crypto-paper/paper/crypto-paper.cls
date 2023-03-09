@@ -62,6 +62,7 @@
 \laomian@let@iffalse\if@laomian@fonts@times\fi
 \laomian@let@iffalse\if@laomian@fonts@palatino\fi
 \laomian@let@iffalse\if@laomian@fonts@libertine\fi
+\laomian@let@iffalse\if@laomian@fonts@utopia\fi
 \laomian@let@iffalse\if@laomian@smartunderlines\fi
 \laomian@let@iffalse\if@laomian@lncsarraytablemargins\fi
 \laomian@let@iffalse\if@laomian@swaptablecaptionmargins\fi
@@ -93,6 +94,7 @@
   \laomian@let@iffalse\if@laomian@fonts@times\fi
   \laomian@let@iffalse\if@laomian@fonts@palatino\fi
   \laomian@let@iffalse\if@laomian@fonts@libertine\fi
+  \laomian@let@iffalse\if@laomian@fonts@utopia\fi
   \laomian@let@iftrue\if@laomian@smartunderlines\fi
   \laomian@let@iftrue\if@laomian@lncsarraytablemargins\fi
   \laomian@let@iftrue\if@laomian@swaptablecaptionmargins\fi
@@ -129,6 +131,7 @@
   \laomian@let@iffalse\if@laomian@fonts@times\fi
   \laomian@let@iffalse\if@laomian@fonts@palatino\fi
   \laomian@let@iffalse\if@laomian@fonts@libertine\fi
+  \laomian@let@iffalse\if@laomian@fonts@utopia\fi
   \laomian@let@iffalse\if@laomian@smartunderlines\fi
   \laomian@let@iftrue\if@laomian@lncsarraytablemargins\fi
   \laomian@let@iftrue\if@laomian@swaptablecaptionmargins\fi
@@ -187,6 +190,7 @@
   \laomian@let@iffalse\if@laomian@fonts@times\fi
   \laomian@let@iffalse\if@laomian@fonts@palatino\fi
   \laomian@let@iffalse\if@laomian@fonts@libertine\fi
+  \laomian@let@iffalse\if@laomian@fonts@utopia\fi
   \def\laomian@formatchosen{focs-submission}%
 }
 
@@ -332,30 +336,35 @@
     \laomian@let@iffalse\if@laomian@fonts@times\fi
     \laomian@let@iffalse\if@laomian@fonts@palatino\fi
     \laomian@let@iffalse\if@laomian@fonts@libertine\fi
+    \laomian@let@iffalse\if@laomian@fonts@utopia\fi
   }
   {source}{%
     \laomian@let@iftrue\if@laomian@fonts@source\fi
     \laomian@let@iffalse\if@laomian@fonts@times\fi
     \laomian@let@iffalse\if@laomian@fonts@palatino\fi
     \laomian@let@iffalse\if@laomian@fonts@libertine\fi
+    \laomian@let@iffalse\if@laomian@fonts@utopia\fi
   }
   {times}{%
     \laomian@let@iffalse\if@laomian@fonts@source\fi
     \laomian@let@iftrue\if@laomian@fonts@times\fi
     \laomian@let@iffalse\if@laomian@fonts@palatino\fi
     \laomian@let@iffalse\if@laomian@fonts@libertine\fi
+    \laomian@let@iffalse\if@laomian@fonts@utopia\fi
   }
   {palatino}{%
     \laomian@let@iffalse\if@laomian@fonts@source\fi
     \laomian@let@iffalse\if@laomian@fonts@times\fi
     \laomian@let@iftrue\if@laomian@fonts@palatino\fi
     \laomian@let@iffalse\if@laomian@fonts@libertine\fi
+    \laomian@let@iffalse\if@laomian@fonts@utopia\fi
   }
   {libertine}{%
     \laomian@let@iffalse\if@laomian@fonts@source\fi
     \laomian@let@iffalse\if@laomian@fonts@times\fi
     \laomian@let@iffalse\if@laomian@fonts@palatino\fi
     \laomian@let@iftrue\if@laomian@fonts@libertine\fi
+    \laomian@let@iffalse\if@laomian@fonts@utopia\fi
   }
   *
 
@@ -447,6 +456,7 @@
   \laomian@let@iffalse\if@laomian@fonts@times\fi
   \laomian@let@iffalse\if@laomian@fonts@palatino\fi
   \laomian@let@iffalse\if@laomian@fonts@libertine\fi
+  \laomian@let@iffalse\if@laomian@fonts@utopia\fi
   \laomian@let@iftrue\if@laomian@lncsarraytablemargins\fi
   \laomian@let@iftrue\if@laomian@swaptablecaptionmargins\fi
 \fi
