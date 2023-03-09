@@ -1,6 +1,6 @@
 % crypto-paper
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{crypto-paper}[2023/03/07 Laomian Cryptography Paper]
+\ProvidesClass{crypto-paper}[2023/03/08 Laomian Cryptography Paper]
 \ClassInfo{crypto-paper}
   {https://github.com/GeeLaw/laomian/tree/main/crypto-paper}
 
@@ -1510,7 +1510,7 @@
     \tolerance=5000\relax
   }
   % Adjust underline thickness to match Source Serif Pro.
-  \def\ULthickness{0.111111ex}
+  \def\ULthickness{0.1ex}
   % Adjust mathematical fonts.
   \laomian@maths@fonts
     \smallomega=\upomega
