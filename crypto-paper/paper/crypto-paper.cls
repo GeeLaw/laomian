@@ -788,6 +788,7 @@
     \fi
     \vskip\belowcaptionskip
   }
+  % URL breaking at the end of the class.
 \fi
 
 % -------------------- LNCS/ePrint   ends --------------------
@@ -1672,4 +1673,25 @@
 \if@laomian@base@lncs
   % Redefine \UrlFont after the packages might have messed with it.
   \def\UrlFont{\rmfamily}
+\else
+  % Reset URL breaking after the packages might have messed with it.
+  \def\UrlBreaks{%
+    \do\A\do\a\do\B\do\b\do\C\do\c\do\D\do\d\do\E\do\e\do\F\do\f\do\G\do\g
+    \do\H\do\h\do\I\do\i\do\J\do\j\do\K\do\k\do\L\do\l\do\M\do\m\do\N\do\n
+    \do\O\do\o\do\P\do\p\do\Q\do\q\do\R\do\r\do\S\do\s\do\T\do\t
+    \do\U\do\u\do\V\do\v\do\W\do\w\do\X\do\x\do\Y\do\y\do\Z\do\z
+    \do\0\do\1\do\2\do\3\do\4\do\5\do\6\do\7\do\8\do\9%
+  }
+  \def\UrlBigBreaks{%
+    \do\,\do\.\do\?\do\!\do\:\do\;\do\'\do\"%
+    \do\[\do\]\do\{\do\}\do\(\do\)\do\<\do\>%
+    \do\/\do\|\do\\%
+    \do\`\do\@\do\#\do\$\do\^\do\&\do\*\do\_\do\=\do+%
+    % I have no idea how to handle "~", so I am not touching it.
+    % "%" is handled by UrlSpecials.
+    % "-" is handled by UrlNoBreaks.
+  }
+  % Do not break after "-" to prevent the trailing "-"
+  % from being mistaken as an inserted hyphen.
+  \def\UrlNoBreaks{\do\-}
 \fi
