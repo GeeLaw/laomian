@@ -1689,9 +1689,9 @@
     \do\`\do\@\do\#\do\$\do\^\do\&\do\*\do\_\do\=\do+%
     % I have no idea how to handle "~", so I am not touching it.
     % "%" is handled by UrlSpecials.
-    % "-" is handled by UrlNoBreaks.
+    % "-" is handled by not putting it anywhere.
   }
-  % Do not break after "-" to prevent the trailing "-"
-  % from being mistaken as an inserted hyphen.
-  \def\UrlNoBreaks{\do\-}
+  % By not putting "-" anywhere,
+  % a break is allowed before it but not after it.
+  \def\UrlNoBreaks{}
 \fi
