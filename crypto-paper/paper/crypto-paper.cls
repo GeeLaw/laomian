@@ -1588,8 +1588,8 @@
 
 % -------------------- underlines begin --------------------
 
-\def\dumbunderline#1{\uline{#1}}
-\def\smartunderline#1{%
+\DeclareRobustCommand*\dumbunderline[1]{\uline{#1}}
+\DeclareRobustCommand*\smartunderline[1]{%
   \begingroup
   \setlength{\ULdepth}{0.45ex}%
   \contourlength{0.32ex}%
