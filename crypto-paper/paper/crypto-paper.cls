@@ -1211,6 +1211,16 @@
 \def\citedash{--\penalty10000\relax}
 \def\citemid{; }
 
+\DeclareRobustCommand\citenolink{%
+  \@ifnextchar[\laomian@citenolink@a\laomian@citenolink@b
+}
+\def\laomian@citenolink@a[#1]#2{%
+  \begingroup{\NoHyper\cite[#1]{#2}\endNoHyper}\endgroup
+}
+\def\laomian@citenolink@b#1{%
+  \begingroup{\NoHyper\cite{#1}\endNoHyper}\endgroup
+}
+
 % -------------------- bibliography   ends --------------------
 
 % -------------------- supplementary materials begin --------------------
