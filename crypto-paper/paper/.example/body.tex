@@ -151,7 +151,7 @@ rounding results could change).
 \luoji{Note can start a paragraph.}
 The colors of the boxes rotate so that it is easy to track which is where.
 
-\subsection{Format- and Option-Dependent Control Sequences}
+\subsection{Format- and Option-Dependent Control \underlined{Sequences}}
 
 \subsubsection{Underlines.}
 By default, ePrint uses descender-\underlined{skipping} underlines.
@@ -159,6 +159,8 @@ To \smartunderline{always} skip the descenders,
 use \texttt{\textbackslash smartunderline}, and
 to always \dumbunderline{stay} below the descenders,
 use \texttt{\textbackslash dumbunderline}.
+The control sequences are \emph{robust} so that
+they can be used in moving arguments.
 
 \subsubsection{Names of Referenced Objects.}
 \texttt{\textbackslash Figure},
@@ -544,7 +546,9 @@ This is \texttt{\textbackslash begin\{construction\}}.
 This is \texttt{\textbackslash begin\{construction\}[name]}.
 \end{construction}
 
-\subsection{Citations}
+\subsection
+[Citations~\citenolink{ref_article1}]
+{Citations~\cite{ref_article1}}
 
 For citations of references, Springer LNCS prefers the use of square brackets
 and consecutive numbers. Citations using labels or the author/year
@@ -576,6 +580,8 @@ are mitigated.
 Use
 \href{https://github.com/cryptobib/export}{\texttt{cryptobib}}
 to make citing cryptography literature easier.
+Use \texttt{\textbackslash citenolink} to
+cite something without making a hyperlink.
 
 \long\def\myrepeat#1\relax{#1\relax#1\relax}
 \newcounter{mysectioncounter}
