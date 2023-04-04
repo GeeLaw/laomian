@@ -46,6 +46,7 @@
 \laomian@let@iffalse\if@laomian@draft\fi
 \laomian@let@iffalse\if@laomian@runningheads\fi
 \laomian@let@iffalse\if@laomian@anonymous\fi
+\laomian@let@iffalse\if@laomian@pdfmetadata\fi
 \laomian@let@iffalse\if@laomian@orcidicons\fi
 \laomian@let@iffalse\if@laomian@iacrcopyright\fi
 \laomian@let@iffalse\if@laomian@pagenumbers\fi
@@ -78,6 +79,7 @@
   \laomian@let@iffalse\if@laomian@draft\fi
   \laomian@let@iffalse\if@laomian@runningheads\fi
   \laomian@let@iffalse\if@laomian@anonymous\fi
+  \laomian@let@iftrue\if@laomian@pdfmetadata\fi
   \laomian@let@iftrue\if@laomian@orcidicons\fi
   \laomian@let@iftrue\if@laomian@iacrcopyright\fi
   \laomian@let@iftrue\if@laomian@pagenumbers\fi
@@ -115,6 +117,7 @@
   \laomian@let@iffalse\if@laomian@draft\fi
   \laomian@let@iffalse\if@laomian@runningheads\fi
   \laomian@let@iffalse\if@laomian@anonymous\fi
+  \laomian@let@iffalse\if@laomian@pdfmetadata\fi
   \laomian@let@iffalse\if@laomian@orcidicons\fi
   \laomian@let@iffalse\if@laomian@iacrcopyright\fi
   \laomian@let@iffalse\if@laomian@pagenumbers\fi
@@ -141,12 +144,14 @@
 \def\laomian@format@lncs@camera@ready@reference{%
   \laomian@format@lncs@camera@ready
   \laomian@let@iftrue\if@laomian@runningheads\fi
+  \laomian@let@iftrue\if@laomian@pdfmetadata\fi
   \laomian@let@iftrue\if@laomian@orcidicons\fi
   \def\laomian@formatchosen{lncs-camera-ready-reference}%
 }
 
 \def\laomian@format@lncs@camera@ready@iacr{%
   \laomian@format@lncs@camera@ready
+  \laomian@let@iftrue\if@laomian@pdfmetadata\fi
   \laomian@let@iftrue\if@laomian@orcidicons\fi
   \laomian@let@iftrue\if@laomian@iacrcopyright\fi
   \laomian@let@iftrue\if@laomian@pagenumbers\fi
@@ -159,6 +164,7 @@
   \laomian@format@lncs@camera@ready
   \laomian@let@iftrue\if@laomian@draft\fi
   \laomian@let@iftrue\if@laomian@runningheads\fi
+  \laomian@let@iftrue\if@laomian@pdfmetadata\fi
   \laomian@let@iftrue\if@laomian@orcidicons\fi
   \laomian@let@iftrue\if@laomian@pagenumbers\fi
   \laomian@let@iftrue\if@laomian@totalpagenumbers\fi
@@ -169,6 +175,7 @@
 \def\laomian@format@lncs@submission{%
   \laomian@format@lncs@camera@ready@iacr
   \laomian@let@iftrue\if@laomian@anonymous\fi
+  \laomian@let@iffalse\if@laomian@pdfmetadata\fi
   \laomian@let@iffalse\if@laomian@iacrcopyright\fi
   \laomian@let@iftrue\if@laomian@supplementarymaterials\fi
   \def\laomian@formatchosen{lncs-submission}%
@@ -185,6 +192,7 @@
   \laomian@let@iffalse\if@laomian@layout@thirtyeight@fortyeight\fi
   \laomian@let@iftrue\if@laomian@layout@sixpointfive@nine\fi
   \laomian@let@iftrue\if@laomian@anonymous\fi
+  \laomian@let@iffalse\if@laomian@pdfmetadata\fi
   \laomian@let@iffalse\if@laomian@iacrcopyright\fi
   \laomian@let@iffalse\if@laomian@fonts@source\fi
   \laomian@let@iffalse\if@laomian@fonts@times\fi
@@ -303,6 +311,12 @@
     \laomian@let@iffalse\if@laomian@layout@thirtyeight@fortyeight\fi
     \laomian@let@iftrue\if@laomian@layout@sixpointfive@nine\fi
   }
+  *
+
+\laomian@delcaremultiplechoiceoption
+  {pdf-metadata}{\if@laomian@pdfmetadatachosen}{\laomian@pdfmetadatachosen}
+  {yes}{\laomian@let@iftrue\if@laomian@pdfmetadata\fi}
+  {no}{\laomian@let@iffalse\if@laomian@pdfmetadata\fi}
   *
 
 \laomian@delcaremultiplechoiceoption
@@ -471,6 +485,10 @@
 % by resetting them back to default.
 % But they already have the default value.
 % ----------------------------------------
+% If the document is anonymous, ignore "pdf-metadata=yes".
+\if@laomian@anonymous
+  \laomian@let@iffalse\if@laomian@pdfmetadata\fi
+\fi
 % If the table of contents is shown,
 % ignore the request to not use a separate title page.
 \if@laomian@tableofcontents
@@ -512,6 +530,7 @@
 \laomian@output@conditional{draft}{                        }
 \laomian@output@conditional{runningheads}{                 }
 \laomian@output@conditional{anonymous}{                    }
+\laomian@output@conditional{pdfmetadata}{                  }
 \laomian@output@conditional{orcidicons}{                   }
 \laomian@output@conditional{iacrcopyright}{                }
 \laomian@output@conditional{pagenumbers}{                  }
@@ -1279,6 +1298,23 @@
 \RequirePackage{orcidlink}
 
 % -------------------- links   end --------------------
+
+% -------------------- PDF metadata begin --------------------
+
+\if@laomian@pdfmetadata
+  \def\titlepdf#1{\hypersetup{pdftitle={#1}}}
+  \def\authorpdf#1{\hypersetup{pdfauthor={#1}}}
+  \def\keywordspdf#1{\hypersetup{pdfkeywords={#1}}}
+  \def\subjectpdf#1{\hypersetup{pdfsubject={#1}}}
+\else
+  % Make these control sequences do nothing.
+  \let\titlepdf\laomian@eatoneargument
+  \let\authorpdf\laomian@eatoneargument
+  \let\keywordspdf\laomian@eatoneargument
+  \let\subjectpdf\laomian@eatoneargument
+\fi
+
+% -------------------- PDF metadata   end --------------------
 
 % -------------------- theorems begin --------------------
 
