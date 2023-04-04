@@ -5,6 +5,7 @@
 ```tex
 \documentclass[
   layout=...,
+  pdf-metadata=...,
   opens-on=...,
   bst=...,
   vec=...,
