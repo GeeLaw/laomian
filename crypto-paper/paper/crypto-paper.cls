@@ -817,6 +817,8 @@
 
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[english]{babel}
+% "xcolor" ensures (though it might not be the only package that ensures)
+% that the paper size is respected by pdfLaTeX.
 \RequirePackage{xcolor}
 \RequirePackage{float,graphicx}
 \RequirePackage{tabularx,booktabs,multirow}
