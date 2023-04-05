@@ -1,6 +1,6 @@
 % crypto-paper
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{crypto-paper}[2023/04/03 Laomian Cryptography Paper]
+\ProvidesClass{crypto-paper}[2023/04/05 Laomian Cryptography Paper]
 \ClassInfo{crypto-paper}
   {https://github.com/GeeLaw/laomian/tree/main/crypto-paper}
 
@@ -547,6 +547,7 @@
 \laomian@output@conditional{fonts@times}{                  }
 \laomian@output@conditional{fonts@palatino}{               }
 \laomian@output@conditional{fonts@libertine}{              }
+\laomian@output@conditional{fonts@utopia}{                 }
 \laomian@output@conditional{smartunderlines}{              }
 \laomian@output@conditional{lncsarraytablemargins}{        }
 \laomian@output@conditional{swaptablecaptionmargins}{      }
