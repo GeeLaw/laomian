@@ -44,7 +44,7 @@ The default is `eprint`. The following table describes the formats:
 
 | format → | E | E-D | L-CR | L-CR-REF | L-CR-IACR | L-CR-D | L-S | L-S-D | F-S | F-S-D |
 | -------: | :-  | :- | :- | :- | :- | :- | :- | :- | :- | :- |
-| base format →<br>feature ↓ |  | E |  | L-CR | L-CR | L-CR | L-CR-IACR | L-S | E | F-S|
+| base format →<br>feature ↓ | &nbsp; | E | &nbsp; | L-CR | L-CR | L-CR | L-CR-IACR | L-S | E | F-S|
 | base `\documentclass` | `article` | &nbsp; | `llncs` | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | `layout=` | `38x48` | &nbsp; | N/A | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | `6.5x9` | &nbsp; |
 | draft | ❌ | ✔ | ❌ | &nbsp; | &nbsp; | ✔ | &nbsp; | ✔ | &nbsp; | ✔ |
