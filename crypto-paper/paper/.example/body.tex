@@ -76,12 +76,16 @@ source code to be processed by Springer \\
 \texttt{layout=6x9} & use the 2022 layout \\
 \texttt{layout=38x48} & use the 2023 layout \\
 \texttt{layout=6.5x9} & use the FOCS submission layout \\
+\texttt{pdf-metadata=yes} & write PDF metadata if non-anonymous \\
+\texttt{pdf-metadata=no} & do not write PDF metadata \\
 \texttt{opens-on=right} & make the main body start \\
 & \qquad on an odd-numbered page \\
 \texttt{opens-on=any} & do not make the main body start \\
 & \qquad on an odd-numbered page \\
 \texttt{bst=alpha} & use \texttt{alpha.bst} \\
 \texttt{bst=splncs04} & use \texttt{splncs04.bst} \\
+\texttt{vec=itbf} & ${\texttt{\textbackslash vec\{a\}}=\boldsymbol{a}}$ \\
+\texttt{vec=bf} & ${\texttt{\textbackslash vec\{a\}}=\mathbf{a}}$ \\
 \texttt{links=colorful} & use colorful links \\
 \texttt{links=blue} & use blue links \\
 \texttt{fonts=computer-modern} & use Computer Modern fonts \\
@@ -91,8 +95,9 @@ use \href{https://github.com/adobe-fonts}{Adobe Source} fonts \\
 \texttt{fonts=palatino} & use Palatino fonts \\
 \texttt{fonts=libertine} & use Libertine fonts \\
 \texttt{fonts=utopia} & use Utopia fonts \\
-\texttt{underlines=smart} & make underlines skip descenders \\
-\texttt{underlines=dumb} & make underlines below descenders \\
+\texttt{underlines=smart} & make underlines \smartunderline{skip} descenders \\
+\texttt{underlines=dumb} &
+make underlines \dumbunderline{stay} below descenders \\
 \texttt{non-anonymous} & make the document non-anonymous \\
 \texttt{no-page-limits} & mark the document \\
 & \qquad as having no page limits \\
