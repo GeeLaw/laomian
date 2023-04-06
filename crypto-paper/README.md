@@ -70,7 +70,7 @@ The default is `eprint`. The following table describes the formats:
 
 **`layout=`** overrides the layout. It can be `38x48` (preferred by the 2023 version; `\textwidth` is 38 times font size and `\textheight` is 48 times `\baselineskip`) or `6.5x9` (FOCS submission; type center is 6.5in by 9in) or `6x9` (preferred by the 2022 version; type center is 6in by 9in). In addition, `38x48` and `6.5x9` use `\flushbottom`, but `6x9` does not. This option is meaningless if the document is in LNCS formats (the type center is always specified by LNCS). Technically, FOCS [requires](https://focs.computer.org/2023/) `6.5x9`, so it is better to not modify the layout for FOCS.
 
-**`pdf-metadata=`** overrides the PDF metadata. It can be `yes` or `no`. This option is meaningless if the document is anonymous, in which case the PDF metadata is never emitted.
+**`pdf-metadata=`** overrides the PDF metadata. It can be `yes` or `no`. This option is meaningless if the document is anonymous, in which case the PDF metadata is never emitted. (Using `pdf-metadata=yes` with `format=lncs-camera-ready` will cause PDF metadata to be emitted, which could disturb Springer hence strongly discouraged. Springer will set those metadata, depending on whether the PDF is created for the paper or the volume.)
 
 **`opens-on=`** overrides the opening side for the main body after the separate title page. It can be `right` or `any`. This option is meaningless if there is no separate title page (including the case if the document is in LNCS formats; the main body never starts on a new page).
 

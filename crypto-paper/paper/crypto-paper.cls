@@ -594,6 +594,9 @@
   % Create indentation for subsequent paragraphs of abstract.
   \def\abstractparindent{\hspace*{2em}}
   % Springer compliance: Reference names.
+  % For reference names at the beginning of a sentence,
+  % LNCS requires that you use the full word, so in that case,
+  % just use the word instead of the control sequence.
   \def\Figure{Fig.}
   \def\Equation{Eq.}
   \def\Section{Sect.}
