@@ -47,6 +47,7 @@ The default is `eprint`. The following table describes the formats:
 | base format →<br>feature ↓ | &nbsp; | E | &nbsp; | L-CR | L-CR | L-CR | L-CR-IACR | L-S | E | F-S|
 | base `\documentclass` | `article` | &nbsp; | `llncs` | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | `layout=` | `38x48` | &nbsp; | N/A | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | `6.5x9` | &nbsp; |
+| paper | letter | &nbsp; | letter | LNCS | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | draft | ❌ | ✔ | ❌ | &nbsp; | &nbsp; | ✔ | &nbsp; | ✔ | &nbsp; | ✔ |
 | running heads | ❌ | &nbsp; | ❌ | ✔ | &nbsp; | ✔ | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | anonymous | ❌ | &nbsp; | ❌ | &nbsp; | &nbsp; | &nbsp; | ✔ | &nbsp; | ✔ | &nbsp; |
