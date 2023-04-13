@@ -330,6 +330,12 @@
   *
 
 \laomian@delcaremultiplechoiceoption
+  {envelope-icons}{\if@laomian@envelopeiconschosen}{\laomian@envelopeiconschosen}
+  {yes}{\laomian@let@iftrue\if@laomian@envelopeicons\fi}
+  {no}{\laomian@let@iffalse\if@laomian@envelopeicons\fi}
+  *
+
+\laomian@delcaremultiplechoiceoption
   {opens-on}{\if@laomian@opensonchosen}{\laomian@opensonchosen}
   {right}{\laomian@let@iftrue\if@laomian@opensonright\fi}
   {any}{\laomian@let@iffalse\if@laomian@opensonright\fi}
