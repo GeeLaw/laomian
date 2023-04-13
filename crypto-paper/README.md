@@ -52,6 +52,7 @@ The default is `eprint`. The following table describes the formats:
 | running heads | ❌ | &nbsp; | ❌ | ✔ | &nbsp; | ✔ | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | anonymous | ❌ | &nbsp; | ❌ | &nbsp; | &nbsp; | &nbsp; | ✔ | &nbsp; | ✔ | &nbsp; |
 | `pdf-metadata=` | `yes` | &nbsp; | `no` | `yes` | `yes` | `yes` | `no` | &nbsp; | `no` | &nbsp; |
+| envelope icons | ✔ | &nbsp; | ❌ | ✔ | ✔ | ✔ | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | ORCID icons | ✔ | &nbsp; | ❌ | ✔ | ✔ | ✔ | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | IACR copyright | ✔ | &nbsp; | ❌ | &nbsp; | ✔ | &nbsp; | ❌ | &nbsp; | ❌ | &nbsp; |
 | page numbers | ✔ | &nbsp; | ❌ | &nbsp; | ✔ | ✔ | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
