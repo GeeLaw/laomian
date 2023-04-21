@@ -6,6 +6,7 @@
 \documentclass[
   layout=...,
   pdf-metadata=...,
+  envelope-icons=...,
   opens-on=...,
   bst=...,
   vec=...,
@@ -45,6 +46,7 @@ The default is `eprint`. The following table describes the formats:
 | format → | E | E-D | L-CR | L-CR-REF | L-CR-IACR | L-CR-D | L-S | L-S-D | F-S | F-S-D |
 | -------: | :-  | :- | :- | :- | :- | :- | :- | :- | :- | :- |
 | base format →<br>feature ↓ | &nbsp; | E | &nbsp; | L-CR | L-CR | L-CR | L-CR-IACR | L-S | E | F-S|
+| don’t disturb | N/A | &nbsp; | Springer LNCS | N/A | N/A | N/A | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | base `\documentclass` | `article` | &nbsp; | `llncs` | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | `layout=` | `38x48` | &nbsp; | N/A | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | `6.5x9` | &nbsp; |
 | paper | letter | &nbsp; | letter | LNCS | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
@@ -72,9 +74,9 @@ The default is `eprint`. The following table describes the formats:
 
 **`layout=`** overrides the layout. It can be `38x48` (preferred by the 2023 version; `\textwidth` is 38 times font size and `\textheight` is 48 times `\baselineskip`) or `6.5x9` (FOCS submission; type center is 6.5in by 9in) or `6x9` (preferred by the 2022 version; type center is 6in by 9in). In addition, `38x48` and `6.5x9` use `\flushbottom`, but `6x9` does not. This option is meaningless if the document is in LNCS formats (the type center is always specified by LNCS). Technically, FOCS [requires](https://focs.computer.org/2023/) `6.5x9`, so it is better to not modify the layout for FOCS.
 
-**`pdf-metadata=`** overrides the PDF metadata. It can be `yes` or `no`. This option is meaningless if the document is anonymous, in which case the PDF metadata is never emitted. (Using `pdf-metadata=yes` with `format=lncs-camera-ready` will cause PDF metadata to be emitted, which could disturb Springer hence strongly discouraged. Springer will set those metadata, depending on whether the PDF is created for the paper or the volume.)
+**`pdf-metadata=`** overrides the PDF metadata. It can be `yes` or `no`. This option is meaningless if the document is anonymous, in which case the PDF metadata are never emitted. This option is also meaningless if the document is set to not disturb Springer LNCS (the PDF metadata are never emitted if `format=lncs-camera-ready`).
 
-**`envelope-icons=`** overrides whether envelope icons are shown for corresponding authors. It can be `yes` or `no`. (Using `envelope-icons=yes` with `format=lncs-camera-ready` will cause envelope icons to be shown, which could disturb Springer hence strongly discouraged. Springer will add the icons on its own.)
+**`envelope-icons=`** overrides whether envelope icons are shown for corresponding authors. It can be `yes` or `no`. This option is meaningless if the document is set to not disturb Springer LNCS (the envelope icons are never shown if `format=lncs-camera-ready`).
 
 **`opens-on=`** overrides the opening side for the main body after the separate title page. It can be `right` or `any`. This option is meaningless if there is no separate title page (including the case if the document is in LNCS formats; the main body never starts on a new page).
 

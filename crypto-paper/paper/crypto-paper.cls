@@ -40,6 +40,7 @@
 \def\laomian@let@iftrue#1\fi{\let#1\iftrue}
 \def\laomian@let@iffalse#1\fi{\let#1\iffalse}
 
+\laomian@let@iffalse\if@laomian@dontdisturb@splncs\fi
 \laomian@let@iffalse\if@laomian@base@lncs\fi
 \laomian@let@iffalse\if@laomian@layout@thirtyeight@fortyeight\fi
 \laomian@let@iffalse\if@laomian@layout@sixpointfive@nine\fi
@@ -75,6 +76,7 @@
 \def\laomian@format{unset}
 
 \def\laomian@format@eprint{%
+  \laomian@let@iffalse\if@laomian@dontdisturb@splncs\fi
   \laomian@let@iffalse\if@laomian@base@lncs\fi
   \laomian@let@iftrue\if@laomian@layout@thirtyeight@fortyeight\fi
   \laomian@let@iffalse\if@laomian@layout@sixpointfive@nine\fi
@@ -115,6 +117,7 @@
 }
 
 \def\laomian@format@lncs@camera@ready{%
+  \laomian@let@iftrue\if@laomian@dontdisturb@splncs\fi
   \laomian@let@iftrue\if@laomian@base@lncs\fi
   \laomian@let@iffalse\if@laomian@layout@thirtyeight@fortyeight\fi
   \laomian@let@iffalse\if@laomian@layout@sixpointfive@nine\fi
@@ -149,6 +152,7 @@
 
 \def\laomian@format@lncs@camera@ready@reference{%
   \laomian@format@lncs@camera@ready
+  \laomian@let@iffalse\if@laomian@dontdisturb@splncs\fi
   \laomian@let@iftrue\if@laomian@paper@lncs\fi
   \laomian@let@iftrue\if@laomian@runningheads\fi
   \laomian@let@iftrue\if@laomian@pdfmetadata\fi
@@ -159,6 +163,7 @@
 
 \def\laomian@format@lncs@camera@ready@iacr{%
   \laomian@format@lncs@camera@ready
+  \laomian@let@iffalse\if@laomian@dontdisturb@splncs\fi
   \laomian@let@iftrue\if@laomian@pdfmetadata\fi
   \laomian@let@iftrue\if@laomian@envelopeicons\fi
   \laomian@let@iftrue\if@laomian@orcidicons\fi
@@ -171,6 +176,7 @@
 
 \def\laomian@format@lncs@camera@ready@draft{%
   \laomian@format@lncs@camera@ready
+  \laomian@let@iffalse\if@laomian@dontdisturb@splncs\fi
   \laomian@let@iftrue\if@laomian@draft\fi
   \laomian@let@iftrue\if@laomian@runningheads\fi
   \laomian@let@iftrue\if@laomian@pdfmetadata\fi
@@ -479,6 +485,13 @@
 \ProcessOptions\relax
 % In case there was no option at all.
 \laomian@ensure@formatchosen
+% For the camera-ready LNCS code sent to Springer, ignore
+% "pdf-metadata=" and "envelope-icons=" by resetting them
+% back to default.
+\if@laomian@dontdisturb@splncs
+  \laomian@let@iffalse\if@laomian@pdfmetadata\fi
+  \laomian@let@iffalse\if@laomian@envelopeicons\fi
+\fi
 % For LNCS, ignore "layout=", "opens-on=", "fonts=",
 % "no-table-of-contents", "no-separate-title-page",
 % "no-lncs-array-table-margins", "no-swapped-table-caption-margins"
@@ -540,6 +553,7 @@
   \endgroup
 }
 
+\laomian@output@conditional{dontdisturb@splncs}{           }
 \laomian@output@conditional{base@lncs}{                    }
 \laomian@output@conditional{layout@thirtyeight@fortyeight}{}
 \laomian@output@conditional{layout@sixpointfive@nine}{     }
