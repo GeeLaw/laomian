@@ -71,6 +71,7 @@ The default is `eprint`. The following table describes the formats:
 | `underlines=` | `smart` | &nbsp; | `dumb` | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | LNCS array/table margins | ✔ | &nbsp; | ✔ | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | swap table caption margins | ✔ | &nbsp; | ✔ | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| LNCS theorem note styles | ❌ | &nbsp; | ✔ | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 
 **`layout=`** overrides the layout. It can be `38x48` (preferred by the 2023 version; `\textwidth` is 38 times font size and `\textheight` is 48 times `\baselineskip`) or `6.5x9` (FOCS submission; type center is 6.5in by 9in) or `6x9` (preferred by the 2022 version; type center is 6in by 9in). In addition, `38x48` and `6.5x9` use `\flushbottom`, but `6x9` does not. This option is meaningless if the document is in LNCS formats (the type center is always specified by LNCS). Technically, FOCS [requires](https://focs.computer.org/2023/) `6.5x9`, so it is better to not modify the layout for FOCS.
 
@@ -103,6 +104,8 @@ The default is `eprint`. The following table describes the formats:
 **`no-lncs-array-table-margins`** prevents setting `\arraycolsep` and `\tabcolsep` to 1.4pt. This option is meaningless if the document is in LNCS formats (the array/table inter-column margins are always set by LNCS).
 
 **`no-swapped-table-caption-margins`** prevents swapping `\abovecaptionskip` and `\belowcaptionskip` (so that by default, the former is zero and the latter is non-zero). This option is meaningless if the document is in LNCS formats (the margins are always swapped by LNCS).
+
+**`yes-lncs-theorem-note-styles`** changes the theorem notes to use the same style as the headings, e.g., boldfaced for theorems and italicized for remarks. This option is meaningless if the document is in LNCS formats (the notes always use the same style as the headings in LNCS).
 
 ## What's new since the 2022 version?
 

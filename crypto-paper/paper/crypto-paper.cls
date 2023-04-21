@@ -70,6 +70,7 @@
 \laomian@let@iffalse\if@laomian@smartunderlines\fi
 \laomian@let@iffalse\if@laomian@lncsarraytablemargins\fi
 \laomian@let@iffalse\if@laomian@swaptablecaptionmargins\fi
+\laomian@let@iffalse\if@laomian@lncstheoremnotestyles\fi
 
 % Options --- format=...
 \laomian@let@iffalse\if@laomian@formatchosen\fi
@@ -106,6 +107,7 @@
   \laomian@let@iftrue\if@laomian@smartunderlines\fi
   \laomian@let@iftrue\if@laomian@lncsarraytablemargins\fi
   \laomian@let@iftrue\if@laomian@swaptablecaptionmargins\fi
+  \laomian@let@iffalse\if@laomian@lncstheoremnotestyles\fi
   \def\laomian@formatchosen{eprint}%
 }
 
@@ -147,6 +149,7 @@
   \laomian@let@iffalse\if@laomian@smartunderlines\fi
   \laomian@let@iftrue\if@laomian@lncsarraytablemargins\fi
   \laomian@let@iftrue\if@laomian@swaptablecaptionmargins\fi
+  \laomian@let@iftrue\if@laomian@lncstheoremnotestyles\fi
   \def\laomian@formatchosen{lncs-camera-ready}%
 }
 
@@ -470,6 +473,13 @@
   \ClassInfo{crypto-paper}{[option] no-swapped-table-caption-margins}%
 }
 
+% Options --- yes-lncs-theorem-note-styles
+\DeclareOption{yes-lncs-theorem-note-styles}{%
+  \laomian@ensure@formatchosen
+  \laomian@let@iftrue\if@laomian@lncstheoremnotestyles\fi
+  \ClassInfo{crypto-paper}{[option] yes-lncs-theorem-note-styles}%
+}
+
 % Options --- disallow unknown options.
 \DeclareOption*{%
   \ClassError
@@ -494,8 +504,8 @@
 \fi
 % For LNCS, ignore "layout=", "opens-on=", "fonts=",
 % "no-table-of-contents", "no-separate-title-page",
-% "no-lncs-array-table-margins", "no-swapped-table-caption-margins"
-% by resetting them back to default.
+% "no-lncs-array-table-margins", "no-swapped-table-caption-margins",
+% "yes-lncs-theorem-note-styles" by resetting them back to default.
 \if@laomian@base@lncs
   \laomian@let@iffalse\if@laomian@layout@thirtyeight@fortyeight\fi
   \laomian@let@iffalse\if@laomian@layout@sixpointfive@nine\fi
@@ -509,6 +519,7 @@
   \laomian@let@iffalse\if@laomian@fonts@utopia\fi
   \laomian@let@iftrue\if@laomian@lncsarraytablemargins\fi
   \laomian@let@iftrue\if@laomian@swaptablecaptionmargins\fi
+  % \if@laomian@lncstheoremnotestyles is already \iftrue.
 \fi
 % For ePrint, ignore "non-anonymous", "no-page-limits"
 % by resetting them back to default.
@@ -583,6 +594,7 @@
 \laomian@output@conditional{smartunderlines}{              }
 \laomian@output@conditional{lncsarraytablemargins}{        }
 \laomian@output@conditional{swaptablecaptionmargins}{      }
+\laomian@output@conditional{lncstheoremnotestyles}{        }
 
 \let\laomian@output@conditional\laomian@undefined
 \let\laomian@output@conditional@next\laomian@undefined
@@ -1441,9 +1453,14 @@
 
 % -------------------- theorems begin --------------------
 
+\if@laomian@lncstheoremnotestyles
+  \let\laomian@thethmnotefont\relax
+\else
+  \def\laomian@thethmnotefont{\the\thm@notefont}
+\fi
 \def\thmhead@plain#1#2#3{%
   \thmname{#1}\thmnumber{\@ifnotempty{#1}{ }\relax{#2}}%
-  \thmnote{ {\the\thm@notefont(#3)}}%
+  \thmnote{ {\laomian@thethmnotefont(#3)}}%
 }
 \let\thmhead\thmhead@plain
 
