@@ -415,6 +415,24 @@ a+b&{}=c.
 \end{align*}
 \end{proof}
 
+\begin{proofsketch}
+This is \texttt{\textbackslash begin\{proofsketch\}}.
+\end{proofsketch}
+
+\begin{proofsketch}
+[\HyperTargetToThisLine{pf:proposition8}%
+Proposition~\ref{prop:proposition8}]
+The code of this proof sketch:
+\begin{align*}
+&\texttt{\textbackslash begin\{proofsketch\}}\\%
+&\texttt{[\textbackslash HyperTargetToThisLine\{pf:proposition8\}\%}\\
+&\texttt{Proposition\textasciitilde\textbackslash ref\{prop:proposition8\}]}\\
+&\texttt{...}\\
+&\texttt{\textbackslash end\{proofsketch\}}
+\qedhere
+\end{align*}
+\end{proofsketch}
+
 \begin{remarks}
 This is \texttt{\textbackslash begin\{remarks\}}.
 \end{remarks}
@@ -522,8 +540,15 @@ This is \texttt{\textbackslash begin\{proposition\}}.
 \end{proposition}
 
 \begin{proposition}
-[name]
-This is \texttt{\textbackslash begin\{proposition\}[name]}.
+[\hyperlink{pf:proposition8}{\P}]
+\label{prop:proposition8}
+The code of this proposition:
+\begin{align*}
+&\texttt{\textbackslash begin\{proposition\}}\\
+&\texttt{[\textbackslash hyperlink\{pf:proposition8\}\{\textbackslash P\}]}\\
+&\texttt{...}\\
+&\texttt{\textbackslash end\{proposition\}}
+\end{align*}
 \end{proposition}
 
 \begin{theorem}
