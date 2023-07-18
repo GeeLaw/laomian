@@ -37,21 +37,23 @@ Another Author\inst{2,3}
 \and
 Yet Another Author\inst{3}
 }
-
 % When using different names in different formats (c.f., \authorJiLuo),
 % it is the best to dumb-down any such control sequences
 % before sending the files to the publisher.
 % For added fool-proof, also remove the \author using \authorJiLuo.
 % Springer could get author names wrong if this is not done.
 
-\authorrunning{J.~Luo, A.~Author, and Y.~A.~Author}
+\authorrunning{J.~Luo, A.~Author, and Y.A.~Author}
+% Publisher: Format the initials per your bibliography style.
+% The above are formatted according to Springer LNCS (splncs04.bst).
 
 \authorpdf{\authorpdfJiLuo; Another Author; Yet Another Author}
 
 % \author:
 %   The argument should be TeX code.
 %   Multiple authors are separated by \and.
-%   Use \inst and \orcidID. Springer puts \inst before \orcidID.
+%   Use \inst and \orcidID.
+%   Springer puts \inst before \orcidID.
 % \authorrunning:
 %   The argument should be TeX code.
 %   This is optional and sets the running author shown in the header
