@@ -1,3 +1,16 @@
 \usepackage{hypcap}
 
+\WideNarrow{
+\usepackage{CJKutf8}
+\def\authorzhhans#1{\smash{\raisebox{-0.15em}{{\Large
+  \begin{CJK}{UTF8}{gkai}#1\end{CJK}}}}}
+\def\authorzhhant#1{\smash{\raisebox{-0.15em}{{\Large
+  \begin{CJK}{UTF8}{bkai}#1\end{CJK}}}}}
+\def\authorJiLuo{\authorzhhans{罗辑}\,(Ji Luo)}
+\def\authorpdfJiLuo{罗辑 (Ji Luo)}
+}{
+\def\authorJiLuo{Ji Luo}
+\def\authorpdfJiLuo{Ji Luo}  
+}
+
 \defcallout\luoji{Ji}
