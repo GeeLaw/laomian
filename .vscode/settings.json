@@ -20,6 +20,36 @@
     "-NoLogo",
     "-NoExit"
   ],
+  "terminal.integrated.profiles.osx":
+  {
+    "auto":
+    {
+      "path": "/bin/bash",
+      "args":
+      [
+        "--noprofile",
+        "--norc",
+        "-c",
+        "PWSHFN=$(which pwsh); if [ $? -eq 0 ]; then exec /bin/bash -l -c \"$(printf \"exec %q -NoLogo\" \"$PWSHFN\")\"; else exec bash -l; fi"
+      ],
+      "icon": "terminal-powershell"
+    }
+  },
+  "terminal.integrated.defaultProfile.osx": "auto",
+  "terminal.integrated.profiles.windows":
+  {
+    "auto":
+    {
+      "path": "powershell.exe",
+      "args":
+      [
+        "-NoLogo",
+        "-NoExit"
+      ],
+      "icon": "terminal-powershell"
+    }
+  },
+  "terminal.integrated.defaultProfile.windows": "auto",
   "files.eol": "\n",
   "cSpell.words":
   [
