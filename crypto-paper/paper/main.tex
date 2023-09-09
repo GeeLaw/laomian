@@ -1,0 +1,82 @@
+\documentclass[
+  % layout=6x9,
+  % layout=38x48,
+  % layout=6.5x9,
+  % pdf-metadata=yes,
+  % pdf-metadata=no,
+  % envelope-icons=yes,
+  % envelope-icons=no,
+  % opens-on=right,
+  % opens-on=any,
+  % bst=alpha,
+  % bst=splncs04,
+  % vec=itbf,
+  % vec=bf,
+  % links=colorful,
+  % links=blue,
+  % fonts=computer-modern,
+  % fonts=source,
+  % fonts=times,
+  % fonts=palatino,
+  % fonts=libertine,
+  % fonts=utopia,
+  % underlines=smart,
+  % underlines=dumb,
+  % non-anonymous,
+  % no-page-limits,
+  % no-table-of-contents,
+  % no-separate-title-page,
+  % no-total-number-of-pages,
+  % no-lncs-array-table-margins,
+  % no-swapped-table-caption-margins,
+  % yes-lncs-theorem-note-styles,
+  format=eprint-draft
+  % format=eprint
+  % format=focs-submission-draft
+  % format=focs-submission
+  % format=lncs-submission-draft
+  % format=lncs-submission
+  % format=lncs-camera-ready-draft
+  % format=lncs-camera-ready-iacr
+  % format=lncs-camera-ready-reference
+  % format=lncs-camera-ready
+]{crypto-paper}
+
+\input{.example/preamble}
+
+\input{preamble}
+
+\begin{document}
+
+\input{title}
+
+\input{abstract}
+
+% The following line creates the table of contents (if shown)
+% and sets up the correct styles for the main body.
+\LaomianBody
+% The previous line should NEVER be commented out.
+
+\input{.example/body}
+
+% If there are no acknowledgments to be made,
+% either empty acknowledgments.tex (but do NOT remove it)
+% or comment out the following line.
+\LaomianAcknowledgments
+% There is NO need to comment out the previous line
+% just because the document should be anonymous.
+% It handles that case correctly.
+
+% The following line should ALWAYS be used
+% for correct bibliography styles and table of contents.
+\LaomianBibliography{.example/refs,refs}
+
+% If there is no appendix or supplementary materials,
+% comment out the following line.
+\LaomianAppendix
+% If there is appendix or supplementary materials,
+% the previous line should NEVER be commented out.
+
+\input{.example/appendix}
+
+\end{document}

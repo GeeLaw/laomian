@@ -1,0 +1,61 @@
+{
+  "editor.detectIndentation": true,
+  "editor.indentSize": "tabSize",
+  "editor.insertSpaces": true,
+  "[makefile]": { "editor.insertSpaces": false },
+  "editor.renderFinalNewline": "on",
+  "editor.scrollBeyondLastLine": true,
+  "editor.tabSize": 2,
+  "editor.wordWrap": "bounded",
+  "[markdown]": { "editor.wordWrap": "bounded" },
+  "editor.wordWrapColumn": 80,
+  "editor.wrappingIndent": "none",
+  "files.eol": "\n",
+  "breadcrumbs.enabled": false,
+  "terminal.explorerKind": "integrated",
+  "terminal.integrated.bellDuration": 3000,
+  "terminal.integrated.cursorBlinking": false,
+  "terminal.integrated.cursorStyle": "block",
+  "terminal.integrated.defaultProfile.osx": "laomian-macos-paper",
+  "terminal.integrated.defaultProfile.windows": "laomian-windows-paper",
+  "terminal.integrated.enableBell": true,
+  "terminal.integrated.fontSize": 12,
+  "terminal.integrated.fontWeight": "normal",
+  "terminal.integrated.fontWeightBold": "normal",
+  "terminal.integrated.profiles.osx":
+  {
+    "laomian-macos-paper":
+    {
+      "path": "/bin/bash",
+      "args":
+      [
+        "--noprofile",
+        "--norc",
+        "-c",
+        "cd ./paper >/dev/null 2>&1; PWSHFN=$(which pwsh); if [ $? -eq 0 ]; then exec /bin/bash -l -c \"$(printf \"exec %q -NoLogo\" \"$PWSHFN\")\"; else exec bash -l; fi"
+      ],
+      "icon": "terminal-powershell"
+    }
+  },
+  "terminal.integrated.profiles.windows":
+  {
+    "laomian-windows-paper":
+    {
+      "path": "powershell.exe",
+      "args":
+      [
+        "-NoLogo",
+        "-NoExit",
+        "-Command",
+        "Set-Location -LiteralPath ./paper -ErrorAction Ignore"
+      ],
+      "icon": "terminal-powershell"
+    }
+  },
+  "cSpell.words":
+  [
+    "IACR",
+    "homomorphic",
+    "indistinguishability"
+  ]
+}

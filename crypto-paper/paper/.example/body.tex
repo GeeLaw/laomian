@@ -1,0 +1,636 @@
+\section{Section}
+
+\subsection{Subsection}
+
+This template is used to prepare manuscripts for works in cryptography.%
+\footnote{This is a footnote.}
+
+\subsubsection{Subsubsection.}
+This is a run-in heading in bold face.
+Normal,
+\textit{Italics,}
+\textsl{Slanted,}
+\textbf{Bold,}
+\textsc{Small-Caps,}
+\textit{\textbf{Italics Bold,}}
+\textsl{\textbf{Slanted Bold,}}
+\textsf{Sans Serif,}
+\texttt{Monospaced.}
+
+Avoid using \texttt{\textbackslash begin\{equation\}},
+\texttt{\textbackslash begin\{gather\}},
+\texttt{\textbackslash begin\{split\}},
+and \texttt{\$\$}.
+Always prefer \texttt{\textbackslash begin\{align\}}.
+(One of) Euler's formula says
+\begin{align*}
+e^{i\pi}+1=0.
+\end{align*}
+
+\paragraph{Paragraph.}
+This is an italicized run-in heading, and
+\texttt{\textbackslash subparagraph} is \emph{explicitly} undefined.
+Springer requires that table captions be above the table
+and figure captions be below the figure,
+as exemplified in Table~\ref{tab:table1} and \Figure~\ref{fig:figure1}.
+
+\begin{table}[htb]
+\centering
+\capstart
+\caption{Formats.}
+\label{tab:table1}
+\begin{tabular}{ll}
+\toprule
+\texttt{format=...} & \textbf{purpose} \\
+\midrule
+\texttt{eprint-draft} & full version, draft \\
+\texttt{eprint} &
+full version (\href{https://eprint.iacr.org/}{eprint.iacr.org}) \\
+\texttt{focs-submission-draft} &
+submission (FOCS), draft \\
+\texttt{focs-submission} &
+submission (FOCS) \\
+\texttt{lncs-submission-draft} &
+submission (IACR conferences), draft \\
+\texttt{lncs-submission} &
+submission (IACR conferences) \\
+\texttt{lncs-camera-ready-draft} &
+camera-ready, draft \\
+\texttt{lncs-camera-ready-iacr} &
+PDF archived by the IACR \\
+\texttt{lncs-camera-ready-reference} &
+PDF for Springer's reference \\
+\texttt{lncs-camera-ready} &
+source code to be processed by Springer \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}
+\centering
+\capstart
+\begin{tabular}{ll}
+\toprule
+\textbf{option} & \textbf{description} \\
+\midrule
+\texttt{layout=6x9} & use the 2022 layout \\
+\texttt{layout=38x48} & use the 2023 layout \\
+\texttt{layout=6.5x9} & use the FOCS submission layout \\
+\texttt{pdf-metadata=yes} & write PDF metadata if non-anonymous \\
+\texttt{pdf-metadata=no} & do not write PDF metadata \\
+\texttt{opens-on=right} & make the main body start \\
+& \qquad on an odd-numbered page \\
+\texttt{opens-on=any} & do not make the main body start \\
+& \qquad on an odd-numbered page \\
+\texttt{bst=alpha} & use \texttt{alpha.bst} \\
+\texttt{bst=splncs04} & use \texttt{splncs04.bst} \\
+\texttt{vec=itbf} & ${\texttt{\textbackslash vec\{a\}}=\boldsymbol{a}}$ \\
+\texttt{vec=bf} & ${\texttt{\textbackslash vec\{a\}}=\mathbf{a}}$ \\
+\texttt{links=colorful} & use colorful links \\
+\texttt{links=blue} & use blue links \\
+\texttt{fonts=computer-modern} & use Computer Modern fonts \\
+\texttt{fonts=source} &
+use \href{https://github.com/adobe-fonts}{Adobe Source} fonts \\
+\texttt{fonts=times} & use Times fonts \\
+\texttt{fonts=palatino} & use Palatino fonts \\
+\texttt{fonts=libertine} & use Libertine fonts \\
+\texttt{fonts=utopia} & use Utopia fonts \\
+\texttt{underlines=smart} & make underlines \smartunderline{skip} descenders \\
+\texttt{underlines=dumb} &
+make underlines \dumbunderline{stay} below descenders \\
+\texttt{non-anonymous} & make the document non-anonymous \\
+\texttt{no-page-limits} & mark the document \\
+& \qquad as having no page limits \\
+& \quad and do not mark appendix \\
+& \qquad as ``supplementary materials'' \\
+\texttt{no-table-of-contents} & do not show table of contents \\
+\texttt{no-separate-title-page} & do not use a separate title page \\
+\texttt{no-total-number-of-pages} & do not show the total number of pages \\
+\texttt{no-lncs-array-table-margins} & do not use array/table inter-column \\
+& \qquad margins from LNCS \\
+\texttt{no-swapped-table-caption-margins} &
+do not swap top/bottom margins \\
+& \qquad for table captions \\
+\bottomrule
+\end{tabular}
+\caption{Options for customizing the formats.
+Not all options are effective for all formats, and
+not all option combinations are possible.}
+\label{fig:figure1}
+\end{figure}
+
+\section{Utilities}
+
+The draft mode displays page borders,
+which can be used to ensure that no content bleeds off the type center.
+
+\subsection{Call-Out Boxes}
+
+Use
+\texttt{\textbackslash defcallout\textbackslash luoji\{Ji\}}
+\emph{in the preamble}
+to make
+\luoji{This is a note from Ji.
+\luoji{Nested call-outs are converted to paragraphs inside the same box.}}
+control sequence \texttt{\textbackslash luoji} typeset a call-out box for Ji,
+which is only shown in draft mode.
+To make the control sequence
+\texttt{\textbackslash long} (accept \texttt{\textbackslash par}),
+use
+\texttt{\textbackslash long%
+\textbackslash defcallout\textbackslash luoji\{Ji\}}.
+Using \texttt{\textbackslash long} is recommended.
+
+\luoji{Note can go on empty paragraph,
+but it looks weird and will disturb vertical typesetting.}
+
+It is strongly discouraged to put a call-out box on an empty paragraph
+as it makes vertical typesetting dependent on whether it is draft or not.
+Note that even if there are no call-out boxes,
+the typesetting result could be different for draft and non-draft
+due to arithmetic errors
+(in the draft version,
+the type center is moved, and
+rounding results could change).
+
+\luoji{Note can start a paragraph.}
+The colors of the boxes rotate so that it is easy to track which is where.
+
+\subsection{Format- and Option-Dependent Control \underlined{Sequences}}
+
+\subsubsection{Underlines.}
+By default, ePrint uses descender-\underlined{skipping} underlines.
+To \smartunderline{always} skip the descenders,
+use \texttt{\textbackslash smartunderline}, and
+to always \dumbunderline{stay} below the descenders,
+use \texttt{\textbackslash dumbunderline}.
+The control sequences are \emph{robust} so that
+they can be used in moving arguments.
+
+\subsubsection{Names of Referenced Objects.}
+\texttt{\textbackslash Figure},
+\texttt{\textbackslash Equation},
+\texttt{\textbackslash Section},
+\texttt{\textbackslash Figures},
+\texttt{\textbackslash Equations}, and
+\texttt{\textbackslash Sections}
+provide the correct form of references:
+\begin{itemize}
+\item
+In LNCS, they are Fig., Eq., Sect., Figs., Eqs., Sects., respectively.
+This is required by Springer.
+\item
+In ePrint, they are Figure, Equation, Section, Figures, Equations, Sections.
+\item
+In the current format, they are
+``\Figure'', ``\Equation'', ``\Section'',
+``\Figures'', ``\Equations'', ``\Sections''.
+\end{itemize}
+However, if these words appear at the beginning of a sentence,
+LNCS requires that you use the full word of instead of the abbreviated form
+(so at the beginning of a sentence,
+just use the word, instead of the control sequence,
+for Springer compliance).
+Use
+\texttt{\textbackslash WideNarrow},
+\texttt{\textbackslash PageLimitsNoLimits},
+\texttt{\textbackslash BibAlphaNumeric},
+to choose one from the two candidates depending on the current style.
+The type center is \WideNarrow{wide}{narrow},
+there \PageLimitsNoLimits{is a}{are no} page limit\PageLimitsNoLimits{}{s},
+and the bibliography is \BibAlphaNumeric{alphanumeric}{numeric}.
+These control sequences are \texttt{\textbackslash long},
+so they can accept multi-paragraph arguments.
+
+\subsection{Mathematical Symbols}
+
+All Greek letters
+(including
+\texttt{\textbackslash omicron} and \texttt{\textbackslash Omicron})
+have their lowercase and uppercase control sequences,
+and the uppercase letters are upright.
+\begin{align*}
+\Alpha,\alpha,{}&\vec{\Alpha},\vec{\alpha},&
+\Beta,\beta,{}&\vec{\Beta},\vec{\beta},&
+\Gamma,\gamma,{}&\vec{\Gamma},\vec{\gamma},&
+\Delta,\delta,{}&\vec{\Delta},\vec{\delta},&
+\Epsilon,\epsilon,{}&\vec{\Epsilon},\vec{\epsilon},&
+\Zeta,\zeta,{}&\vec{\Zeta},\vec{\zeta},\\
+\Eta,\eta,{}&\vec{\Eta},\vec{\eta},&
+\Theta,\theta,{}&\vec{\Theta},\vec{\theta},&
+\Iota,\iota,{}&\vec{\Iota},\vec{\iota},&
+\Kappa,\kappa,{}&\vec{\Kappa},\vec{\kappa},&
+\Lambda,\lambda,{}&\vec{\Lambda},\vec{\lambda},&
+\Mu,\mu,{}&\vec{\Mu},\vec{\mu},
+\displaybreak[3]\\
+\Nu,\nu,{}&\vec{\Nu},\vec{\nu},&
+\Xi,\xi,{}&\vec{\Xi},\vec{\xi},&
+\Omicron,\omicron,{}&\vec{\Omicron},\vec{\omicron},&
+\Pi,\pi,{}&\vec{\Pi},\vec{\pi},&
+\Rho,\rho,{}&\vec{\Rho},\vec{\rho},&
+\Sigma,\sigma,{}&\vec{\Sigma},\vec{\sigma},\\
+\Tau,\tau,{}&\vec{\Tau},\vec{\tau},&
+\Upsilon,\upsilon,{}&\vec{\Upsilon},\vec{\upsilon},&
+\Phi,\phi,{}&\vec{\Phi},\vec{\phi},&
+\Chi,\chi,{}&\vec{\Chi},\vec{\chi},&
+\Psi,\psi,{}&\vec{\Psi},\vec{\psi},&
+\Omega,\omega,{}&\vec{\Omega},\vec{\omega}.
+\end{align*}
+Control sequences similar to Office Equation Editor are provided:
+\texttt{\textbackslash doubleA}
+for blackboard bold,
+\texttt{\textbackslash scriptA}
+for usual handwritten,
+\texttt{\textbackslash cursiveA}
+for cursive handwritten,
+\texttt{\textbackslash frakturA} and \texttt{\textbackslash fraktura}
+for fraktur.
+All these letter control sequences
+can be used as superscripts and subscripts
+without being wrapped inside braces, i.e.,
+it is correct to write
+\texttt{\$1\textasciicircum
+\textbackslash cursiveA\textunderscore
+\textbackslash lambda\$}
+for $1^\cursiveA_\lambda$.
+\begin{align*}
+\doubleA,\scriptA,\cursiveA,{}&\frakturA,\fraktura,&
+\doubleB,\scriptB,\cursiveB,{}&\frakturB,\frakturb,&
+\doubleC,\scriptC,\cursiveC,{}&\frakturC,\frakturc,&
+\doubleD,\scriptD,\cursiveD,{}&\frakturD,\frakturd,\\
+\doubleE,\scriptE,\cursiveE,{}&\frakturE,\frakture,&
+\doubleF,\scriptF,\cursiveF,{}&\frakturF,\frakturf,&
+\doubleG,\scriptG,\cursiveG,{}&\frakturG,\frakturg,
+\displaybreak[3]\\
+\doubleH,\scriptH,\cursiveH,{}&\frakturH,\frakturh,&
+\doubleI,\scriptI,\cursiveI,{}&\frakturI,\frakturi,&
+\doubleJ,\scriptJ,\cursiveJ,{}&\frakturJ,\frakturj,&
+\doubleK,\scriptK,\cursiveK,{}&\frakturK,\frakturk,\\
+\doubleL,\scriptL,\cursiveL,{}&\frakturL,\frakturl,&
+\doubleM,\scriptM,\cursiveM,{}&\frakturM,\frakturm,&
+\doubleN,\scriptN,\cursiveN,{}&\frakturN,\frakturn,
+\displaybreak[3]\\
+\doubleO,\scriptO,\cursiveO,{}&\frakturO,\frakturo,&
+\doubleP,\scriptP,\cursiveP,{}&\frakturP,\frakturp,&
+\doubleQ,\scriptQ,\cursiveQ,{}&\frakturQ,\frakturq,\\ &&
+\doubleR,\scriptR,\cursiveR,{}&\frakturR,\frakturr,&
+\doubleS,\scriptS,\cursiveS,{}&\frakturS,\frakturs,&
+\doubleT,\scriptT,\cursiveT,{}&\frakturT,\frakturt,
+\displaybreak[3]\\
+\doubleU,\scriptU,\cursiveU,{}&\frakturU,\frakturu,&
+\doubleV,\scriptV,\cursiveV,{}&\frakturV,\frakturv,&
+\doubleW,\scriptW,\cursiveW,{}&\frakturW,\frakturw,\\ &&
+\doubleX,\scriptX,\cursiveX,{}&\frakturX,\frakturx,&
+\doubleY,\scriptY,\cursiveY,{}&\frakturY,\fraktury,&
+\doubleZ,\scriptZ,\cursiveZ,{}&\frakturZ,\frakturz.
+\end{align*}
+\texttt{\textbackslash 1} creates a blackboard bold $\1$,
+which can be used as the indicator symbol.
+\texttt{\textbackslash vec}
+produces italicized boldfaced letters
+(if the letters themselves are boldfaced
+without \texttt{\textbackslash vec}, of course),
+which is the orthodox.
+The orthodox can be switched off using option \texttt{vec=bf}.
+It works with Greek letters
+(lowercase Greek letters are never upright except for omicron),
+as shown above.
+Below is a table of \texttt{\textbackslash vec}'s applied to Latin alphabet:
+\begin{align*}
+A,a,{}&\vec{A},\vec{a},&
+B,b,{}&\vec{B},\vec{b},&
+C,c,{}&\vec{C},\vec{c},&
+D,d,{}&\vec{D},\vec{d},\\
+E,e,{}&\vec{E},\vec{e},&
+F,f,{}&\vec{F},\vec{f},&
+G,g,{}&\vec{G},\vec{g},
+\displaybreak[3]\\
+H,h,{}&\vec{H},\vec{h},&
+I,i,{}&\vec{I},\vec{i},&
+J,j,{}&\vec{J},\vec{j},&
+K,k,{}&\vec{K},\vec{k},\\
+L,l,\ell,{}&\vec{L},\vec{l},\vec{\ell},&
+M,m,{}&\vec{M},\vec{m},&
+N,n,{}&\vec{N},\vec{n},
+\displaybreak[3]\\
+O,o,{}&\vec{O},\vec{o},&
+P,p,{}&\vec{P},\vec{p},&
+Q,q,{}&\vec{Q},\vec{q},\\ &&
+R,r,{}&\vec{R},\vec{r},&
+S,s,{}&\vec{S},\vec{s},&
+T,t,{}&\vec{T},\vec{t},
+\displaybreak[3]\\
+U,u,{}&\vec{U},\vec{u},&
+V,v,{}&\vec{V},\vec{v},&
+W,w,{}&\vec{W},\vec{w},\\ &&
+X,x,{}&\vec{X},\vec{x},&
+Y,y,{}&\vec{Y},\vec{y},&
+Z,z,{}&\vec{Z},\vec{z}.
+\end{align*}
+Several symbols are redefined to the sane versions:
+\begin{align*}
+\texttt{\textbackslash epsilon}&{}=\epsilon,&
+\texttt{\textbackslash varepsilon}&{}=\varepsilon,&
+\texttt{\textbackslash dumbepsilon}&{}=\dumbepsilon,\\
+\texttt{\textbackslash phi}&{}=\phi,&
+\texttt{\textbackslash varphi}&{}=\varphi,&
+\texttt{\textbackslash dumbphi}&{}=\dumbphi,\\
+\texttt{\textbackslash emptyset}&{}=\emptyset,&
+\texttt{\textbackslash varnothing}&{}=\varnothing,&
+\texttt{\textbackslash dumbemptyset}&{}=\dumbemptyset.
+\end{align*}
+It is wise to add more tests here ($v\nu\upsilon u\mu$,
+${p\concat q=1^{x\concat y^{z\concat w}}}$):
+\begin{align*}
+&n=\smallomega(\log n),
+\WideNarrow{\qquad}{\quad}
+n=\bigOmega(n^{1/2}),
+\WideNarrow{\qquad}{\quad}
+n=\smallo(2^n),
+\WideNarrow{\qquad}{\quad}
+n=\bigO(n^{3/2}),
+\WideNarrow{\qquad}{\quad}
+n=\bigTheta(n),\\
+&\sum_{i=1}^n{i}=\frac{n(n+1)}{2},
+\WideNarrow{\qquad}{\quad}
+\lim_{n\to\infty}{\int_{n^{-1}}^1{x\,\mathrm{d}x}}=\frac12,
+\WideNarrow{\qquad}{\quad}
+\bigcap_{n\geq 1}{\biggl\{
+x
+\,\bigg|\,
+x\in\bigcup_{m\geq n}{A_m}
+\biggr\}}
+=\limsup_{n\to\infty}{A_n},\\
+&
+\Pr\left[\begin{aligned}
+k&{}\draws\mathsf{Gen}(1^\lambda)\\
+c&{}\draws\mathsf{Enc}(1^\lambda,k,m)
+\end{aligned}
+\::\:
+\mathsf{Dec}(1^\lambda,k,c)=m
+\right]
+=1-\negl(\lambda)
+\quad\forall m\in\bit^{\poly(\lambda)}.
+\end{align*}
+
+\subsection{Theorem Environments}
+
+Use
+\texttt{\textbackslash begin\{restated\}{\textbackslash ref\{label\}}}
+to restate a theorem or typeset an unnumbered theorem.
+
+\begin{restated}{Theorem~\ref{thm:theorem10}}
+This is a restatement.
+\end{restated}
+
+\begin{restated}
+{Theorem~\ref{thm:theorem10}}
+[name]
+This is a restatement with name.
+\end{restated}
+
+\noindent
+Proofs and remarks are unnumbered.
+
+\begin{proof}
+This is \texttt{\textbackslash begin\{proof\}}.
+\end{proof}
+
+\begin{proof}
+[\HyperTargetToThisLine{pf:lemma5}Lemma~\ref{lem:lemma5}]
+This is
+\begin{align*}
+&\texttt{\textbackslash begin\{proof\}}\\%
+&\texttt{[\textbackslash HyperTargetToThisLine\{pf:lemma5\}%
+Lemma\textasciitilde\textbackslash ref\{lem:lemma5\}]}\\
+&\texttt{...}\\
+&\texttt{\textbackslash end\{proof\}}
+\end{align*}
+Use \texttt{\textbackslash qedhere} to place the tombstone symbol
+on the last line of a displayed equation,
+for which an alignment tab is required.
+\begin{align*}
+a+b&{}=c.
+\qedhere
+\end{align*}
+\end{proof}
+
+\begin{proofsketch}
+This is \texttt{\textbackslash begin\{proofsketch\}}.
+\end{proofsketch}
+
+\begin{proofsketch}
+[\HyperTargetToThisLine{pf:proposition8}%
+Proposition~\ref{prop:proposition8}]
+The code of this proof sketch:
+\begin{align*}
+&\texttt{\textbackslash begin\{proofsketch\}}\\%
+&\texttt{[\textbackslash HyperTargetToThisLine\{pf:proposition8\}\%}\\
+&\texttt{Proposition\textasciitilde\textbackslash ref\{prop:proposition8\}]}\\
+&\texttt{...}\\
+&\texttt{\textbackslash end\{proofsketch\}}
+\qedhere
+\end{align*}
+\end{proofsketch}
+
+\begin{remarks}
+This is \texttt{\textbackslash begin\{remarks\}}.
+\end{remarks}
+
+\begin{remarks}
+[name]
+This is \texttt{\textbackslash begin\{remarks\}[name]}.
+\end{remarks}
+
+\noindent
+However, \texttt{\textbackslash begin\{remark\}} (singular form) is numbered.
+
+\begin{remark}
+This is \texttt{\textbackslash begin\{remark\}}.
+\end{remark}
+
+\begin{remark}
+[name]
+This is \texttt{\textbackslash begin\{remark\}[name]}.
+\end{remark}
+
+\noindent
+No theorem environment uses a nested counter.
+
+\begin{definition}
+This is \texttt{\textbackslash begin\{definition\}}.
+\end{definition}
+
+\begin{definition}
+[name]
+This is \texttt{\textbackslash begin\{definition\}[name]}.
+In LNCS formats, definitions are italicized,
+making it tiring to read a security experiment.
+Use
+\texttt{\textbackslash begin\{itemize\}%
+\textbackslash upshape%
+\textbackslash item\textbackslash textbf\{Phase.\}}
+to write them:
+\begin{itemize}\upshape
+\item\textbf{Setup.} Blah.
+\item\textbf{Challenge.} Bruh.
+\item\textbf{Guess.} Bleh.
+\end{itemize}
+\end{definition}
+
+\begin{question}
+This is \texttt{\textbackslash begin\{question\}}.
+\end{question}
+
+\begin{question}
+[name]
+This is \texttt{\textbackslash begin\{question\}[name]}.
+\end{question}
+
+\noindent
+The style of definitions and questions depends on
+whether the layout is LNCS or ePrint.
+
+\begin{conjecture}
+This is \texttt{\textbackslash begin\{conjecture\}}.
+\end{conjecture}
+
+\begin{conjecture}
+[name]
+This is \texttt{\textbackslash begin\{conjecture\}[name]}.
+\end{conjecture}
+
+\noindent
+Corollaries, claims, lemmata, propositions, and theorems
+share the same counter.
+
+\begin{corollary}
+This is \texttt{\textbackslash begin\{corollary\}}.
+\end{corollary}
+
+\begin{corollary}
+[name]
+This is \texttt{\textbackslash begin\{corollary\}[name]}.
+\end{corollary}
+
+\begin{claim}
+This is \texttt{\textbackslash begin\{claim\}}.
+\end{claim}
+
+\begin{claim}
+[name]
+This is \texttt{\textbackslash begin\{claim\}[name]}.
+\end{claim}
+
+\begin{lemma}
+[\hyperlink{pf:lemma5}{\P}]
+\label{lem:lemma5}
+This is \texttt{\textbackslash begin\{lemma\}%
+[\textbackslash hyperlink\{pf:lemma5\}\{\textbackslash P\}]}.
+It is a good idea to create two-way link between
+a proposition and its proof.
+\end{lemma}
+
+\begin{lemma}
+This is \texttt{\textbackslash begin\{lemma\}}.
+\end{lemma}
+
+\begin{proposition}
+This is \texttt{\textbackslash begin\{proposition\}}.
+\end{proposition}
+
+\begin{proposition}
+[\hyperlink{pf:proposition8}{\P}]
+\label{prop:proposition8}
+The code of this proposition:
+\begin{align*}
+&\texttt{\textbackslash begin\{proposition\}}\\
+&\texttt{[\textbackslash hyperlink\{pf:proposition8\}\{\textbackslash P\}]}\\
+&\texttt{...}\\
+&\texttt{\textbackslash end\{proposition\}}
+\end{align*}
+\end{proposition}
+
+\begin{theorem}
+This is \texttt{\textbackslash begin\{theorem\}}.
+\end{theorem}
+
+\begin{theorem}
+[name]
+\label{thm:theorem10}
+This is \texttt{\textbackslash begin\{theorem\}[name]}.
+\end{theorem}
+
+\noindent
+Assumptions and constructions, nothing special to be stated.
+
+\begin{assumption}
+This is \texttt{\textbackslash begin\{assumption\}}.
+\end{assumption}
+
+\begin{assumption}
+[name]
+This is \texttt{\textbackslash begin\{assumption\}[name]}.
+\end{assumption}
+
+\begin{construction}
+This is \texttt{\textbackslash begin\{construction\}}.
+\end{construction}
+
+\begin{construction}
+[name]
+This is \texttt{\textbackslash begin\{construction\}[name]}.
+\end{construction}
+
+\subsection
+[Citations~\citenolink{ref_article1}]
+{Citations~\cite{ref_article1}}
+
+For citations of references, Springer LNCS prefers the use of square brackets
+and consecutive numbers. Citations using labels or the author/year
+convention are also acceptable. The following bibliography provides
+a sample reference list with entries for journal
+articles~\cite{ref_article1}, an LNCS chapter~\cite{ref_lncs1}, a
+book~\cite{ref_book1}, proceedings without editors~\cite{ref_proc1},
+and a homepage~\cite{ref_url1}. Multiple citations are grouped
+such as~\cite{ref_article1,ref_lncs1,ref_book1}
+and~\cite{ref_article1,ref_book1,ref_proc1,ref_url1},
+if the numeric style is used.
+
+The \texttt{cite} package is loaded and \texttt{nomove,noadjust} are set.
+Using \texttt{noadjust} removes the extraneous space
+in case of \texttt{\textbackslash begin\{lemma\}[\textbackslash cite{ref}]},
+which is rendered as ``\texttt{Lemma 1 ([ABC])}''
+instead of ``\texttt{Lemma 1 ( [ABC])}''.
+Because of \texttt{noadjust},
+no space is inserted for \texttt{word\textbackslash cite\{ref\}},
+and it should be entered as
+\texttt{word\textasciitilde\textbackslash cite\{ref\}}.
+The \texttt{nomove} option does not manifest itself
+for non-superscript citations.
+
+Bugs of \texttt{\textbackslash doi}
+in some versions of \texttt{splncs04.bst}
+are mitigated.
+
+Use
+\href{https://github.com/cryptobib/export}{\texttt{cryptobib}}
+to make citing cryptography literature easier.
+Use \texttt{\textbackslash citenolink} to
+cite something without making a hyperlink.
+
+\long\def\myrepeat#1\relax{#1\relax#1\relax}
+\newcounter{mysectioncounter}
+
+\myrepeat\myrepeat\myrepeat\myrepeat\myrepeat
+\stepcounter{mysectioncounter}
+\section{Additional Section \Roman{mysectioncounter}}
+This is some content to make this section non-empty.
+\relax
+
+\let\myrepeat\relax
+\let\mysection\relax
+
+\subsection{Overlong Table of Contents is for Testing!}
+
+Who says no?!
