@@ -3,6 +3,7 @@
 老面 (sourdough, lit. “old dough”) is used as the starter for fermenting dough. This repository contains my digital 老面.
 
 - Template for manuscripts of cryptography research: [crypto-paper](crypto-paper)
+- Template and tools for slides of academic talks: [talk-slides](talk-slides)
 
 ## License
 
