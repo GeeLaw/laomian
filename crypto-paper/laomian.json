@@ -1,0 +1,26 @@
+{
+  "Authors":
+  [
+    {
+      "CodeNames": ["luoji", "geelaw"],
+      "Name": "Gee Law",
+      "Email": "geelaw@outlook.com"
+    },
+    {
+      "CodeNames": ["2"],
+      "Name": "Another Author",
+      "Email": ""
+    },
+    {
+      "CodeNames": ["3"],
+      "Name": "Yet Another Author",
+      "Email": ""
+    },
+    null
+  ],
+  "ScriptAuthor":
+  {
+    "Name": "Laomian (script)",
+    "Email": ""
+  }
+}
