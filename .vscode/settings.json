@@ -18,7 +18,7 @@
   "terminal.integrated.cursorStyle": "block",
   "terminal.integrated.defaultProfile.osx": "laomian-macos-bash-or-pwsh",
   "terminal.integrated.defaultProfile.windows": "laomian-windows-powershell",
-  "terminal.integrated.enableBell": true,
+  "terminal.integrated.enableVisualBell": true,
   "terminal.integrated.fontSize": 12,
   "terminal.integrated.fontWeight": "normal",
   "terminal.integrated.fontWeightBold": "normal",
@@ -49,6 +49,7 @@
       "icon": "terminal-powershell"
     }
   },
+  "accessibility.signals.terminalBell": { "sound": "on" },
   "cSpell.words":
   [
     "IACR",
