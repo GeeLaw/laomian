@@ -86,6 +86,8 @@ source code to be processed by Springer \\
 \texttt{bst=splncs04} & use \texttt{splncs04.bst} \\
 \texttt{vec=itbf} & ${\texttt{\textbackslash vec\{a\}}=\boldsymbol{a}}$ \\
 \texttt{vec=bf} & ${\texttt{\textbackslash vec\{a\}}=\mathbf{a}}$ \\
+\texttt{absurdum=hitwall} & ${\texttt{\textbackslash absurdum}=\absurdumhitwall}$ \\
+\texttt{absurdum=lightning} & ${\texttt{\textbackslash absurdum}=\absurdumlightning}$ \\
 \texttt{links=colorful} & use colorful links \\
 \texttt{links=blue} & use blue links \\
 \texttt{fonts=computer-modern} & use Computer Modern fonts \\
@@ -432,6 +434,36 @@ The code of this proof sketch:
 \qedhere
 \end{align*}
 \end{proofsketch}
+
+\noindent
+The two \textit{reductio ad absurdum} symbols (hit-wall, lightning)
+can always be accessed.
+By default, \texttt{\string\absurdum} is \texttt{\string\absurdumhitwall}.
+See the \texttt{absurdum=...} option.
+
+\begin{proof}
+In this proof,
+\texttt{\string\let\string\qedsymbol\string\absurdum}
+[\absurdum, $\absurdum$]
+(\absurdum) $(\absurdum)$.
+\let\qedsymbol\absurdum
+\end{proof}
+
+\begin{proof}
+In this proof,
+\texttt{\string\let\string\qedsymbol\string\absurdumhitwall}
+[\absurdumhitwall, $\absurdumhitwall$]
+(\absurdumhitwall) $(\absurdumhitwall)$.
+\let\qedsymbol\absurdumhitwall
+\end{proof}
+
+\begin{proof}
+In this proof,
+\texttt{\string\let\string\qedsymbol\string\absurdumlightning}
+[\absurdumlightning, $\absurdumlightning$]
+(\absurdumlightning) $(\absurdumlightning)$.
+\let\qedsymbol\absurdumlightning
+\end{proof}
 
 \begin{remarks}
 This is \texttt{\textbackslash begin\{remarks\}}.

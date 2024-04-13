@@ -10,6 +10,7 @@
   opens-on=...,
   bst=...,
   vec=...,
+  absurdum=...,
   links=...,
   fonts=...,
   underlines=...,
@@ -66,6 +67,7 @@ The default is `eprint`. The following table describes the formats:
 | supplementary materials | ❌ | &nbsp; | ❌ | &nbsp; | &nbsp; | &nbsp; | ✔ | &nbsp; | &nbsp; | &nbsp; |
 | page limits | ❌ | &nbsp; | ✔ | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | `vec=` | `itbf` | &nbsp; | `itbf` | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| `absurdum=` | `hitwall` | &nbsp; | `hitwall` | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | `links=` | `colorful` | &nbsp; | `blue` | &nbsp; | `colorful` | `colorful` | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | `fonts=` | `source` | &nbsp; | `computer-modern` | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | `computer-modern` | &nbsp; |
 | `underlines=` | `smart` | &nbsp; | `dumb` | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
@@ -84,6 +86,8 @@ The default is `eprint`. The following table describes the formats:
 **`bst=`** overrides the bibliography style. It can be `alpha` or `splncs04`.
 
 **`vec=`** sets the vector style for `\vec`. It can be `itbf` or `bf`.
+
+**`absurdum=`** sets the *reduction ad absurdum* symbol. It can be `hitwall` or `lightning`.
 
 **`links=`** overrides the hyperlink colors. It can be `colorful` or `blue`.
 

@@ -1,7 +1,7 @@
 % crypto-paper: Laomian Cryptography Paper
 % SPDX-License-Identifier: MIT
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{crypto-paper}[2023/09/01 Laomian Cryptography Paper]
+\ProvidesClass{crypto-paper}[2024/04/12 Laomian Cryptography Paper]
 \ClassInfo{crypto-paper}
   {https://github.com/GeeLaw/laomian/tree/main/crypto-paper}
 
@@ -62,6 +62,7 @@
 \laomian@let@iffalse\if@laomian@supplementarymaterials\fi
 \laomian@let@iffalse\if@laomian@pagelimits\fi
 \laomian@let@iffalse\if@laomian@vecisitbf\fi
+\laomian@let@iffalse\if@laomian@absurdumishitwall\fi
 \laomian@let@iffalse\if@laomian@colorfullinks\fi
 \laomian@let@iffalse\if@laomian@fonts@source\fi
 \laomian@let@iffalse\if@laomian@fonts@times\fi
@@ -99,6 +100,7 @@
   \laomian@let@iffalse\if@laomian@supplementarymaterials\fi
   \laomian@let@iffalse\if@laomian@pagelimits\fi
   \laomian@let@iftrue\if@laomian@vecisitbf\fi
+  \laomian@let@iftrue\if@laomian@absurdumishitwall\fi
   \laomian@let@iftrue\if@laomian@colorfullinks\fi
   \laomian@let@iftrue\if@laomian@fonts@source\fi
   \laomian@let@iffalse\if@laomian@fonts@times\fi
@@ -141,6 +143,7 @@
   \laomian@let@iffalse\if@laomian@supplementarymaterials\fi
   \laomian@let@iftrue\if@laomian@pagelimits\fi
   \laomian@let@iftrue\if@laomian@vecisitbf\fi
+  \laomian@let@iftrue\if@laomian@absurdumishitwall\fi
   \laomian@let@iffalse\if@laomian@colorfullinks\fi
   \laomian@let@iffalse\if@laomian@fonts@source\fi
   \laomian@let@iffalse\if@laomian@fonts@times\fi
@@ -361,6 +364,12 @@
   {vec}{\if@laomian@vecchosen}{\laomian@vecchosen}
   {itbf}{\laomian@let@iftrue\if@laomian@vecisitbf\fi}
   {bf}{\laomian@let@iffalse\if@laomian@vecisitbf\fi}
+  *
+
+\laomian@delcaremultiplechoiceoption
+  {absurdum}{\if@laomian@absurdumchosen}{\laomian@absurdumchosen}
+  {hitwall}{\laomian@let@iftrue\if@laomian@absurdumishitwall\fi}
+  {lightning}{\laomian@let@iffalse\if@laomian@absurdumishitwall\fi}
   *
 
 \laomian@delcaremultiplechoiceoption
@@ -586,6 +595,7 @@
 \laomian@output@conditional{supplementarymaterials}{       }
 \laomian@output@conditional{pagelimits}{                   }
 \laomian@output@conditional{vecisitbf}{                    }
+\laomian@output@conditional{absurdumishitwall}{            }
 \laomian@output@conditional{colorfullinks}{                }
 \laomian@output@conditional{fonts@source}{                 }
 \laomian@output@conditional{fonts@times}{                  }
@@ -1654,7 +1664,7 @@
 \let\laomian@def@officeshortcuts\laomian@undefined
 
 % These are applied when the fonts have been selected.
-\def\laomian@maths@fonts\smallomega=#1\1=#2{%
+\def\laomian@maths@fonts\smallomega=#1\1=#2\absurdumhitwall=#3{%
   % Use the beautiful version of epsilon, phi, emptyset.
   \let\dumbepsilon\epsilon
   \let\dumbphi\phi
@@ -1665,6 +1675,7 @@
   \def\smallomega{\operatorname{#1}}%
   \let\vec\laomian@vec@vec
   \def\1{{#2{1}}}%
+  \def\absurdumhitwall{#3}%
   % Prevent the font settings from being applied twice.
   \let\laomian@maths@fonts\laomian@undefined
 }
@@ -1707,6 +1718,15 @@
   \laomian@maths@fonts
     \smallomega=\upomega
     \1=\mathds
+    \absurdumhitwall={{\ensuremath
+      {\mkern-0.333333mu{\rightarrow}\mkern-3.33333mu{|}\mkern1mu\relax
+      \textup{\raisebox{-0.142857em}{\rotatebox{90}{\smash
+      {\scalebox{0.8}[0.5]{\tiny
+      \rlap{\hskip0.05em\relax\textbackslash}\textbackslash\,%
+      \rlap{\hskip0.05em\relax\textbackslash}\textbackslash\,%
+      \rlap{\hskip0.05em\relax\textbackslash}\textbackslash\,%
+      \rlap{\hskip0.05em\relax\textbackslash}\textbackslash\,%
+    }}}}}\mkern2mu\relax}}}
 \else\if@laomian@fonts@times
   \RequirePackage{newtxtext}
   \RequirePackage[
@@ -1720,6 +1740,31 @@
   \laomian@maths@fonts
     \smallomega=\upomega
     \1=\mathds
+    \absurdumhitwall={{\ensuremath
+      {\mkern-0.777777mu{\rightarrow}\mkern-3.33333mu{|}\mkern1mu\relax
+      \textup{\raisebox{-0.2em}{\rotatebox{90}{\smash
+      {\scalebox{0.8}[0.5]{\tiny
+      \rlap{\hskip0.01em\relax\textbackslash}%
+      \rlap{\hskip0.02em\relax\textbackslash}%
+      \rlap{\hskip0.03em\relax\textbackslash}%
+      \rlap{\hskip0.04em\relax\textbackslash}%
+      \textbackslash\!%
+      \rlap{\hskip0.01em\relax\textbackslash}%
+      \rlap{\hskip0.02em\relax\textbackslash}%
+      \rlap{\hskip0.03em\relax\textbackslash}%
+      \rlap{\hskip0.04em\relax\textbackslash}%
+      \textbackslash\!%
+      \rlap{\hskip0.01em\relax\textbackslash}%
+      \rlap{\hskip0.02em\relax\textbackslash}%
+      \rlap{\hskip0.03em\relax\textbackslash}%
+      \rlap{\hskip0.04em\relax\textbackslash}%
+      \textbackslash\!%
+      \rlap{\hskip0.01em\relax\textbackslash}%
+      \rlap{\hskip0.02em\relax\textbackslash}%
+      \rlap{\hskip0.03em\relax\textbackslash}%
+      \rlap{\hskip0.04em\relax\textbackslash}%
+      \textbackslash\!%
+    }}}}}\mkern2.2mu\relax}}}
 \else\if@laomian@fonts@palatino
   \RequirePackage{newpxtext}
   \RequirePackage[
@@ -1733,6 +1778,15 @@
   \laomian@maths@fonts
     \smallomega=\upomega
     \1=\mathds
+    \absurdumhitwall={{\ensuremath
+      {\mkern-0.777777mu{\rightarrow}\mkern-3.33333mu{|}\mkern0mu\relax
+      \textup{\raisebox{-0.2em}{\rotatebox{90}{\smash
+      {\scalebox{0.8}[0.5]{\tiny
+      \rlap{\hskip0.05em\relax\textbackslash}\textbackslash\hskip-0.1em\relax
+      \rlap{\hskip0.05em\relax\textbackslash}\textbackslash\hskip-0.1em\relax
+      \rlap{\hskip0.05em\relax\textbackslash}\textbackslash\hskip-0.1em\relax
+      \rlap{\hskip0.05em\relax\textbackslash}\textbackslash\hskip-0.1em\relax
+    }}}}}\mkern1mu\relax}}}
 \else\if@laomian@fonts@libertine
   \RequirePackage[tt=false]{libertine}
   \RequirePackage[
@@ -1747,6 +1801,31 @@
   \laomian@maths@fonts
     \smallomega=\upomega
     \1=\mathds
+    \absurdumhitwall={{\ensuremath
+      {\mkern-0.5mu{\rightarrow}\mkern-3.33333mu{|}\mkern1mu\relax
+      \textup{\raisebox{-0.2em}{\rotatebox{90}{\smash
+      {\scalebox{0.8}[0.5]{\tiny
+      \rlap{\hskip0.01em\relax\textbackslash}%
+      \rlap{\hskip0.02em\relax\textbackslash}%
+      \rlap{\hskip0.03em\relax\textbackslash}%
+      \rlap{\hskip0.04em\relax\textbackslash}%
+      \textbackslash\!%
+      \rlap{\hskip0.01em\relax\textbackslash}%
+      \rlap{\hskip0.02em\relax\textbackslash}%
+      \rlap{\hskip0.03em\relax\textbackslash}%
+      \rlap{\hskip0.04em\relax\textbackslash}%
+      \textbackslash\!%
+      \rlap{\hskip0.01em\relax\textbackslash}%
+      \rlap{\hskip0.02em\relax\textbackslash}%
+      \rlap{\hskip0.03em\relax\textbackslash}%
+      \rlap{\hskip0.04em\relax\textbackslash}%
+      \textbackslash\!%
+      \rlap{\hskip0.01em\relax\textbackslash}%
+      \rlap{\hskip0.02em\relax\textbackslash}%
+      \rlap{\hskip0.03em\relax\textbackslash}%
+      \rlap{\hskip0.04em\relax\textbackslash}%
+      \textbackslash\!%
+    }}}}}\mkern2.2mu\relax}}}
 \else\if@laomian@fonts@utopia
   \RequirePackage{fourier}
   \RequirePackage[cal=euler]{mathalfa}
@@ -1756,17 +1835,48 @@
   \laomian@maths@fonts
     \smallomega=\otheromega
     \1=\mathbb
+    \absurdumhitwall={{\ensuremath
+      {\mkern-0.555555mu{\rightarrow}\mkern-4mu{|}\mkern1mu\relax
+      \textup{\raisebox{-0.142857em}{\rotatebox{90}{\smash
+      {\scalebox{0.8}[0.5]{\tiny
+      \rlap{\hskip0.05em\relax\textbackslash}\textbackslash
+      \rlap{\hskip0.05em\relax\textbackslash}\textbackslash
+      \rlap{\hskip0.05em\relax\textbackslash}\textbackslash
+      \rlap{\hskip0.05em\relax\textbackslash}\textbackslash
+    }}}}}\mkern1.33333mu\relax}}}
 \else
   % Adjust mathematical fonts for Computer Modern.
   \laomian@maths@fonts
     \smallomega=\omega
     \1=\mathbbm
+    \absurdumhitwall={{\ensuremath
+      {\mkern-0.6mu{\rightarrow}\mkern-3.5mu{|}\mkern1mu\relax
+      \textup{\raisebox{-0.211em}{\rotatebox{90}{\smash
+      {\scalebox{0.8}[0.5]{\tiny\bfseries
+      \textbackslash\!%
+      \textbackslash\!%
+      \textbackslash\!%
+      \textbackslash\!%
+    }}}}}\mkern1.66667mu\relax}}}
   % \smallomega should be non-italicized, but
   % I don't know a satisfactory solution for typesetting
   % upright lowercase Greek letters in Computer Modern.
 \fi\fi\fi\fi\fi
 
 % -------------------- fonts end --------------------
+
+% -------------------- absurdum begin --------------------
+
+% \absurdumhitwall is handled by fonts.
+\def\absurdumlightning{{\textup{\Lightning}}}
+
+\if@laomian@absurdumishitwall
+  \let\absurdum\absurdumhitwall
+\else
+  \let\absurdum\absurdumlightning
+\fi
+
+% -------------------- absurdum   end --------------------
 
 % -------------------- underlines begin --------------------
 
