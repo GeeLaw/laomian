@@ -3,3 +3,19 @@
 \usepackage{lipsum}
 
 \setlength{\tabcolsep}{4pt}
+
+\makeatletter
+% \stringall<token sequence>\endstringall
+%   converts the token sequence to their string representation.
+% This macro is not intended for general use.
+% It is only for the example body to demonstrate how to use several features.
+% Importantly, the macro does not handle the difference between \bgroup and {,
+% nor does it handle spaces well.
+\def\stringall{\@ifnextchar\endstringall
+  {\stringall@}%
+  {\@ifnextchar\bgroup{\stringall@@}{\stringall@@@}}%
+}
+\def\stringall@\endstringall{}
+\def\stringall@@#1{\string{\stringall#1\endstringall\string}\stringall}
+\def\stringall@@@#1{\string#1\stringall}
+\makeatother
