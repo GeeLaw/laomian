@@ -1,7 +1,7 @@
 % crypto-paper: Laomian Cryptography Paper
 % SPDX-License-Identifier: MIT
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{crypto-paper}[2024/04/12 Laomian Cryptography Paper]
+\ProvidesClass{crypto-paper}[2024/04/23 Laomian Cryptography Paper]
 \ClassInfo{crypto-paper}
   {https://github.com/GeeLaw/laomian/tree/main/crypto-paper}
 
@@ -937,6 +937,7 @@
 \RequirePackage{amsfonts,amsmath,amsthm,amssymb,mathtools}
 \RequirePackage{bbm,dsfont,mathrsfs,stmaryrd}
 \RequirePackage{dashbox}
+\RequirePackage{marvosym}
 
 % For LNCS, decrease the spacing before \subsubsection.
 % For ePrint, use LNCS style with decreased spacing.
@@ -1102,7 +1103,6 @@
 % -------------------- authorship icons begin --------------------
 
 \if@laomian@envelopeicons
-  \RequirePackage{marvosym}
   \let\isCorrespondingAuthor\laomian@hasenvelope
 \else
   \def\isCorrespondingAuthor{\unskip}
