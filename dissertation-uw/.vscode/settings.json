@@ -1,0 +1,31 @@
+{
+  "editor.detectIndentation": true,
+  "editor.indentSize": "tabSize",
+  "editor.insertSpaces": true,
+  "[makefile]": { "editor.insertSpaces": false },
+  "editor.renderFinalNewline": "on",
+  "editor.scrollBeyondLastLine": true,
+  "editor.tabSize": 2,
+  "editor.wordWrap": "bounded",
+  "[markdown]": { "editor.wordWrap": "bounded" },
+  "editor.wordWrapColumn": 80,
+  "editor.wrappingIndent": "none",
+  "files.eol": "\n",
+  "breadcrumbs.enabled": false,
+  "terminal.explorerKind": "integrated",
+  "terminal.integrated.bellDuration": 3000,
+  "terminal.integrated.cursorBlinking": false,
+  "terminal.integrated.cursorStyle": "block",
+  "terminal.integrated.enableVisualBell": true,
+  "terminal.integrated.fontSize": 12,
+  "terminal.integrated.fontWeight": "normal",
+  "terminal.integrated.fontWeightBold": "normal",
+  "accessibility.signals.terminalBell": { "sound": "on" },
+  "cSpell.words":
+  [
+    "ePrint",
+    "FOCS",
+    "IACR",
+    "LNCS"
+  ]
+}
