@@ -1,0 +1,85 @@
+\documentclass[wip]{dissertation}
+
+\input{.example/preamble}
+
+\input{preamble}
+
+% To manually control handedness of each page,
+% revert \cleardoublepage to \clearpage and
+% insert \DissertationSkipPage as needed.
+% \let\realcleardoublepage\cleardoublepage
+% \let\cleardoublepage\clearpage
+% This should only be done during
+% the final typesetting process.
+
+% \includeonly is only effective if "wip" is specified.
+\includeonly{.example/body}
+
+\begin{document}
+
+% The first two pages must be title and copyright,
+% in arbitrary order.
+\DissertationMakeTitlePage
+\DissertationMakeCopyrightPage
+% Takes data from "title.tex".
+
+% The third thing must be abstract.
+% If the abstract does not fit in one page,
+% it will be numbered using Roman numerals.
+\DissertationMakeAbstract
+% Takes content from "abstract.tex".
+
+% Pagination can be manually controlled using
+\DissertationSkipPage
+% after abstract.
+% In the example content, abstract ends on page 4,
+% and this makes dedication appear on page 6,
+% followed by acknowledgments on page 7.
+% This is a rather pleasant arrangement.
+
+% The following things have arbitrary order:
+% - dedication (optional)
+% - acknowledgments (optional)
+% - table of contents (mandatory) and friends (optional).
+% ToCLoFT means "table of contents and friends".
+% For ToCLoFT, table of contents must be the first,
+% then list of figures and list of tables are optional
+% and the two have no fixed order.
+% However, all of them (if typeset) must be together,
+% without dedication or acknowledgments interleaving.
+% Interleaving with skipped pages is allowed.
+% Examples:
+% - allowed     D, ToC, A
+% - allowed     ToC, LoF, A, D
+% - allowed     ToC, skip, LoF, A, D
+% - disallowed  D, ToC, A, LoT
+
+% No parity affinity. Does not affect numbering.
+\DissertationMakeDedicationPage
+% Takes content from "dedicate.tex".
+
+% Must be odd-numbered (right-hand). Use Roman numerals.
+% \def\acknowledgename{Acknowledgements} % Change the title.
+\DissertationMakeAcknowledgments
+% Takes content from "acknowledge.tex".
+
+% Must be odd-numbered (right-hand). Use Roman numerals.
+\DissertationMakeTableOfContents
+
+% No parity affinity.
+\DissertationMakeListOfFigures
+
+% No parity affinity.
+\DissertationMakeListOfTables
+
+% Once main text starts,
+% none of dedication/acknowledgments/LoFT is allowed.
+% This always starts on an odd-numbered (right-hand) page.
+\DissertationStartMainText
+
+\include{.example/body}
+
+% This always starts on an odd-numbered (right-hand) page.
+\DissertationBibliography{.example/refs,refs}
+
+\end{document}
