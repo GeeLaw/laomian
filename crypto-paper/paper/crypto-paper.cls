@@ -1,7 +1,7 @@
 % crypto-paper: Laomian Cryptography Paper
 % SPDX-License-Identifier: MIT
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{crypto-paper}[2024/04/23 Laomian Cryptography Paper]
+\ProvidesClass{crypto-paper}[2024/05/04 Laomian Cryptography Paper]
 \ClassInfo{crypto-paper}
   {https://github.com/GeeLaw/laomian/tree/main/crypto-paper}
 
@@ -1212,15 +1212,22 @@
   \tocloftpagestyle{titlepage}
   % Typesets the table of contents.
   \def\laomian@tableofcontents@typeset{%
+    % Recall that when the table of contents is shown,
+    % the title page is always separate.
+    % We have just finished the title page,
+    % so \clearpage is appropriate.
+    \clearpage
     % Temporarily disable link coloring.
     \let\laomian@tableofcontents@bak@Hy@colorlink\Hy@colorlink
     \def\Hy@colorlink##1{\begingroup}
-    % Print the table of contents.
-    \clearpage
     \tableofcontents
     % Restore link coloring.
     \let\Hy@colorlink\laomian@tableofcontents@bak@Hy@colorlink
     \let\laomian@tableofcontents@bak@Hy@colorlink\laomian@undefined
+    % It is OK to issue a \clearpage here,
+    % but this clearing is handled in
+    % either \laomian@opensonright@ensure@evenpage
+    % or     \laomian@separatetitlepage@startbody.
   }
   % Adds "Appendix" to the table of contents.
   \def\laomian@tableofcontents@appendix{%
@@ -1264,6 +1271,18 @@
 
 \if@laomian@separatetitlepage
   \def\laomian@separatetitlepage@startbody{%
+    % This \clearpage has multiple cases.
+    % - if [opens-on=right] and the table of contents ended on an even page,
+    %   this is a no-op since it immediately follows
+    %   the \clearpage in \laomian@opensonright@ensure@evenpage;
+    % - if [opens-on=right] and the table of contents ended on an odd page,
+    %   then currently we are on an even page due to \clearpage in
+    %   \laomian@opensonright@ensure@evenpage, which has also done
+    %   \leavevmode and \thispagestyle{empty}, so this command
+    %   moves us to the next page, which is odd-numbered hence
+    %   can be renumbered to 1 maintaining the correct two-sidedness;
+    % - if [opens-on=any], this is the first (effective) one
+    %   after either the title page or the table of contents.
     \clearpage
     \setcounter{page}{1}%
     \setcounter{footnote}{0}%
@@ -1279,10 +1298,19 @@
 
 \if@laomian@opensonright
   \def\laomian@opensonright@ensure@evenpage{%
-    \ifodd\c@page\relax
-      \clearpage
+    % Recall that when the opens-on-right is set,
+    % the title page is always separate.
+    % This \clearpage is the first after
+    % either the title page or the table of contents.
+    % Issuing \clearpage at this moment
+    % synchronizes the page number.
+    \clearpage
+    \ifodd\c@page\else
       \leavevmode
       \thispagestyle{empty}%
+      % It is OK to issue a \clearpage here,
+      % but this clearing is handled in
+      % \laomian@separatetitlepage@startbody.
     \fi
   }
 \else
