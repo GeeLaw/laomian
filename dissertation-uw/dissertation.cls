@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{dissertation}[2024/04/23 Dissertation (UW PhD)]
+\ProvidesClass{dissertation}[2024/05/28 Dissertation (UW PhD)]
 
 \def\dstrn@letT#1\fi{\let#1\iftrue }
 \def\dstrn@letF#1\fi{\let#1\iffalse}
@@ -105,9 +105,9 @@ Implicit options (from previous run):\MessageBreak%
 \long\def\@makecaption#1#2{%
   \small
   \vskip\abovecaptionskip
-  \sbox\@tempboxa{{\bfseries #1.} #2}%
+  \sbox\@tempboxa{{\bfseries #1\@.} #2}%
   \ifdim\wd\@tempboxa>\hsize
-    {\bfseries #1.} #2\par
+    {\bfseries #1\@.} #2\par
   \else
     \global\@minipagefalse
     \hb@xt@\hsize{\hfil\box\@tempboxa\hfil}%
@@ -400,7 +400,7 @@ Implicit options (from previous run):\MessageBreak%
 
 \RequirePackage[noadjust,nomove,nosort,nocompress]{cite}
 \def\DissertationBibliography#1{%
-  \bibliographystyle{alphaurl}%
+  \bibliographystyle{dissertation-alphaurl}%
   \let\dstrn@toc@bak@chapter\chapter
   \def\chapter{\@ifstar\dstrn@chapter@bib\dstrn@chapter@bib}%
   \bibliography{#1}%
@@ -445,7 +445,19 @@ Implicit options (from previous run):\MessageBreak%
 
 \def\HyperTargetToThisLine#1{\Hy@raisedlink{\hypertarget{#1}{}}}
 
-\def\doi#1{\url{https://doi.org/#1}}
+% Render DOI as "DOI: <doi string as link>" and
+% allow the DOI string to be broken anywhere inside.
+\def\doi#1{DOI\@:
+  \xdef\@doi@text\hskip\z@skip{}%
+  \@ifnextchar\@doi@loop@end\@doi@loop@nop\@doi@loop#1\@doi@loop@end
+  \texttt{\href{https://doi.org/#1}{\@doi@text}}%
+}
+\def\@doi@loop@nop\@doi@loop@end{\xdef\@doi@text@{}}
+\def\@doi@loop#1{%
+  \xdef\@doi@text{\@doi@text\hskip\z@skip\string#1}%
+  \@ifnextchar\@doi@loop@end\@doi@loop@end\@doi@loop
+}
+\def\@doi@loop@end\@doi@loop@end{}
 
 % -------------------- PDF metadata --------------------
 
