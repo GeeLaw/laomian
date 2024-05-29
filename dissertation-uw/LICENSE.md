@@ -21,3 +21,5 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 The copyright notice need not appear in a document typeset using this class.
+
+The file `dissertation-alphaurl.bst` is licensed under the LPPL.
