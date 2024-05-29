@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{dissertation}[2024/05/28 Dissertation (UW PhD)]
+\ProvidesClass{dissertation}[2024/05/29 Dissertation (UW PhD)]
 
 \def\dstrn@letT#1\fi{\let#1\iftrue }
 \def\dstrn@letF#1\fi{\let#1\iffalse}
@@ -517,6 +517,8 @@ Implicit options (from previous run):\MessageBreak%
 \newtheorem{remark}{Remark}
 \newtheorem*{remarks}{Remarks}
 
+\counterwithin{remark}{chapter}
+
 \newtheorem*{dstrn@proof}{Proof}
 \def\proof{\begingroup\pushQED{\qed}\begin{dstrn@proof}}
 \def\endproof{\popQED\end{dstrn@proof}\endgroup}
@@ -529,6 +531,9 @@ Implicit options (from previous run):\MessageBreak%
 \newtheorem{definition}{Definition}
 \newtheorem{question}{Question}
 
+\counterwithin{definition}{chapter}
+\counterwithin{question}{chapter}
+
 \theoremstyle{plain}
 \newtheorem{conjecture}{Conjecture}
 \newtheorem{corollary}{Corollary}
@@ -537,11 +542,18 @@ Implicit options (from previous run):\MessageBreak%
 \newtheorem{proposition}{Proposition}
 \newtheorem{theorem}{Theorem}
 
+\counterwithin{conjecture}{chapter}
+\counterwithin{theorem}{chapter}
+
 % Make these theorem environments share the same counter.
 \let\c@corollary\c@theorem
+\let\thecorollary\thetheorem
 \let\c@claim\c@theorem
+\let\theclaim\thetheorem
 \let\c@lemma\c@theorem
+\let\thelemma\thetheorem
 \let\c@proposition\c@theorem
+\let\theproposition\thetheorem
 
 \newtheorem*{dstrn@restated}{\dstrn@restated@name}
 \def\restated#1{\begingroup\def\dstrn@restated@name{#1}\begin{dstrn@restated}}
@@ -550,6 +562,9 @@ Implicit options (from previous run):\MessageBreak%
 \theoremstyle{definition}
 \newtheorem{assumption}{Assumption}
 \newtheorem{construction}{Construction}
+
+\counterwithin{assumption}{chapter}
+\counterwithin{construction}{chapter}
 
 % -------------------- mathematics --------------------
 
