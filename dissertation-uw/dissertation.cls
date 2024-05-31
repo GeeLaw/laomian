@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{dissertation}[2024/05/29 Dissertation (UW PhD)]
+\ProvidesClass{dissertation}[2024/05/31 Dissertation (UW PhD)]
 
 \def\dstrn@letT#1\fi{\let#1\iftrue }
 \def\dstrn@letF#1\fi{\let#1\iffalse}
@@ -40,6 +40,10 @@ Implicit options (from previous run):\MessageBreak%
 % although technically the correct rate should be
 %   10.95*2/13.6 ~= 1.61.
 \def\baselinestretch{1.5}
+\AtBeginDocument{% Apply 1.5x stretch to footnotes.
+  \global\footnotesep=11.55pt\relax
+  \global\skip\footins=15pt plus 6pt minus 3pt\relax
+}
 \iffalse % Kept for reference.
   \oneinch        =4736286sp  %  1    in
   \twoinches      =9472573sp  %  2    in
