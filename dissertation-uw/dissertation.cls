@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{dissertation}[2024/05/31 Dissertation (UW PhD)]
+\ProvidesClass{dissertation}[2024/07/02 Dissertation (UW PhD)]
 
 \def\dstrn@letT#1\fi{\let#1\iftrue }
 \def\dstrn@letF#1\fi{\let#1\iffalse}
@@ -171,18 +171,23 @@ Implicit options (from previous run):\MessageBreak%
   {\centering\huge\bfseries #2\par}%
   \vfil\clearpage
 }
-\def\tocpartnumber#1{\rlap{#1}\hspace*{1.6em}}
 \def\@spart#1{\ClassError{dissertation}
   {"\string\part*" is not supported}
   {Use "\string\part"}%
 }
+\newlength\dstrn@toc@part@number@width
+\def\tocpartnumber#1{%
+  \rlap{#1}\hspace*\dstrn@toc@part@number@width
+}
+\def\DissertationSetPartNumberWidth{\setlength\dstrn@toc@part@number@width}
+\DissertationSetPartNumberWidth{1.6em}
 
 \def\chapter{\cleardoublepage\secdef\@chapter\@schapter}
 \def\@chapter[#1]#2{%
   \refstepcounter{chapter}%
   \typeout{\@chapapp\space\thechapter.}%
   \addcontentsline{toc}{chapter}
-    {Chapter~\texorpdfstring{\protect\numberline}{}{\thechapter:{ }}#1}%
+    {Chapter~\texorpdfstring{\protect\tocchapnumber}{}{\thechapter:{ }}#1}%
   \chaptermark{#1}%
   \addtocontents{lof}{\protect\addvspace{10\p@}}%
   \addtocontents{lot}{\protect\addvspace{10\p@}}%
@@ -199,6 +204,21 @@ Implicit options (from previous run):\MessageBreak%
   {\centering\LARGE\bfseries #1\par}\vskip 20pt\relax
   \nobreak
 }
+\newlength\dstrn@toc@chap@number@width
+\def\tocchapnumber#1{%
+  \rlap{#1}\hspace*\dstrn@toc@chap@number@width
+}
+\DeclareRobustCommand\tocchaplinebreak{%
+  \\\hspace*{-\cftsecindent}%
+  \hphantom{Chapter~}\hspace*\dstrn@toc@chap@number@width
+}
+\def\DissertationSetChapterNumberWidth{\setlength\dstrn@toc@chap@number@width}
+\DissertationSetChapterNumberWidth{1.6em}
+
+\newlength\dstrn@toc@chap@hanging
+\DeclareRobustCommand\tocchaphanging{\hspace*\dstrn@toc@chap@hanging}
+\def\DissertationSetChapterHangingIndent{\setlength\dstrn@toc@chap@hanging}
+\DissertationSetChapterHangingIndent{2em}
 
 \def\dstrn@front@matter@bookmark#1#2{\pdfbookmark[0]{#1}{#2}}
 \def\dstrn@front@matter@toc#1#2{%
