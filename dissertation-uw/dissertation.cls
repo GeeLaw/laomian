@@ -590,6 +590,10 @@ Implicit options (from previous run):\MessageBreak%
 \counterwithin{assumption}{chapter}
 \counterwithin{construction}{chapter}
 
+\newtheorem*{dstrn@redefined}{\dstrn@redefined@name}
+\def\redefined#1{\begingroup\def\dstrn@redefined@name{#1}\begin{dstrn@redefined}}
+\def\endredefined{\end{dstrn@redefined}\endgroup}
+
 % -------------------- mathematics --------------------
 
 % Greek letters (make uppercase letters and \omicron upright).
