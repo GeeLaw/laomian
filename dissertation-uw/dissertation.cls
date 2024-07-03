@@ -159,6 +159,8 @@ Implicit options (from previous run):\MessageBreak%
 
 \def\ClearFloats{\afterpage{\clearpage}}
 
+\counterwithout*{footnote}{chapter}
+
 % -------------------- headings --------------------
 
 \def\part{\cleardoublepage\secdef\@part\@spart}
