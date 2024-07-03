@@ -800,6 +800,13 @@ Implicit options (from previous run):\MessageBreak%
 
 % -------------------- fonts --------------------
 
+% A better version of \@ that acts like
+% an invisible character with \spacefactor=1000
+% without breaking kerning.
+\def\willstop#1{#1\expandafter\spacefactor
+\expandafter\the\expandafter\sfcode\expandafter`\csname #1\endcsname{}}
+\def\wontstop#1{#1\spacefactor1000{}}
+
 \RequirePackage[
   default,lining,
   semibold,regular,

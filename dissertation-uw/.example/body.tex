@@ -2,6 +2,74 @@
 
 \section{Some Section}
 
+Use \texttt{\string\willstop} and \texttt{\string\wontstop}
+before a punctuation mark
+to avoid kerning issues with \texttt{\string\@}.
+
+In the following lines, the examples are
+no control sequence,
+\texttt{\string\willstop},
+\texttt{\string\wontstop},
+and repeat.
+
+\frenchspacing
+(French spacing)\\
+{\ttfamily
+Code:\\
+Hello, WORLD world. Hello, world!\\
+Hello, WORLD world\willstop. Hello, world!\\
+Hello, WORLD world\wontstop. Hello, world!\\
+{\sffamily
+Sans Serif:\\
+Hello, WORLD world. Hello, world!\\
+Hello, WORLD world\willstop. Hello, world!\\
+Hello, WORLD world\wontstop. Hello, world!\\
+Hello, world WORLD. Hello, world!\\
+Hello, world WORLD\willstop. Hello, world!\\
+Hello, world WORLD\wontstop. Hello, world!\\
+}%
+Code:\\
+Hello, world WORLD. Hello, world!\\
+Hello, world WORLD\willstop. Hello, world!\\
+Hello, world WORLD\wontstop. Hello, world!\\
+}%
+Serif:\\
+Hello, WORLD world. Hello, world!\\
+Hello, WORLD world\willstop. Hello, world!\\
+Hello, WORLD world\wontstop. Hello, world!\\
+Hello, world WORLD. Hello, world!\\
+Hello, world WORLD\willstop. Hello, world!\\
+Hello, world WORLD\wontstop. Hello, world!
+
+\nonfrenchspacing
+(non-French spacing, the default)\\
+{\ttfamily
+Code:\\
+Hello, WORLD world. Hello, world!\\
+Hello, WORLD world\willstop. Hello, world!\\
+Hello, WORLD world\wontstop. Hello, world!\\
+{\sffamily
+Sans Serif:\\
+Hello, WORLD world. Hello, world!\\
+Hello, WORLD world\willstop. Hello, world!\\
+Hello, WORLD world\wontstop. Hello, world!\\
+Hello, world WORLD. Hello, world!\\
+Hello, world WORLD\willstop. Hello, world!\\
+Hello, world WORLD\wontstop. Hello, world!\\
+}%
+Code:\\
+Hello, world WORLD. Hello, world!\\
+Hello, world WORLD\willstop. Hello, world!\\
+Hello, world WORLD\wontstop. Hello, world!\\
+}%
+Serif:\\
+Hello, WORLD world. Hello, world!\\
+Hello, WORLD world\willstop. Hello, world!\\
+Hello, WORLD world\wontstop. Hello, world!\\
+Hello, world WORLD. Hello, world!\\
+Hello, world WORLD\willstop. Hello, world!\\
+Hello, world WORLD\wontstop. Hello, world!
+
 \subsection{Some Subsection}
 
 This template is used to prepare manuscripts for works in cryptography.%
