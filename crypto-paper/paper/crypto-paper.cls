@@ -1743,15 +1743,85 @@
     nonewtxmathopt,subscriptcorrection
   ]{newtxmath}
   \RequirePackage[cal=cm]{mathalfa}
-  % Adjust inter-word spacing for Source Serif Pro.
-  \AtBeginDocument{%
-    \relax\spaceskip=1.28\fontdimen2\font
-      plus 1.2\fontdimen3\font
-      minus 1\fontdimen4\font
-    \relax
+
+  % Adjust inter-word/sentence spacing for Source Sans and Source Serif.
+
+  \def\laomian@fontdimen@edit#1{%
+    % #1 should not be the control sequence "font@name",
+    % but "OT1/SourceSerifPro-LF/m/n/10.95" and friends.
+    \ClassInfo{crypto-paper}{%
+      Editing \string\fontdimen's of\MessageBreak
+        \space\space\space\space\string#1\MessageBreak
+        \space\space= \fontname#1\MessageBreak
+      Original:\MessageBreak
+        \space\space\string\fontdimen2=\the\fontdimen2#1
+        (\number\fontdimen2#1sp)\MessageBreak
+        \space\space\string\fontdimen3=\the\fontdimen3#1
+        (\number\fontdimen3#1sp)\MessageBreak
+        \space\space\string\fontdimen7=\the\fontdimen7#1
+        (\number\fontdimen7#1sp)\MessageBreak
+    }%
+    \fontdimen2#1=1.28\fontdimen2#1\relax
+    \fontdimen3#1=1.2\fontdimen3#1\relax
+    \fontdimen7#1=1.28\fontdimen7#1\relax
+    \ClassInfo{crypto-paper}{%
+      Edited \string\fontdimen's of\MessageBreak
+        \space\space\space\space\string#1\MessageBreak
+        \space\space= \fontname#1\MessageBreak
+      New:\MessageBreak
+        \space\space\string\fontdimen2=\the\fontdimen2#1
+        (\number\fontdimen2#1sp)\MessageBreak
+        \space\space\string\fontdimen3=\the\fontdimen3#1
+        (\number\fontdimen3#1sp)\MessageBreak
+        \space\space\string\fontdimen7=\the\fontdimen7#1
+        (\number\fontdimen7#1sp)\MessageBreak
+    }%
+  }
+  \def\laomian@fontdimen@edited{laomian@fontdimen@edited=true}
+  \def\laomian@fontdimen@edit@maybe#1{%
+    % #1 should not be the control sequence "font@name",
+    % but "OT1/SourceSerifPro-LF/m/n/10.95" and friends,
+    % i.e., a given \font.
+    \expandafter\ifx
+      % This comparison must use \fontname not \string,
+      % because slanted might be redirected to italics.
+      % In that case, \.../sl/10.95 and \.../it/10.95
+      % will name the same \font, and we do not want to
+      % double scale the dimensions.
+      \csname laomian@fontdimen@edited[\fontname#1]\endcsname
+      \laomian@fontdimen@edited
+    \else
+      \expandafter\global\expandafter\let
+        \csname laomian@fontdimen@edited[\fontname#1]\endcsname
+        \laomian@fontdimen@edited
+      \laomian@fontdimen@edit#1%
+    \fi
+  }
+  \def\laomian@fontfamily@rm{SourceSerifPro-LF}
+  \def\laomian@fontfamily@sf{SourceSansPro-LF}
+  \AddToHook{selectfont}{\relax
+    \ifx\f@family\laomian@fontfamily@rm
+      \expandafter\laomian@fontdimen@edit@maybe\font@name
+    \else\ifx\f@family\laomian@fontfamily@sf
+      \expandafter\laomian@fontdimen@edit@maybe\font@name
+    \fi\fi
+  \relax}
+
+  % Make the sentence ending spaces less stretchy.
+  \DeclareRobustCommand\nonfrenchspacing{%
+    \sfcode`\.2500\sfcode`\?2500\sfcode`\!2500%
+    \sfcode`\:2000\sfcode`\;1500\sfcode`\,1250 %
+    % The trailing space must be preserved    ^
+    % to stop TeX from reading numbers.
+  }
+  \nonfrenchspacing
+
+  \AtBeginDocument{\relax
     \pretolerance=2800\relax
     \tolerance=5000\relax
+    \selectfont
   }
+
   % Adjust underline thickness to match Source Serif Pro.
   \def\ULthickness{0.1ex}
   % Adjust mathematical fonts.
