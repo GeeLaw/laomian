@@ -1712,6 +1712,18 @@
 
 % -------------------- fonts begin --------------------
 
+% A better version of \@ that acts like
+% an invisible character with \spacefactor=1000
+% without breaking kerning.
+\def\willstop#1{%
+  #1%
+  \expandafter\spacefactor
+  \expandafter\the
+  \expandafter\sfcode
+  \expandafter`\csname #1\endcsname{}%
+}
+\def\wontstop#1{#1\spacefactor1000{}}
+
 \if@laomian@fonts@source
   \RequirePackage[
     default,lining,
