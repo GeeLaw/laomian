@@ -487,12 +487,13 @@ This is \texttt{\string\begin\stringall{proof}\endstringall}.
 \end{proof}
 
 \begin{proof}
-[\HyperTargetToThisLine{pf:lemma5}Lemma~\ref{lem:lemma5}]
+[Lemma~\ref{lem:lemma5}]
+\HyperTargetToThisLine{pf:lemma5}%
 This is
 \begin{align*}
 &\texttt{\string\begin\stringall{proof}\endstringall}\\%
-&\texttt{[\stringall\HyperTargetToThisLine{pf:lemma5}%
-Lemma~\ref{lem:lemma5}\endstringall]}\\
+&\texttt{[Lemma\stringall~\ref{lem:lemma5}\endstringall]}\\
+&\texttt{\stringall\HyperTargetToThisLine{pf:lemma5}\endstringall\%}\\
 &\texttt{...}\\
 &\texttt{\string\end\stringall{proof}\endstringall}
 \end{align*}
@@ -510,13 +511,13 @@ This is \texttt{\string\begin\stringall{proofsketch}\endstringall}.
 \end{proofsketch}
 
 \begin{proofsketch}
-[\HyperTargetToThisLine{pf:proposition8}%
-Proposition~\ref{prop:proposition8}]
+[Proposition~\ref{prop:proposition8}]
+\HyperTargetToThisLine{pf:proposition8}%
 The code of this proof sketch:
 \begin{align*}
 &\texttt{\string\begin\stringall{proofsketch}\endstringall}\\%
-&\texttt{[\stringall\HyperTargetToThisLine{pf:proposition8}\endstringall\%}\\
-&\texttt{Proposition\stringall~\ref{prop:proposition8}\endstringall]}\\
+&\texttt{[Proposition\stringall~\ref{prop:proposition8}\endstringall]}\\
+&\texttt{\stringall\HyperTargetToThisLine{pf:proposition8}\endstringall\%}\\
 &\texttt{...}\\
 &\texttt{\string\end\stringall{proofsketch}\endstringall}
 \qedhere
