@@ -92,10 +92,20 @@ Avoid using \texttt{\string\begin\stringall{equation}\endstringall},
 \texttt{\string\begin\stringall{gather}\endstringall},
 \texttt{\string\begin\stringall{split}\endstringall},
 and \texttt{\string$\string$}.
-Always prefer \texttt{\string\begin\stringall{align}\endstringall}.
-(One of) Euler's formula says
+Always prefer \texttt{\string\begin\stringall{align*}\endstringall}.
+(One of) Euler's formula (Equation~(\ref{eqn:euler})) says
 \begin{align*}
-e^{i\pi}+1=0.
+% Use \yesnumbertarget\label{...}
+% to place the target at a good location.
+\yesnumbertarget
+\label{eqn:euler}
+% {\ } is for placement of equation target.
+{\ }
+e^{i\pi}+1&\\ &{}=0.
+% The extra space should be symmetric.
+{\ }
+% The equation number can be placed on a different line.
+\yesnumbertag
 \end{align*}
 
 \paragraph{Paragraph.}
@@ -467,12 +477,13 @@ This is \texttt{\string\begin\stringall{proof}\endstringall}.
 \end{proof}
 
 \begin{proof}
-[\HyperTargetToThisLine{pf:lemma5}Lemma~\ref{lem:lemma5}]
+[Lemma~\ref{lem:lemma5}]
+\HyperTargetToThisLine{pf:lemma5}%
 This is
 \begin{align*}
 &\texttt{\string\begin\stringall{proof}\endstringall}\\%
-&\texttt{[\stringall\HyperTargetToThisLine{pf:lemma5}%
-Lemma~\ref{lem:lemma5}\endstringall]}\\
+&\texttt{[Lemma\stringall~\ref{lem:lemma5}\endstringall]}\\
+&\texttt{\stringall\HyperTargetToThisLine{pf:lemma5}\endstringall\%}\\
 &\texttt{...}\\
 &\texttt{\string\end\stringall{proof}\endstringall}
 \end{align*}
@@ -490,12 +501,13 @@ This is \texttt{\string\begin\stringall{proofsketch}\endstringall}.
 \end{proofsketch}
 
 \begin{proofsketch}
-[\HyperTargetToThisLine{pf:proposition8}%
-Proposition~\ref{prop:proposition8}]
+[Proposition~\ref{prop:proposition8}]
+\HyperTargetToThisLine{pf:proposition8}%
 The code of this proof sketch:
 \begin{align*}
 &\texttt{\string\begin\stringall{proofsketch}\endstringall}\\%
-&\texttt{[\stringall\HyperTargetToThisLine{pf:proposition8}\endstringall\%}\\
+&\texttt{[Proposition\stringall~\ref{prop:proposition8}\endstringall]}\\
+&\texttt{\stringall\HyperTargetToThisLine{pf:proposition8}\endstringall\%}\\
 &\texttt{Proposition\stringall~\ref{prop:proposition8}\endstringall]}\\
 &\texttt{...}\\
 &\texttt{\string\end\stringall{proofsketch}\endstringall}

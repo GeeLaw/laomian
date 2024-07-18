@@ -968,6 +968,11 @@
 \def\ClearFloats{\afterpage{\clearpage}}
 
 \def\HyperTargetToThisLine#1{\Hy@raisedlink{\hypertarget{#1}{}}}
+\def\HyperTargetEmbedRaised#1#2{\smash{\raisebox{#1}{\hypertarget{#2}{}}}}
+
+\AtBeginDocument{\let\laomian@label@bak\label}
+\def\yesnumbertarget\label{\refstepcounter{equation}\laomian@label@bak}
+\def\yesnumbertag{\tag{\theequation}}
 
 \def\DateTodayMonthYear{\date{\ifcase\month
   \or January\or February\or March\or April\or May\or June%
