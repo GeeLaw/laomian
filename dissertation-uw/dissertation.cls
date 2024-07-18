@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{dissertation}[2024/07/17 Dissertation (UW PhD)]
+\ProvidesClass{dissertation}[2024/07/18 Dissertation (UW PhD)]
 
 \def\dstrn@letT#1\fi{\let#1\iftrue }
 \def\dstrn@letF#1\fi{\let#1\iffalse}
@@ -470,6 +470,11 @@ Implicit options (from previous run):\MessageBreak%
 ]{hyperref}
 
 \def\HyperTargetToThisLine#1{\Hy@raisedlink{\hypertarget{#1}{}}}
+\def\HyperTargetEmbedRaised#1#2{\smash{\raisebox{#1}{\hypertarget{#2}{}}}}
+
+\AtBeginDocument{\let\dstrn@label@bak\label}
+\def\yesnumbertarget\label{\refstepcounter{equation}\dstrn@label@bak}
+\def\yesnumbertag{\tag{\theequation}}
 
 \def\theHequation{\theHchapter.\number\c@equation}
 
