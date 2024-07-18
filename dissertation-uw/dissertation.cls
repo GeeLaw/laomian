@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{dissertation}[2024/07/03 Dissertation (UW PhD)]
+\ProvidesClass{dissertation}[2024/07/17 Dissertation (UW PhD)]
 
 \def\dstrn@letT#1\fi{\let#1\iftrue }
 \def\dstrn@letF#1\fi{\let#1\iffalse}
@@ -471,6 +471,8 @@ Implicit options (from previous run):\MessageBreak%
 
 \def\HyperTargetToThisLine#1{\Hy@raisedlink{\hypertarget{#1}{}}}
 
+\def\theHequation{\theHchapter.\number\c@equation}
+
 % Render DOI as "DOI: <doi string as link>" and
 % allow the DOI string to be broken anywhere inside.
 \def\doi#1{DOI\@:
@@ -545,6 +547,8 @@ Implicit options (from previous run):\MessageBreak%
 
 \counterwithin{remark}{chapter}
 
+\def\theHremark{\theHchapter.\number\c@remark}
+
 \newtheorem*{dstrn@proof}{Proof}
 \def\proof{\begingroup\pushQED{\qed}\begin{dstrn@proof}}
 \def\endproof{\popQED\end{dstrn@proof}\endgroup}
@@ -560,6 +564,9 @@ Implicit options (from previous run):\MessageBreak%
 \counterwithin{definition}{chapter}
 \counterwithin{question}{chapter}
 
+\def\theHdefinition{\theHchapter.\number\c@definition}
+\def\theHquestion{\theHchapter.\number\c@question}
+
 \theoremstyle{plain}
 \newtheorem{conjecture}{Conjecture}
 \newtheorem{corollary}{Corollary}
@@ -571,15 +578,22 @@ Implicit options (from previous run):\MessageBreak%
 \counterwithin{conjecture}{chapter}
 \counterwithin{theorem}{chapter}
 
+\def\theHconjecture{\theHchapter.\number\c@conjecture}
+\def\theHtheorem{\theHchapter.\number\c@theorem}
+
 % Make these theorem environments share the same counter.
 \let\c@corollary\c@theorem
 \let\thecorollary\thetheorem
+\let\theHcorollary\theHtheorem
 \let\c@claim\c@theorem
 \let\theclaim\thetheorem
+\let\theHclaim\theHtheorem
 \let\c@lemma\c@theorem
 \let\thelemma\thetheorem
+\let\theHlemma\theHtheorem
 \let\c@proposition\c@theorem
 \let\theproposition\thetheorem
+\let\theHproposition\theHtheorem
 
 \newtheorem*{dstrn@restated}{\dstrn@restated@name}
 \def\restated#1{\begingroup\def\dstrn@restated@name{#1}\begin{dstrn@restated}}
@@ -591,6 +605,9 @@ Implicit options (from previous run):\MessageBreak%
 
 \counterwithin{assumption}{chapter}
 \counterwithin{construction}{chapter}
+
+\def\theHassumption{\theHchapter.\number\c@assumption}
+\def\theHconstruction{\theHchapter.\number\c@construction}
 
 \newtheorem*{dstrn@redefined}{\dstrn@redefined@name}
 \def\redefined#1{\begingroup\def\dstrn@redefined@name{#1}\begin{dstrn@redefined}}
