@@ -73,6 +73,7 @@
 \laomian@let@iffalse\if@laomian@lncsarraytablemargins\fi
 \laomian@let@iffalse\if@laomian@swaptablecaptionmargins\fi
 \laomian@let@iffalse\if@laomian@lncstheoremnotestyles\fi
+\laomian@let@iffalse\if@laomian@footnotetargeting\fi
 
 % Options --- format=...
 \laomian@let@iffalse\if@laomian@formatchosen\fi
@@ -111,6 +112,7 @@
   \laomian@let@iftrue\if@laomian@lncsarraytablemargins\fi
   \laomian@let@iftrue\if@laomian@swaptablecaptionmargins\fi
   \laomian@let@iffalse\if@laomian@lncstheoremnotestyles\fi
+  \laomian@let@iftrue\if@laomian@footnotetargeting\fi
   \def\laomian@formatchosen{eprint}%
 }
 
@@ -154,6 +156,7 @@
   \laomian@let@iftrue\if@laomian@lncsarraytablemargins\fi
   \laomian@let@iftrue\if@laomian@swaptablecaptionmargins\fi
   \laomian@let@iftrue\if@laomian@lncstheoremnotestyles\fi
+  \laomian@let@iffalse\if@laomian@footnotetargeting\fi
   \def\laomian@formatchosen{lncs-camera-ready}%
 }
 
@@ -165,6 +168,7 @@
   \laomian@let@iftrue\if@laomian@pdfmetadata\fi
   \laomian@let@iftrue\if@laomian@envelopeicons\fi
   \laomian@let@iftrue\if@laomian@orcidicons\fi
+  \laomian@let@iftrue\if@laomian@footnotetargeting\fi
   \def\laomian@formatchosen{lncs-camera-ready-reference}%
 }
 
@@ -178,6 +182,7 @@
   \laomian@let@iftrue\if@laomian@pagenumbers\fi
   \laomian@let@iftrue\if@laomian@totalpagenumbers\fi
   \laomian@let@iftrue\if@laomian@colorfullinks\fi
+  \laomian@let@iftrue\if@laomian@footnotetargeting\fi
   \def\laomian@formatchosen{lncs-camera-ready-iacr}%
 }
 
@@ -192,6 +197,7 @@
   \laomian@let@iftrue\if@laomian@pagenumbers\fi
   \laomian@let@iftrue\if@laomian@totalpagenumbers\fi
   \laomian@let@iftrue\if@laomian@colorfullinks\fi
+  \laomian@let@iftrue\if@laomian@footnotetargeting\fi
   \def\laomian@formatchosen{lncs-camera-ready-draft}%
 }
 
@@ -490,6 +496,13 @@
   \ClassInfo{crypto-paper}{[option] yes-lncs-theorem-note-styles}%
 }
 
+% Options --- no-footnote-targeting
+\DeclareOption{no-footnote-targeting}{%
+  \laomian@ensure@formatchosen
+  \laomian@let@iffalse\if@laomian@footnotetargeting\fi
+  \ClassInfo{crypto-paper}{[option] no-footnote-targeting}%
+}
+
 % Options --- disallow unknown options.
 \DeclareOption*{%
   \ClassError
@@ -606,6 +619,7 @@
 \laomian@output@conditional{lncsarraytablemargins}{        }
 \laomian@output@conditional{swaptablecaptionmargins}{      }
 \laomian@output@conditional{lncstheoremnotestyles}{        }
+\laomian@output@conditional{footnotetargeting}{            }
 
 \let\laomian@output@conditional\laomian@undefined
 \let\laomian@output@conditional@next\laomian@undefined
@@ -1446,6 +1460,34 @@
   urlcolor=laomianurl
 ]{hyperref}
 \RequirePackage{orcidlink}
+
+\if@laomian@footnotetargeting
+  \if@laomian@base@lncs
+    % Search for \def\@makefntext in "llncs.cls"
+    % to see its footnote indentation is 1em.
+    % We add 0.005em for breathing.
+    \let\laomian@fn@bak@Hy@\@footnotetext
+    \long\def\laomian@fn@patch@Hy@\H@@footnotetext#1{%
+      \H@@footnotetext{\hskip-1.005em\relax#1}%
+    }
+    \long\def\@footnotetext#1{%
+      \expandafter\laomian@fn@patch@Hy@\laomian@fn@bak@Hy@
+      {\hskip1.005em\relax\ignorespaces#1}%
+    }
+  \else
+    % Search for \def\@makefntext in "article.cls"
+    % to see its footnote indentation is 1em.
+    % We add 0.005em for breathing.
+    \let\laomian@fn@bak@Hy@\@footnotetext
+    \long\def\laomian@fn@patch@Hy@\H@@footnotetext#1{%
+      \H@@footnotetext{\hskip-1.805em\relax#1}%
+    }
+    \long\def\@footnotetext#1{%
+      \expandafter\laomian@fn@patch@Hy@\laomian@fn@bak@Hy@
+      {\hskip1.805em\relax\ignorespaces#1}%
+    }
+  \fi
+\fi
 
 % -------------------- links   end --------------------
 
