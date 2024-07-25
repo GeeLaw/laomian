@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{dissertation}[2024/07/18 Dissertation (UW PhD)]
+\ProvidesClass{dissertation}[2024/07/24 Dissertation (UW PhD)]
 
 \def\dstrn@letT#1\fi{\let#1\iftrue }
 \def\dstrn@letF#1\fi{\let#1\iffalse}
@@ -471,6 +471,21 @@ Implicit options (from previous run):\MessageBreak%
 
 \def\HyperTargetToThisLine#1{\Hy@raisedlink{\hypertarget{#1}{}}}
 \def\HyperTargetEmbedRaised#1#2{\smash{\raisebox{#1}{\hypertarget{#2}{}}}}
+
+\let\dstrn@fn@bak@Hy@mp\@mpfootnotetext
+\long\def\dstrn@fn@patch@Hy@mp
+\H@@mpfootnotetext#1{\H@@mpfootnotetext{\hskip-1.805em\relax#1}}
+\long\def\@mpfootnotetext#1{%
+  \expandafter\dstrn@fn@patch@Hy@mp\dstrn@fn@bak@Hy@mp
+  {\hskip1.805em\relax\ignorespaces#1}%
+}
+\let\dstrn@fn@bak@Hy@\@footnotetext
+\long\def\dstrn@fn@patch@Hy@
+\H@@footnotetext#1{\H@@footnotetext{\hskip-1.805em\relax#1}}
+\long\def\@footnotetext#1{%
+  \expandafter\dstrn@fn@patch@Hy@\dstrn@fn@bak@Hy@
+  {\hskip1.805em\relax\ignorespaces#1}%
+}
 
 \AtBeginDocument{\let\dstrn@label@bak\label}
 \def\yesnumbertarget\label{\refstepcounter{equation}\dstrn@label@bak}
