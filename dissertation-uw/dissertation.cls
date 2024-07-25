@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{dissertation}[2024/07/24 Dissertation (UW PhD)]
+\ProvidesClass{dissertation}[2024/07/25 Dissertation (UW PhD)]
 
 \def\dstrn@letT#1\fi{\let#1\iftrue }
 \def\dstrn@letF#1\fi{\let#1\iffalse}
@@ -58,11 +58,11 @@ Implicit options (from previous run):\MessageBreak%
 \else    % The real job.
   \hoffset        =0sp        %
   \voffset        =0sp        %
-  \textwidth      =27269530sp % 416.1 pt = 10.95 * 38      pt
-  \textheight     =42781901sp % 652.8 pt = 13.6 * 1.5 * 30 pt
-  \headheight     =786432sp   % 12 pt
-  \headsep        =1310720sp  % 20 pt
-  \footskip       =2097152sp  % 32 pt = (20 + 12) pt
+  \textwidth      =27269530sp % 416.1 pt = 10.95 * 38 pt
+  \textheight     =40828928sp % 623   pt = (10.95 + 13.6 * 1.5 * 30 + 0.05) pt
+  \headheight     =720896sp   % 11 pt
+  \headsep        =1245184sp  % 19 pt
+  \footskip       =1966080sp  % 30 pt = (19 + 11) pt
   \marginparsep   =717619sp   % 10.95 pt
   \marginparwidth =5023334sp  % 76.65 pt = 10.95 * 7 pt
   \oddsidemargin  =1758167sp  %
@@ -71,12 +71,24 @@ Implicit options (from previous run):\MessageBreak%
   % - no header, no footer (first few pages, required by graduate school);
   % - no header, yes footer (after first few pages, before main text);
   % - yes header, no footer (main text).
-  % Both header and footer are 32 pt tall (furthest bound to text bound).
+  % Both header and footer are 30 pt tall (furthest bound to text bound).
   % The following three \topmargin variants are computed
   % to vertically center (header? + text + footer?).
-  \def\dstrn@topmargin@neither{\topmargin=-2174812sp }
-  \def\dstrn@topmargin@header{\topmargin=-1126236sp }
-  \def\dstrn@topmargin@footer{\topmargin=-3223388sp }
+  \def\dstrn@topmargin@neither{\topmargin=-1067254sp }
+  \def\dstrn@topmargin@header{\topmargin=-84214sp }
+  \def\dstrn@topmargin@footer{\topmargin=-2050294sp }
+  % However, the formatting guidelines:
+  % - The text are (including footnotes) must be in the center 6.5 * 9 area.
+  % - The page numbers must be 0.75 inches away from the paper border.
+  % Althought it is likely that the center 7 * 9.5 area is fully safe,
+  % we take the conservative approach and choose to not assume so.
+  % Under this reading, neither "header" nor "footer" version is compliant,
+  % but the "neither" version is always so.
+  % In fact, centering just the text area comes with the bonus of
+  % not distracting eyes when reading electronically
+  % (and when transitioning from an even page to an odd page).
+  \let\dstrn@topmargin@header\dstrn@topmargin@neither
+  \let\dstrn@topmargin@footer\dstrn@topmargin@neither
 \fi
 
 % Hide page numbers from skipped pages.
@@ -381,6 +393,9 @@ Implicit options (from previous run):\MessageBreak%
   \setlength{\cftbeforesecskip}{4pt plus 0.4pt}%
   \setlength{\cftbeforesubsecskip}{1pt plus 0.1pt}%
 }
+
+\setlength{\cftbeforefigskip}{4pt plus 0.4pt}
+\setlength{\cftbeforetabskip}{4pt plus 0.4pt}
 
 % Suppress the page numbers of \part's.
 \let\dstrn@toc@bak@cftpartfillnum\cftpartfillnum
