@@ -22,6 +22,7 @@
   no-lncs-array-table-margins,
   no-swapped-table-caption-margins,
   no-footnote-targeting,
+  no-microtype,
   format=...
 ]{crypto-paper}
 ```
@@ -76,6 +77,7 @@ The default is `eprint`. The following table describes the formats:
 | swap table caption margins | ✔ | &nbsp; | ✔ | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | LNCS theorem note styles | ❌ | &nbsp; | ✔ | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | footnote targeting | ✔ | &nbsp; | ❌ | ✔ | ✔ | ✔ | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| `microtype` | ✔ | &nbsp; | ❌ | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 
 **`layout=`** overrides the layout. It can be `38x48` (preferred by the 2023 version; `\textwidth` is 38 times font size and `\textheight` is 48 times `\baselineskip`) or `6.5x9` (FOCS submission; type center is 6.5in by 9in) or `6x9` (preferred by the 2022 version; type center is 6in by 9in). In addition, `38x48` and `6.5x9` use `\flushbottom`, but `6x9` does not. This option is meaningless if the document is in LNCS formats (the type center is always specified by LNCS). Technically, FOCS [requires](https://focs.computer.org/2023/) `6.5x9`, so it is better to not modify the layout for FOCS.
 
@@ -114,6 +116,8 @@ The default is `eprint`. The following table describes the formats:
 **`yes-lncs-theorem-note-styles`** changes the theorem notes to use the same style as the headings, e.g., boldfaced for theorems and italicized for remarks. This option is meaningless if the document is in LNCS formats (the notes always use the same style as the headings in LNCS).
 
 **`no-footnote-targeting`** disables improvement of footnote hyperlink target locations. This improvement is never enabled when the document is sent to Springer for typesetting.
+
+**`no-microtype`** disables loading of package `microtype`. This package is never loaded if the document is in LNCS formats. Note that it is important to let the class be aware of `microtype`, because the adjustments should be disabled for table of contents.
 
 ## Special provision of license
 

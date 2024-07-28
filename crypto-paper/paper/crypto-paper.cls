@@ -74,6 +74,7 @@
 \laomian@let@iffalse\if@laomian@swaptablecaptionmargins\fi
 \laomian@let@iffalse\if@laomian@lncstheoremnotestyles\fi
 \laomian@let@iffalse\if@laomian@footnotetargeting\fi
+\laomian@let@iffalse\if@laomian@microtype\fi
 
 % Options --- format=...
 \laomian@let@iffalse\if@laomian@formatchosen\fi
@@ -113,6 +114,7 @@
   \laomian@let@iftrue\if@laomian@swaptablecaptionmargins\fi
   \laomian@let@iffalse\if@laomian@lncstheoremnotestyles\fi
   \laomian@let@iftrue\if@laomian@footnotetargeting\fi
+  \laomian@let@iftrue\if@laomian@microtype\fi
   \def\laomian@formatchosen{eprint}%
 }
 
@@ -157,6 +159,7 @@
   \laomian@let@iftrue\if@laomian@swaptablecaptionmargins\fi
   \laomian@let@iftrue\if@laomian@lncstheoremnotestyles\fi
   \laomian@let@iffalse\if@laomian@footnotetargeting\fi
+  \laomian@let@iffalse\if@laomian@microtype\fi
   \def\laomian@formatchosen{lncs-camera-ready}%
 }
 
@@ -503,6 +506,13 @@
   \ClassInfo{crypto-paper}{[option] no-footnote-targeting}%
 }
 
+% Options --- no-microtype
+\DeclareOption{no-microtype}{%
+  \laomian@ensure@formatchosen
+  \laomian@let@iffalse\if@laomian@microtype\fi
+  \ClassInfo{crypto-paper}{[option] no-microtype}%
+}
+
 % Options --- disallow unknown options.
 \DeclareOption*{%
   \ClassError
@@ -620,6 +630,7 @@
 \laomian@output@conditional{swaptablecaptionmargins}{      }
 \laomian@output@conditional{lncstheoremnotestyles}{        }
 \laomian@output@conditional{footnotetargeting}{            }
+\laomian@output@conditional{microtype}{                    }
 
 \let\laomian@output@conditional\laomian@undefined
 \let\laomian@output@conditional@next\laomian@undefined
@@ -1236,6 +1247,8 @@
     % We have just finished the title page,
     % so \clearpage is appropriate.
     \clearpage
+    % Temporarily disable microtype adjustments.
+    \laomian@disable@microtype
     % Temporarily disable link coloring.
     \let\laomian@tableofcontents@bak@Hy@colorlink\Hy@colorlink
     \def\Hy@colorlink##1{\begingroup}
@@ -1243,6 +1256,8 @@
     % Restore link coloring.
     \let\Hy@colorlink\laomian@tableofcontents@bak@Hy@colorlink
     \let\laomian@tableofcontents@bak@Hy@colorlink\laomian@undefined
+    % Restore microtype adjustments.
+    \laomian@enable@microtype
     % It is OK to issue a \clearpage here,
     % but this clearing is handled in
     % either \laomian@opensonright@ensure@evenpage
@@ -2044,6 +2059,31 @@
   % I don't know a satisfactory solution for typesetting
   % upright lowercase Greek letters in Computer Modern.
 \fi\fi\fi\fi\fi
+
+\if@laomian@microtype
+  % This branch can only be entered if the base class is not LNCS.
+  \RequirePackage[
+    protrusion={true,nocompatibility},
+    factor=700,
+    patch={item,eqnum,verbatim},
+    expansion={true,nocompatibility},
+    auto=true,
+    tracking=false,kerning=false,spacing=false
+  ]{microtype}
+  \def\laomian@enable@microtype{\microtypesetup{%
+    protrusion={true,nocompatibility},%
+    expansion={true,nocompatibility},%
+    tracking=false,kerning=false,spacing=false%
+  }}
+  \def\laomian@disable@microtype{\microtypesetup{%
+    protrusion=false,expansion=false,%
+    tracking=false,kerning=false,spacing=false%
+  }}
+  \AtBeginDocument{\laomian@enable@microtype}
+\else
+  \def\laomian@enable@microtype{}
+  \let\laomian@disable@microtype\laomian@enable@microtype
+\fi
 
 % -------------------- fonts end --------------------
 
