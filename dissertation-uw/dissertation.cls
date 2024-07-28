@@ -510,7 +510,7 @@ Implicit options (from previous run):\MessageBreak%
 
 % Render DOI as "DOI: <doi string as link>" and
 % allow the DOI string to be broken anywhere inside.
-\def\doi#1{DOI\@:
+\def\doi#1{DOI: % Intentionally interword instead of sentence-ending.
   \xdef\@doi@text\hskip\z@skip{}%
   \@ifnextchar\@doi@loop@end\@doi@loop@nop\@doi@loop#1\@doi@loop@end
   \texttt{\href{https://doi.org/#1}{\@doi@text}}%
