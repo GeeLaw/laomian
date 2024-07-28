@@ -502,6 +502,29 @@ Implicit options (from previous run):\MessageBreak%
   {\hskip1.805em\relax\ignorespaces#1}%
 }
 
+% Adapted from https://tex.stackexchange.com/a/578405
+% The post says that the box nesting level is important,
+% so I kept the nesting levels of \pdfrunninglink on/off.
+\RequirePackage{xpatch}
+\xpatchcmd\@outputpage
+  {\color@hbox\normalcolor\hb@xt@\textwidth{\@thehead}\color@endbox}
+  {\pdfrunninglinkoff\color@hbox\normalcolor
+    \hb@xt@\textwidth{\@thehead}%
+  \color@endbox\pdfrunninglinkon}
+  {}{\ClassError{dissertation}{%
+    Could not patch \string\@outputpage\MessageBreak
+    to disable incorrect header links%
+  }{No suggested action. The class needs to be updated.}}
+\xpatchcmd\@outputpage
+  {\color@hbox\normalcolor\hb@xt@\textwidth{\@thefoot}\color@endbox}
+  {\color@hbox\normalcolor\pdfrunninglinkoff
+    \hb@xt@\textwidth{\@thefoot}%
+  \pdfrunninglinkon\color@endbox}
+  {}{\ClassError{dissertation}{%
+    Could not patch \string\@outputpage\MessageBreak
+    to disable incorrect footer links%
+  }{No suggested action. The class needs to be updated.}}
+
 \AtBeginDocument{\let\dstrn@label@bak\label}
 \def\yesnumbertarget\label{\refstepcounter{equation}\dstrn@label@bak}
 \def\yesnumbertag{\tag{\theequation}}
