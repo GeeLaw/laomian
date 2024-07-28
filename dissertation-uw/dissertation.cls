@@ -5,8 +5,10 @@
 \def\dstrn@letF#1\fi{\let#1\iffalse}
 
 \dstrn@letF\if@dstrn@wip\fi
+\dstrn@letF\if@dstrn@nobibbackrefs\fi
 
 \DeclareOption{wip}{\dstrn@letT\if@dstrn@wip\fi}
+\DeclareOption{no-bib-back-refs}{\dstrn@letT\if@dstrn@nobibbackrefs\fi}
 \DeclareOption*{\ClassError{dissertation}
   {There are unknown option(s)}
   {Remove unknown option(s) from "\string\documentclass[...]{dissertation}"}%
@@ -534,6 +536,17 @@ Implicit options (from previous run):\MessageBreak%
 \def\dstrn@bibbackrefs@lastone@set#1{\dstrn@cite@page@list@lastone
   ={\dstrn@bibbackrefs@and\hyperlink{page.#1}{#1}}%
 }
+
+\if@dstrn@nobibbackrefs
+  % We retain \citeform.
+  % It seems the presence/absence of \write\@auxout{...}
+  % (even whose output does nothing) could alter
+  % the output PDF under pdfLaTeX as well as
+  % the locations of named destinations (I suspect
+  % this is a bug of hyperref / pdfLaTeX / MiKTeX).
+  \def\dstrn@cite@page@info#1#2{}
+  \def\DstrnBibBackRefs#1{\unskip}
+\fi
 
 \DeclareRobustCommand\citenolink{%
   \@ifnextchar[\dstrn@citenolink@a\dstrn@citenolink@b
