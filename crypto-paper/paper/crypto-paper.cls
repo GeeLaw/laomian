@@ -1489,6 +1489,31 @@
   \fi
 \fi
 
+% Adapted from https://tex.stackexchange.com/a/578405
+% The post says that the box nesting level is important,
+% so I kept the nesting levels of \pdfrunninglink on/off.
+\RequirePackage{xpatch}
+\if@laomian@dontdisturb@splncs\else
+  \xpatchcmd\@outputpage
+    {\color@hbox\normalcolor\hb@xt@\textwidth{\@thehead}\color@endbox}
+    {\pdfrunninglinkoff\color@hbox\normalcolor
+      \hb@xt@\textwidth{\@thehead}%
+    \color@endbox\pdfrunninglinkon}
+    {}{\ClassError{crypto-paper}{%
+      Could not patch \string\@outputpage\MessageBreak
+      to disable incorrect header links%
+    }{No suggested action. The class needs to be updated.}}
+  \xpatchcmd\@outputpage
+    {\color@hbox\normalcolor\hb@xt@\textwidth{\@thefoot}\color@endbox}
+    {\color@hbox\normalcolor\pdfrunninglinkoff
+      \hb@xt@\textwidth{\@thefoot}%
+    \pdfrunninglinkon\color@endbox}
+    {}{\ClassError{crypto-paper}{%
+      Could not patch \string\@outputpage\MessageBreak
+      to disable incorrect footer links%
+    }{No suggested action. The class needs to be updated.}}
+\fi
+
 % -------------------- links   end --------------------
 
 % -------------------- paper size begins --------------------
