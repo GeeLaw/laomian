@@ -1,14 +1,16 @@
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{dissertation}[2024/07/27 Dissertation (UW PhD)]
+\ProvidesClass{dissertation}[2024/07/28 Dissertation (UW PhD)]
 
 \def\dstrn@letT#1\fi{\let#1\iftrue }
 \def\dstrn@letF#1\fi{\let#1\iffalse}
 
 \dstrn@letF\if@dstrn@wip\fi
 \dstrn@letF\if@dstrn@nobibbackrefs\fi
+\dstrn@letF\if@dstrn@nomicrotype\fi
 
 \DeclareOption{wip}{\dstrn@letT\if@dstrn@wip\fi}
 \DeclareOption{no-bib-back-refs}{\dstrn@letT\if@dstrn@nobibbackrefs\fi}
+\DeclareOption{no-microtype}{\dstrn@letT\if@dstrn@nomicrotype\fi}
 \DeclareOption*{\ClassError{dissertation}
   {There are unknown option(s)}
   {Remove unknown option(s) from "\string\documentclass[...]{dissertation}"}%
@@ -995,6 +997,31 @@ Implicit options (from previous run):\MessageBreak%
 ]{newtxmath}
 \RequirePackage[cal=cm]{mathalfa}
 
+\if@dstrn@nomicrotype
+  \def\dstrn@enable@microtype{}
+  \let\dstrn@disable@microtype\dstrn@enable@microtype
+\else
+  \RequirePackage[
+    protrusion={true,nocompatibility},
+    factor=700,
+    patch={item,eqnum,verbatim},
+    expansion={true,nocompatibility},
+    auto=true,
+    tracking=false,kerning=false,spacing=false
+  ]{microtype}
+
+  \def\dstrn@enable@microtype{\microtypesetup{%
+    protrusion={true,nocompatibility},%
+    expansion={true,nocompatibility},%
+    tracking=false,kerning=false,spacing=false%
+  }}
+  \def\dstrn@disable@microtype{\microtypesetup{%
+    protrusion=false,expansion=false,%
+    tracking=false,kerning=false,spacing=false%
+  }}
+  \AtBeginDocument{\dstrn@enable@microtype}
+\fi
+
 % Adjust inter-word/sentence spacing for Source Sans and Source Serif.
 
 \def\dstrn@fontdimen@edit#1{%
@@ -1510,11 +1537,13 @@ Implicit options (from previous run):\MessageBreak%
   \dstrn@EnterToCLoFT
   \dstrn@letT\if@dstrn@done@ToC\fi
   \dstrn@front@matter@bookmark{\contentsname}{toc}%
+  \dstrn@disable@microtype
   \begingroup
     \def\baselinestretch{1}\upshape
     \tableofcontents
   \endgroup
   \clearpage
+  \dstrn@enable@microtype
 }
 
 \def\DissertationMakeListOfFigures{%
@@ -1522,11 +1551,13 @@ Implicit options (from previous run):\MessageBreak%
   \dstrn@MustBeDoingToCLoFT\DissertationMakeListOfFigures
   \clearpage
   \dstrn@front@matter@toc{\listfigurename}{lof}%
+  \dstrn@disable@microtype
   \begingroup
     \def\baselinestretch{1}\upshape
     \listoffigures
   \endgroup
   \clearpage
+  \dstrn@enable@microtype
 }
 
 \def\DissertationMakeListOfTables{%
@@ -1534,11 +1565,13 @@ Implicit options (from previous run):\MessageBreak%
   \dstrn@MustBeDoingToCLoFT\DissertationMakeListOfTables
   \clearpage
   \dstrn@front@matter@toc{\listtablename}{lot}%
+  \dstrn@disable@microtype
   \begingroup
     \def\baselinestretch{1}\upshape
     \listoftables
   \endgroup
   \clearpage
+  \dstrn@enable@microtype
 }
 
 \def\DissertationStartMainText{%
