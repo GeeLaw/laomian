@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{dissertation}[2024/07/25 Dissertation (UW PhD)]
+\ProvidesClass{dissertation}[2024/07/27 Dissertation (UW PhD)]
 
 \def\dstrn@letT#1\fi{\let#1\iftrue }
 \def\dstrn@letF#1\fi{\let#1\iffalse}
@@ -455,6 +455,85 @@ Implicit options (from previous run):\MessageBreak%
 \def\citepunct{,\hspace{0pt}}
 \def\citedash{--\penalty10000\relax}
 \def\citemid{; }
+
+\newtoks\dstrn@cite@page@max
+\global\dstrn@cite@page@max={1}
+\newcount\dstrn@cite@page@i
+\newcount\dstrn@cite@page@n
+\newtoks\dstrn@cite@page@list@first
+\newtoks\dstrn@cite@page@list@lastone
+\def\dstrn@cite@page@incr#1{%
+  \ifx#1\relax
+    \gdef#1{1}%
+  \else
+    \dstrn@cite@page@n=#1 %
+    \advance\dstrn@cite@page@n by 1 %
+    \xdef#1{\number\dstrn@cite@page@n}%
+  \fi
+}
+\def\dstrn@cite@page@info#1#2{%
+  \global\dstrn@cite@page@max={#2}%
+  \expandafter\dstrn@cite@page@incr
+    \csname dstrn@cite@page@dict[#1,#2]\endcsname
+}
+\def\dstrn@cite@page@writeaux#1{%
+  \write\@auxout{\string\dstrn@cite@page@info{#1}{\thepage}}%
+}
+\def\citeform{%
+  \edef\dstrn@citeb{\@citeb}%
+  \expandafter\dstrn@cite@page@writeaux
+    \expandafter{\dstrn@citeb}%
+}
+\def\dstrn@bibbackrefs@and@first{%
+  \let\dstrn@bibbackrefs@and\dstrn@bibbackrefs@and@mid
+}
+\def\dstrn@bibbackrefs@and@mid{, }
+\def\dstrn@bibbackrefs@and@last{, }
+% ^ ", and~" looks a bit overwhelming.
+\def\DstrnBibBackRefs#1{%
+  \def\dstrn@bibbackrefs@tally@target{#1}%
+  \dstrn@cite@page@n=0 %
+  \dstrn@cite@page@i=1 %
+  \dstrn@cite@page@list@first={}%
+  \dstrn@cite@page@list@lastone={}%
+  \dstrn@bibbackrefs@tally@loop
+  \let\dstrn@bibbackrefs@and\dstrn@bibbackrefs@and@first
+  \newblock
+  \ifcase\dstrn@cite@page@n
+    (Not cited in text.)
+  \or
+    (Cited on page~\the\dstrn@cite@page@list@lastone.)
+  \else
+    (Cited on pages~\the\dstrn@cite@page@list@first
+      \let\dstrn@bibbackrefs@and\dstrn@bibbackrefs@and@last
+      \the\dstrn@cite@page@list@lastone.)
+  \fi
+}
+\def\dstrn@bibbackrefs@tally@loop{%
+  % We assume there is either no citation
+  % or at least one citation in the main text,
+  % otherwise, \the\dstrn@cite@page@max might be alphabetic,
+  % and havoc ensues.
+  \ifnum\dstrn@cite@page@i>\the\dstrn@cite@page@max\else
+    \expandafter\ifx
+    \csname dstrn@cite@page@dict[\dstrn@bibbackrefs@tally@target,\number\dstrn@cite@page@i]\endcsname
+    \relax\else
+      \expandafter\dstrn@bibbackrefs@first@combine
+        \expandafter{\the\dstrn@cite@page@list@lastone}%
+      \expandafter\dstrn@bibbackrefs@lastone@set
+        \expandafter{\number\dstrn@cite@page@i}%
+      \advance\dstrn@cite@page@n by 1 %
+    \fi
+    \advance\dstrn@cite@page@i by 1 %
+    \expandafter\dstrn@bibbackrefs@tally@loop
+  \fi
+}
+\def\dstrn@bibbackrefs@first@combine#1{\dstrn@cite@page@list@first
+  =\expandafter{\the\dstrn@cite@page@list@first#1}%
+}
+\def\dstrn@bibbackrefs@lastone@set#1{\dstrn@cite@page@list@lastone
+  ={\dstrn@bibbackrefs@and\hyperlink{page.#1}{#1}}%
+}
 
 \DeclareRobustCommand\citenolink{%
   \@ifnextchar[\dstrn@citenolink@a\dstrn@citenolink@b

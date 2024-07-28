@@ -4,6 +4,7 @@
 %%% - set 'addeprints to #0,
 %%% - set 'addpubmed  to #0,
 %%% - set 'doiform    to #1.
+%%% - extra output in {fin.entry} function to print back references.
 %%% ----------------------------------------
 %%% Modification of BibTeX style file /usr/local/texlive/2022/texmf-dist/bibtex/bst/base/alpha.bst
 %%% ... by urlbst, version 0.9.1 (marked with "% urlbst")
@@ -878,6 +879,10 @@ FUNCTION {fin.entry}
     'skip$
   if$
   fin.entry.original
+  "\DstrnBibBackRefs{" write$
+  cite$ write$
+  "}" write$
+  newline$
 }
 
 % Webpage entry type.
