@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{dissertation}[2024/07/28 Dissertation (UW PhD)]
+\ProvidesClass{dissertation}[2024/07/30 Dissertation (UW PhD)]
 
 \def\dstrn@letT#1\fi{\let#1\iftrue }
 \def\dstrn@letF#1\fi{\let#1\iffalse}
@@ -448,9 +448,19 @@ Implicit options (from previous run):\MessageBreak%
   \bibliographystyle{dissertation-alphaurl}%
   \let\dstrn@toc@bak@chapter\chapter
   \def\chapter{\@ifstar\dstrn@chapter@bib\dstrn@chapter@bib}%
+  \let\dstrn@bib@newblock@bak\newblock
+  \def\newblock{\ifhmode\unskip\hskip
+    \dimexpr\fontdimen2\font+\fontdimen7\font\relax
+    plus 2.5\fontdimen3\font
+    minus .4\fontdimen4\font
+  \relax\fi}%
+  \frenchspacing
   \bibliography{#1}%
   \let\chapter\dstrn@toc@bak@chapter
   \let\dstrn@toc@bak@chapter\dstrn@undefined
+  \let\newblock\dstrn@bib@newblock@bak
+  \let\dstrn@bib@newblock@bak\dstrn@undefined
+  \nonfrenchspacing
 }
 
 \mathchardef\citeprepenalty=0\relax
