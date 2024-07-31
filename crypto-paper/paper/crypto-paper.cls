@@ -1381,7 +1381,9 @@
   \def\LaomianBibliography#1{%
     \bibliographystyle{splncs04}%
     \laomian@tableofcontents@bib@begin
+    \laomian@fonts@bib@begin
     \bibliography{#1}%
+    \laomian@fonts@bib@end
     \laomian@tableofcontents@bib@end
   }
 \else
@@ -1390,7 +1392,9 @@
   \def\LaomianBibliography#1{%
     \bibliographystyle{alpha}%
     \laomian@tableofcontents@bib@begin
+    \laomian@fonts@bib@begin
     \bibliography{#1}%
+    \laomian@fonts@bib@end
     \laomian@tableofcontents@bib@end
   }
 \fi
@@ -1811,6 +1815,10 @@
 }
 \def\wontstop#1{#1\spacefactor1000{}}
 
+% Source fonts will adjust the bibliography spacing.
+\def\laomian@fonts@bib@begin{}
+\def\laomian@fonts@bib@end{}
+
 \if@laomian@fonts@source
   \RequirePackage[
     default,lining,
@@ -1907,6 +1915,25 @@
     \pretolerance=2800\relax
     \tolerance=5000\relax
     \selectfont
+  }
+
+  % Adjust bibliography spacing.
+  \def\laomian@fonts@bib@begin{%
+    \let\laomian@bib@newblock@bak\newblock
+    \def\newblock{\ifhmode
+      \unskip
+      \hskip
+        \dimexpr\fontdimen2\font+\fontdimen7\font\relax
+        plus 2.5\fontdimen3\font
+        minus .4\fontdimen4\font
+      \relax
+    \fi}%
+    \frenchspacing
+  }
+  \def\laomian@fonts@bib@end{%
+    \let\newblock\laomian@bib@newblock@bak
+    \let\laomian@bib@newblock@bak\laomian@undefined
+    \nonfrenchspacing
   }
 
   % Adjust underline thickness to match Source Serif Pro.
