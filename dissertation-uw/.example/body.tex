@@ -234,7 +234,12 @@ rounding results could change).
 \luoji{Note can start a paragraph.}
 The colors of the boxes rotate so that it is easy to track which is where.
 
-\section{Format- and Option-Dependent Control \underlined{Sequences}}
+\section
+[\texorpdfstring{% TeX
+Format- and Option-Dependent Control \underlined{Sequences}
+}{% PDF string
+Format- and Option-Dependent Control Sequences}]
+{Format- and Option-Dependent Control \underlined{Sequences}}
 
 \subsubsection{Underlines.}
 By default, ePrint uses descender-\underlined{skipping} underlines.
@@ -702,7 +707,9 @@ This is \texttt{\string\begin\stringall{construction}[name]\endstringall}.
 \end{construction}
 
 \section
-[Citations~\citenolink{ref_article1}]
+[\texorpdfstring
+{Citations~\citenolink{ref_article1}}
+{Citations [Aut16]}]
 {Citations~\cite{ref_article1}}
 
 For citations of references, Springer LNCS prefers the use of square brackets
@@ -739,11 +746,16 @@ Use \texttt{\string\citenolink} to
 cite something without making a hyperlink.
 
 \chapter
-[Chapter with Multiline Names
+[\texorpdfstring{% TeX
+Chapter with Multiline Names
 \tocchaplinebreak\tocchaphanging
 and Hanging Indentation
 \tocchaplinebreak
-(See?)]
+(See?)
+}{% PDF string
+Chapter with Multiline Names
+and Hanging Indentation
+(See?)}]
 {Chapter with Multiline Names
 \\and Hanging Indentation (See?)}
 
