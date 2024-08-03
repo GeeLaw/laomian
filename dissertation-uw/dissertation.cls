@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{dissertation}[2024/07/30 Dissertation (UW PhD)]
+\ProvidesClass{dissertation}[2024/08/01 Dissertation (UW PhD)]
 
 \def\dstrn@letT#1\fi{\let#1\iftrue }
 \def\dstrn@letF#1\fi{\let#1\iffalse}
@@ -238,7 +238,6 @@ Implicit options (from previous run):\MessageBreak%
 \def\DissertationSetChapterHangingIndent{\setlength\dstrn@toc@chap@hanging}
 \DissertationSetChapterHangingIndent{2em}
 
-\def\dstrn@front@matter@bookmark#1#2{\pdfbookmark[0]{#1}{#2}}
 \def\dstrn@front@matter@toc#1#2{%
   % Modified from \phantomsection.
   \Hy@MakeCurrentHref{#2.0}%
@@ -360,9 +359,10 @@ Implicit options (from previous run):\MessageBreak%
 \def\ps@dstrntoc{}
 \tocloftpagestyle{dstrntoc}
 
-\def\contentsname{Contents}
-\def\listfigurename{List of Figures}
-\def\listtablename{List of Tables}
+\def\AcknowledgmentsName{Acknowledgments}
+\def\TableOfContentsName{Table of Contents}
+\def\ListOfFiguresName{List of Figures}
+\def\ListOfTablesName{List of Tables}
 
 \setlength{\cftbeforetoctitleskip}{24pt}
 \setlength{\cftaftertoctitleskip}{18pt}
@@ -1209,8 +1209,6 @@ Implicit options (from previous run):\MessageBreak%
 \def\DissertationHasMultipleChairs{\def\chairname{Chairs}}
 \DissertationHasSingleChair
 
-\def\acknowledgename{Acknowledgments}
-
 % The first three things of the front matter are as follows:
 % - title page, required by the graduate school;
 % - copyright page, required by the graduate school;
@@ -1349,7 +1347,7 @@ Implicit options (from previous run):\MessageBreak%
   \dstrn@CanOnlyCallOnce\DissertationMakeTitlePage
   \dstrn@StartDocument
   \dstrn@letT\if@dstrn@done@Title\fi
-  \dstrn@front@matter@bookmark{Title}{title}%
+  \dstrn@front@matter@toc{Title Page}{title}%
   \null\vfil
   \begin{minipage}{0.9\textwidth}%
     {\def\baselinestretch{1}\centering\LARGE
@@ -1400,7 +1398,7 @@ Implicit options (from previous run):\MessageBreak%
   \dstrn@CanOnlyCallOnce\DissertationMakeCopyrightPage
   \dstrn@StartDocument
   \dstrn@letT\if@dstrn@done@Copyright\fi
-  \dstrn@front@matter@bookmark{Copyright}{copyright}%
+  \dstrn@front@matter@toc{Copyright Page}{copyright}%
   \null
   {\centering
     \def\YearHolder##1##2{\vskip 24pt%
@@ -1424,7 +1422,7 @@ Implicit options (from previous run):\MessageBreak%
     \DissertationMakeCopyrightPage
     \if@dstrn@done@Copyright\fi
   \dstrn@letT\if@dstrn@done@Abstract\fi
-  \dstrn@front@matter@bookmark{Abstract}{abstract}%
+  \dstrn@front@matter@toc{Abstract}{abstract}%
   \ifx\dstrn@abstract@begin\dstrn@abstract@end
     % The abstract fits in 1 page.
     % It is un-numbered.
@@ -1500,7 +1498,7 @@ Implicit options (from previous run):\MessageBreak%
   % This page can be either odd-numbered or even-numbered.
   % It also has no effect to page numbering.
   \clearpage
-  \dstrn@front@matter@bookmark{Dedication}{dedicate}%
+  \dstrn@front@matter@toc{Dedication Page}{dedicate}%
   \noindent\expandafter\ignorespaces\input{dedicate}\par
   \clearpage
 }
@@ -1519,6 +1517,7 @@ Implicit options (from previous run):\MessageBreak%
   % Start odd-numbered (right-hand) and use Roman page numbers.
   \cleardoublepage
   \dstrn@StartRoman
+  \let\acknowledgename\AcknowledgmentsName
   \dstrn@front@matter@toc{\acknowledgename}{acknowledge}%
   % Modified from \tableofcontents.
   \begingroup
@@ -1546,7 +1545,8 @@ Implicit options (from previous run):\MessageBreak%
     \if@dstrn@done@Abstract\fi
   \dstrn@EnterToCLoFT
   \dstrn@letT\if@dstrn@done@ToC\fi
-  \dstrn@front@matter@bookmark{\contentsname}{toc}%
+  \let\contentsname\TableOfContentsName
+  \dstrn@front@matter@toc{\contentsname}{toc}%
   \dstrn@disable@microtype
   \begingroup
     \def\baselinestretch{1}\upshape
@@ -1560,6 +1560,7 @@ Implicit options (from previous run):\MessageBreak%
   \dstrn@CanOnlyCallOnce\DissertationMakeListOfFigures
   \dstrn@MustBeDoingToCLoFT\DissertationMakeListOfFigures
   \clearpage
+  \let\listfigurename\ListOfFiguresName
   \dstrn@front@matter@toc{\listfigurename}{lof}%
   \dstrn@disable@microtype
   \begingroup
@@ -1574,6 +1575,7 @@ Implicit options (from previous run):\MessageBreak%
   \dstrn@CanOnlyCallOnce\DissertationMakeListOfTables
   \dstrn@MustBeDoingToCLoFT\DissertationMakeListOfTables
   \clearpage
+  \let\listtablename\ListOfTablesName
   \dstrn@front@matter@toc{\listtablename}{lot}%
   \dstrn@disable@microtype
   \begingroup
