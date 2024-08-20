@@ -43,7 +43,11 @@ Process
         }
         ElseIf ($targets.Count -eq 1)
         {
-          If ($targets[0].Name -ne '!!Title')
+          If ($targets[0].Name -eq '!!PresentationTitle')
+          {
+            Write-Warning "Slide $($index): skipping !!PresentationTitle.";
+          }
+          ElseIf ($targets[0].Name -ne '!!Title')
           {
             Write-Verbose "Slide $($index): renaming $($targets[0].Name).";
             $targets[0].Name = '!!Title';
