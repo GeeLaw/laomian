@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{dissertation}[2024/08/01 Dissertation (UW PhD)]
+\ProvidesClass{dissertation}[2024/12/02 Dissertation (UW PhD)]
 
 \def\dstrn@letT#1\fi{\let#1\iftrue }
 \def\dstrn@letF#1\fi{\let#1\iffalse}
@@ -207,8 +207,15 @@ Implicit options (from previous run):\MessageBreak%
   \addcontentsline{toc}{chapter}
     {Chapter~\texorpdfstring{\protect\tocchapnumber}{}{\thechapter:{ }}#1}%
   \chaptermark{#1}%
-  \addtocontents{lof}{\protect\addvspace{10\p@}}%
-  \addtocontents{lot}{\protect\addvspace{10\p@}}%
+  % An immediate version of \addtocontents
+  % to ensure that the vertical margin is
+  % created before any table/figure entry.
+  \immediate\write\@auxout{%
+    \string\@writefile{lof}{\string\addvspace{10\p@}}%
+  }%
+  \immediate\write\@auxout{%
+    \string\@writefile{lot}{\string\addvspace{10\p@}}%
+  }%
   \@makechapterhead{#2}%
   \@afterheading
 }
