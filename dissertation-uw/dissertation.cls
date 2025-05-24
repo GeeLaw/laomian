@@ -63,6 +63,14 @@ Implicit options (from previous run):\MessageBreak%
   \hoffset        =0sp        %
   \voffset        =0sp        %
   \textwidth      =27269530sp % 416.1 pt = 10.95 * 38 pt
+  % This setting is bad.
+  % The correct way to compute is
+  %   \textheight
+  % = \ceiling((\baselinestretch * (\linesperpage - 1) + 1) * \baseline),
+  % i.e., the number should be
+  %   (13.6 * (1.5 * 30 + 1)) = 625.6 -> 626 pt.
+  % However, this is discover at a late stage,
+  % and it's easier to keep the incorrect value.
   \textheight     =40828928sp % 623   pt = (10.95 + 13.6 * 1.5 * 30 + 0.05) pt
   \headheight     =720896sp   % 11 pt
   \headsep        =1245184sp  % 19 pt
@@ -113,8 +121,8 @@ Implicit options (from previous run):\MessageBreak%
   \let\@evenfoot\@oddfoot
 }
 \def\ps@headings{%
-  \def\@oddhead{\hfil\thepage~/~\pageref*{LastPage}}%
-  \def\@evenhead{\thepage~/~\pageref*{LastPage}\hfil}%
+  \def\@oddhead{\hfil\thepage}%
+  \def\@evenhead{\thepage\hfil}%
   \let\@oddfoot\@empty
   \let\@evenfoot\@empty
 }
@@ -1355,7 +1363,7 @@ Implicit options (from previous run):\MessageBreak%
   \dstrn@StartDocument
   \dstrn@letT\if@dstrn@done@Title\fi
   \dstrn@front@matter@toc{Title Page}{title}%
-  \null\vfil
+  \null\vfil\vskip 12pt\relax
   \begin{minipage}{0.9\textwidth}%
     {\def\baselinestretch{1}\centering\LARGE
       \long\def\TitleAbstract##1##2{##1}%
@@ -1430,10 +1438,11 @@ Implicit options (from previous run):\MessageBreak%
     \if@dstrn@done@Copyright\fi
   \dstrn@letT\if@dstrn@done@Abstract\fi
   \dstrn@front@matter@toc{Abstract}{abstract}%
-  \ifx\dstrn@abstract@begin\dstrn@abstract@end
+  \iftrue
+  % \ifx\dstrn@abstract@begin\dstrn@abstract@end
     % The abstract fits in 1 page.
     % It is un-numbered.
-    \null\vfil\vskip 18pt\relax
+    \null\vskip 2pt\relax
   \else
     % The abstract does not fit in 1 page.
     % Roman numbering starts now.
@@ -1445,22 +1454,22 @@ Implicit options (from previous run):\MessageBreak%
   \begin{minipage}{0.9\textwidth}%
     {\centering
       University of Wahsington\par
-    }\vskip 24pt%
+    }\vskip 16pt%
     \write\@auxout{\global\def\string\dstrn@abstract@begin{\arabic{page}}}%
     {\centering\bfseries
       Abstract\par
-    }\vskip 24pt%
+    }\vskip 16pt%
     {\centering
       \long\def\TitleAbstract##1##2{##2}%
       \expandafter\ignorespaces
       \the\dstrn@title
       \unskip\par
-    }\vskip 24pt%
+    }\vskip 16pt%
     {\centering
       \expandafter\ignorespaces
       \the\dstrn@author
       \unskip\par
-    }\vskip 24pt%
+    }\vskip 16pt%
     {\centering
       {\chairname} of the Supervisory Committee:\par
       \def\of{\unskip\par\ignorespaces}
@@ -1468,7 +1477,7 @@ Implicit options (from previous run):\MessageBreak%
       \the\dstrn@chair
       \unskip\par
     }%
-  \end{minipage}\vskip 36pt\relax
+  \end{minipage}\vskip 30pt\relax
   % The \par removes the trailing space of the paragraph,
   % which cannot be removed if \write is seen first.
   % This reduces the probability of having
@@ -1612,4 +1621,19 @@ Implicit options (from previous run):\MessageBreak%
   \immediate\write\@auxout{%
     \string\@writefile{toc}{\string\dstrn@toc@after@front@matter}%
   }%
+}
+
+\def\dstrn@toc@before@notes{%
+  \par\null\vfill\par
+  \hrule\@width.4\columnwidth\par\vskip 5.4pt\relax\par
+  \begingroup\footnotesize
+}
+\def\dstrn@toc@after@notes{\par\endgroup}
+
+\long\def\DissertationTableOfContentsNotes#1{%
+  \dstrn@CanOnlyCallOnce\DissertationTableOfContentsNotes
+  \newtoks\dstrn@toc@notes
+  \dstrn@toc@notes={\dstrn@toc@before@notes #1\dstrn@toc@after@notes}%
+  \immediate\write\@auxout{\string\@writefile{toc}{\the\dstrn@toc@notes}}%
+  \dstrn@toc@notes={}%
 }
