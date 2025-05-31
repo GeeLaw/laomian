@@ -21,6 +21,7 @@
   no-total-number-of-pages,
   no-lncs-array-table-margins,
   no-swapped-table-caption-margins,
+  yes-lncs-theorem-note-styles,
   no-footnotemark-skip,
   no-footnote-targeting,
   no-microtype,

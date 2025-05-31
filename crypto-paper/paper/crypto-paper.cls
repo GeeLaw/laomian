@@ -1,7 +1,7 @@
 % crypto-paper: Laomian Cryptography Paper
 % SPDX-License-Identifier: MIT
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{crypto-paper}[2024/05/04 Laomian Cryptography Paper]
+\ProvidesClass{crypto-paper}[2025/05/30 Laomian Cryptography Paper]
 \ClassInfo{crypto-paper}
   {https://github.com/GeeLaw/laomian/tree/main/crypto-paper}
 
