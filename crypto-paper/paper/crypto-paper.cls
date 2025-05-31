@@ -73,6 +73,7 @@
 \laomian@let@iffalse\if@laomian@lncsarraytablemargins\fi
 \laomian@let@iffalse\if@laomian@swaptablecaptionmargins\fi
 \laomian@let@iffalse\if@laomian@lncstheoremnotestyles\fi
+\laomian@let@iffalse\if@laomian@footnotemarkskip\fi
 \laomian@let@iffalse\if@laomian@footnotetargeting\fi
 \laomian@let@iffalse\if@laomian@microtype\fi
 
@@ -113,6 +114,7 @@
   \laomian@let@iftrue\if@laomian@lncsarraytablemargins\fi
   \laomian@let@iftrue\if@laomian@swaptablecaptionmargins\fi
   \laomian@let@iffalse\if@laomian@lncstheoremnotestyles\fi
+  \laomian@let@iftrue\if@laomian@footnotemarkskip\fi
   \laomian@let@iftrue\if@laomian@footnotetargeting\fi
   \laomian@let@iftrue\if@laomian@microtype\fi
   \def\laomian@formatchosen{eprint}%
@@ -158,6 +160,7 @@
   \laomian@let@iftrue\if@laomian@lncsarraytablemargins\fi
   \laomian@let@iftrue\if@laomian@swaptablecaptionmargins\fi
   \laomian@let@iftrue\if@laomian@lncstheoremnotestyles\fi
+  \laomian@let@iffalse\if@laomian@footnotemarkskip\fi
   \laomian@let@iffalse\if@laomian@footnotetargeting\fi
   \laomian@let@iffalse\if@laomian@microtype\fi
   \def\laomian@formatchosen{lncs-camera-ready}%
@@ -499,6 +502,13 @@
   \ClassInfo{crypto-paper}{[option] yes-lncs-theorem-note-styles}%
 }
 
+% Options --- no-footnotemark-skip
+\DeclareOption{no-footnotemark-skip}{%
+  \laomian@ensure@formatchosen
+  \laomian@let@iffalse\if@laomian@footnotemarkskip\fi
+  \ClassInfo{crypto-paper}{[option] no-footnotemark-skip}%
+}
+
 % Options --- no-footnote-targeting
 \DeclareOption{no-footnote-targeting}{%
   \laomian@ensure@formatchosen
@@ -629,6 +639,7 @@
 \laomian@output@conditional{lncsarraytablemargins}{        }
 \laomian@output@conditional{swaptablecaptionmargins}{      }
 \laomian@output@conditional{lncstheoremnotestyles}{        }
+\laomian@output@conditional{footnotemarkskip}{             }
 \laomian@output@conditional{footnotetargeting}{            }
 \laomian@output@conditional{microtype}{                    }
 
@@ -1018,6 +1029,18 @@
 }}
 
 \def\Undated{\date{}}
+
+% This should be done before loading package hyperref.
+\if@laomian@footnotemarkskip
+  \def\LaomianFnMarkSkip{\hskip 1pt\relax}
+  % The lengths are consistent with "article.cls".
+  % Note that this branch is entered only if the document is not LNCS.
+  \long\def\@makefntext#1{%
+    \parindent 1em\noindent
+    \hb@xt@1.8em{\hss\@makefnmark\LaomianFnMarkSkip}%
+    #1%
+  }
+\fi
 
 % -------------------- basic   ends --------------------
 
@@ -1494,8 +1517,8 @@
       {\hskip1.005em\relax\ignorespaces#1}%
     }
   \else
-    % Search for \def\@makefntext in "article.cls"
-    % to see its footnote indentation is 1em.
+    % Search for \def\@makefntext in this class
+    % to see consistency with "article.cls".
     % We add 0.005em for breathing.
     \let\laomian@fn@bak@Hy@\@footnotetext
     \long\def\laomian@fn@patch@Hy@\H@@footnotetext#1{%

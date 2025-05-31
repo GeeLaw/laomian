@@ -21,6 +21,7 @@
   no-total-number-of-pages,
   no-lncs-array-table-margins,
   no-swapped-table-caption-margins,
+  no-footnotemark-skip,
   no-footnote-targeting,
   no-microtype,
   format=...
@@ -76,6 +77,7 @@ The default is `eprint`. The following table describes the formats:
 | LNCS array/table margins | ✔ | &nbsp; | ✔ | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | swap table caption margins | ✔ | &nbsp; | ✔ | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | LNCS theorem note styles | ❌ | &nbsp; | ✔ | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| footnote mark skip | ✔ | &nbsp; | ❌ | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | footnote targeting | ✔ | &nbsp; | ❌ | ✔ | ✔ | ✔ | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | `microtype` | ✔ | &nbsp; | ❌ | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 
@@ -114,6 +116,8 @@ The default is `eprint`. The following table describes the formats:
 **`no-swapped-table-caption-margins`** prevents swapping `\abovecaptionskip` and `\belowcaptionskip` (so that by default, the former is zero and the latter is non-zero). This option is meaningless if the document is in LNCS formats (the margins are always swapped by LNCS).
 
 **`yes-lncs-theorem-note-styles`** changes the theorem notes to use the same style as the headings, e.g., boldfaced for theorems and italicized for remarks. This option is meaningless if the document is in LNCS formats (the notes always use the same style as the headings in LNCS).
+
+**`no-footnotemark-skip`** disables improvement of footnote mark locations. This improvement is deferred to LNCS if the document is in LNCS formats. When this option is effective, use `\LaomianFnMarkSkip` to define the skip placed after a footnote mark. By default, it is `\hskip 1pt\relax`.
 
 **`no-footnote-targeting`** disables improvement of footnote hyperlink target locations. This improvement is never enabled when the document is sent to Springer for typesetting.
 
